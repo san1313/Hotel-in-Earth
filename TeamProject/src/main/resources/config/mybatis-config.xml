@@ -25,7 +25,6 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="co/prod/mapper/ProductMapper.xml" />
-		<mapper resource="co/prod/mapper/MemberMapper.xml" />
+		<mapper resource="co/prod/mapper/Mapper.xml" />
 	</mappers>
 </configuration>
