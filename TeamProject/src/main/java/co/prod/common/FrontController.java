@@ -22,7 +22,7 @@ public class FrontController extends HttpServlet{
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		enc = config.getInitParameter("encoding");
-		map.put("/.do", new TestControl()); // 삭제
+		map.put("/test.do", new TestControl()); // 삭제
 	}
 	
 	@Override
