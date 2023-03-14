@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>호텔리너스</title>
 </head>
 <body>
-asd
+hotel in earth
 </body>
 </html>
