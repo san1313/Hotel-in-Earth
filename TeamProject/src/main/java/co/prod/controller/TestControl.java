@@ -13,7 +13,7 @@ public class TestControl implements Control{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// 페이지 재지정.
-				String path = "WEB-INF/test_main/test_index.jsp";
+				String path = "test/test.tiles";
 				try {
 					request.getRequestDispatcher(path).forward(request, response);
 				} catch (ServletException | IOException e) {
