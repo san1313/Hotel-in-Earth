@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.prod.controller.MainPageListControl;
 import co.prod.controller.PostListControl;
 import co.prod.controller.TestControl;
 
@@ -25,6 +26,7 @@ public class FrontController extends HttpServlet{
 		enc = config.getInitParameter("encoding");
 		map.put("/test.do", new TestControl()); // 삭제
 		map.put("/postList.do", new PostListControl());
+		map.put("/mainpage.do", new MainPageListControl());
 	}
 	
 	@Override
