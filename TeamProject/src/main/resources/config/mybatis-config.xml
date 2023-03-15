@@ -10,7 +10,7 @@
 	</settings>
 
 	<typeAliases>
-		<typeAlias type="co.prod.vo.ProductVO" alias="ProductVO" />
+		<typeAlias type="co.prod.vo.PostsVO" alias="PostsVO" />
 	</typeAliases>
 
 	<environments default="development">
@@ -25,6 +25,6 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="co/prod/mapper/Mapper.xml" />
+		<mapper resource="co/prod/mapper/PostsMapper.xml" />
 	</mappers>
 </configuration>
