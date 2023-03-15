@@ -32,6 +32,7 @@
                                     <li><a href="#contact">login</a></li>
                                     <li><a href=""> 더보기 </a></li>
                                 </ul>
+                                <input type="button" value="팝업창" onclick="showPopup();"/>
                             </div>
                             <!-- /.navbar-collapse -->
                         </nav>
@@ -44,3 +45,6 @@
             <!--end of header area-->
         </section>
         <!--End of Hedaer Section-->
+          <script language="javascript">
+  function showPopup() { window.open("index.html", "a", "width=400, height=300, left=100, top=50"); }
+  </script>

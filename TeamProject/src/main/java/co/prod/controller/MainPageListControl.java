@@ -16,7 +16,9 @@ public class MainPageListControl implements Control {
 		//인규 작업중. 메인페이지 업로드를 위해 작업중. 중복작업 금지 0315
 		//인규 작업중. 메인페이지 업로드를 위해 작업중. 중복작업 금지 0315
 		
-		String path = "main_page/main_page.tiles";
+		//String path = "main_page/main_page.tiles";
+		
+		String path = "WEB-INF/views/login/sing_up.jsp";
 		try {
 			request.getRequestDispatcher(path).forward(request, response);
 		} catch (ServletException | IOException e) {
