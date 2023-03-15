@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.prod.control.loginControl;
 import co.prod.controller.TestControl;
 
 public class FrontController extends HttpServlet{
@@ -23,6 +24,7 @@ public class FrontController extends HttpServlet{
 	public void init(ServletConfig config) throws ServletException {
 		enc = config.getInitParameter("encoding");
 		map.put("/test.do", new TestControl()); // 삭제
+		map.put("/login.do", new loginControl());
 	}
 	
 	@Override
