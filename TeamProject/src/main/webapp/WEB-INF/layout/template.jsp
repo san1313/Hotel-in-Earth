@@ -26,7 +26,7 @@
         <!--Bootstrap Carousel-->
         <link type="text/css" rel="stylesheet" href="resources/test_css/carousel.css" />
 
-        <link rel="stylesheet" href="resources/ss/isotope/style.css">
+        <link rel="stylesheet" href="resources/test_css/isotope/style.css">
 
         <!--Main Stylesheet-->
         <link href="resources/test_css/style.css" rel="stylesheet">
