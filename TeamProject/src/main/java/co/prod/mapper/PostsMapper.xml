@@ -4,6 +4,6 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.prod.mapper.PostsMapper">
   <select id="getPostsList" resultType="PostsVO">
-    select * from posts order by post_id desc
+    select * from posts where posts order by post_id desc
   </select>
 </mapper>

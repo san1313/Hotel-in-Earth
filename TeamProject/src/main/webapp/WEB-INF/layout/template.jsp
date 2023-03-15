@@ -72,10 +72,7 @@
 
 
                 #noticePosts {
-                    margin-top: 20px;
                     border: 1px;
-                    width:80%;
-                    margin-left: 10%;
                 }
 
                 #noticePosts .center {
