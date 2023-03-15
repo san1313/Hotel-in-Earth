@@ -102,7 +102,7 @@
                                     <li><a href="#event">event</a></li>
                                     <li><a href="#testimonial">testimonial</a></li>
                                     <li><a href="#blog">blog</a></li>
-                                    <li><a href="#contact">contact us</a></li>
+                                    <li><a href="#contact">login</a></li>
                                 </ul>
                             </div>
                             <!-- /.navbar-collapse -->
