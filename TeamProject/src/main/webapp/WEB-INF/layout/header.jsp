@@ -30,6 +30,7 @@
                                     <li><a href="#testimonial">testimonial</a></li>
                                     <li><a href="#blog">blog</a></li>
                                     <li><a href="#contact">login</a></li>
+                                    <li><a href=""> 더보기 </a></li>
                                 </ul>
                             </div>
                             <!-- /.navbar-collapse -->

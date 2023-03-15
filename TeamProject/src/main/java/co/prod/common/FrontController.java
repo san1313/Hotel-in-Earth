@@ -20,7 +20,6 @@ public class FrontController extends HttpServlet{
 	Map<String, Control> map = new HashMap<>();
 	String enc;
 	
-	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		enc = config.getInitParameter("encoding");
