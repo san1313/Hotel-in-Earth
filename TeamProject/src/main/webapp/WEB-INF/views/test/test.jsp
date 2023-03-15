@@ -64,5 +64,35 @@
                 <!--End of Carousel Inner-->
             </div>
         </section>
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>-->
+        <script src="resources/test_js/jquery-1.12.3.min.js"></script>
+
+        <!--Counter UP Waypoint-->
+        <script src="resources/test_js/waypoints.min.js"></script>
+        <!--Counter UP-->
+        <script src="resources/test_js/jquery.counterup.min.js"></script>
+        
+        
+        <script src="resources/test_js/isotope/min/scripts-min.js"></script>
+        <script src="resources/test_js/isotope/cells-by-row.js"></script>
+        <script src="resources/test_js/isotope/isotope.pkgd.min.js"></script>
+        <script src="resources/test_js/isotope/packery-mode.pkgd.min.js"></script>
+        <script src="resources/test_js/isotope/scripts.js"></script>
+
+
+        <!--Back To Top-->
+        <script src="resources/test_js/backtotop.js"></script>
+
+
+        <!--JQuery Click to Scroll down with Menu-->
+        <script src="resources/test_js/jquery.localScroll.min.js"></script>
+        <script src="resources/test_js/jquery.scrollTo.min.js"></script>
+        <!--WOW With Animation-->
+        <script src="resources/test_js/wow.min.js"></script>
+        <script src="resources/test_js/bootstrap.min.js"></script>
+        <script src="resources/test_js/main.js"></script>
+SEXY BODY
 </body>
 </html>
