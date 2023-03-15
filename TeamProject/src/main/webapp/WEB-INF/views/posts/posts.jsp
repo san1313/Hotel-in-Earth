@@ -15,7 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="resources/test_css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="resources/test_css/tabs.css" />
 		<link rel="stylesheet" type="text/css" href="resources/test_css/tabstyles.css" />
-  		<script src="js/modernizr.custom.js"></script>
+  		<script src="resources/test_js/modernizr.custom.js"></script>
 	</head>
 	<body>
 		<svg class="hidden">
