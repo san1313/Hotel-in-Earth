@@ -11,9 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.prod.controller.MainPageListControl;
-import co.prod.controller.ManageHotelAddControl;
+//import co.prod.controller.ManageHotelAddControl;
 import co.prod.controller.ManageHotelListControl;
-import co.prod.controller.PostListControl;
 import co.prod.controller.posts.PostListControl;
 import co.prod.controller.posts.PostWriteControl;
 import co.prod.controller.posts.PostWriteFormControl;
@@ -33,7 +32,7 @@ public class FrontController extends HttpServlet{
 		map.put("/postList.do", new PostListControl());
 		map.put("/mainpage.do", new MainPageListControl());
 		map.put("/manageHotelList.do", new ManageHotelListControl());
-		map.put("/manageHotelAdd.do", new ManageHotelAddControl());
+		//map.put("/manageHotelAdd.do", new ManageHotelAddControl());
 		map.put("/viewPost.do", new ViewPostControl());
 		map.put("/postWriteForm.do", new PostWriteFormControl());
 		map.put("/postWrite.do", new PostWriteControl());
