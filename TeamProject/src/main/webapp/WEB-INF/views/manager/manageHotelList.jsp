@@ -52,16 +52,20 @@ th {
 
 	<button class="accordion">호텔추가</button>
 	<div class="panel">
-		사진: <input type="text" name="사진"><br> 사진: <input
-			type="text" name="사진"><br> 사진: <input type="text"
-			name="사진"><br> 사진: <input type="text" name="사진"><br>
-		사진: <input type="text" name="사진"><br> 사진: <input
-			type="text" name="사진"><br> 사진: <input type="text"
-			name="사진"><br> 사진: <input type="text" name="사진"><br>
-		사진: <input type="text" name="사진"><br>
+	<form action ="manageHotelAdd.do">
+		사진: <input type="text" name="hotelPhoto"><br> 
+		ID: <input type="text" name="hotelId"><br> 
+		위치: <input type="text" name="hotelLocation"><br> 
+		호텔명: <input type="text" name="hotelName"><br>
+		전화번호: <input type="text" name="hotelTel"><br> 
+		서비스: <textarea cols="20" rows="3" name = "hotelService"></textarea> <br>
+		전망: <input type="text" name="hotelView"><br>
+		주소: <input type="text" name="hotelAddress"><br>
+		체크인: <input type="text" name="hotelCheckIn"><br>
+		체크아웃: <input type="text" name="hotelCheckOut"><br>
 		<button class="addBtn" type="submit">추가하기</button>
+</form>
 	</div>
-
 	<table>
 		<thead>
 
