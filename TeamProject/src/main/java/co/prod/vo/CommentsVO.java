@@ -2,6 +2,8 @@ package co.prod.vo;
 
 import java.util.Date;
 
+import lombok.Data;
+@Data
 public class CommentsVO {
 
 //	COMMENT_ID      NOT NULL NUMBER        

@@ -1,5 +1,8 @@
 package co.prod.vo;
 
+import lombok.Data;
+
+@Data
 public class HotelsVO {
 //	HOTEL_ID       NOT NULL VARCHAR2(10)   
 //	HOTEL_LOCATION NOT NULL VARCHAR2(100)  

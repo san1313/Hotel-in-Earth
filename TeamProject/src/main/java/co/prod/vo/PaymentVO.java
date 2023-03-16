@@ -2,6 +2,9 @@ package co.prod.vo;
 
 import java.util.Date;
 
+import lombok.Data;
+
+@Data
 public class PaymentVO {
 //	RESERVE_KEY    NOT NULL VARCHAR2(15) 
 //	PAYMENT_TOTAL  NOT NULL NUMBER(8)    

@@ -2,6 +2,9 @@ package co.prod.vo;
 
 import java.util.Date;
 
+import lombok.Data;
+
+@Data
 public class ReserveVO {
 
 //	RESERVE_KEY       NOT NULL VARCHAR2(15)   
