@@ -16,7 +16,7 @@ public class PostListControl implements Control {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		List<PostsVO> list = new PostsServiceImpl().getPostsList();
-		request.setAttribute("list", list);
+		request.setAttribute("list1", list);
 		try {
 			request.getRequestDispatcher("posts/posts.tiles").forward(request, response);
 		} catch (ServletException | IOException e) {

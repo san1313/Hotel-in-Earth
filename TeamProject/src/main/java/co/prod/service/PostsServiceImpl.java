@@ -13,9 +13,9 @@ public class PostsServiceImpl implements PostsService{
 	PostsMapper mapper = sqlSession.getMapper(PostsMapper.class);
 	
 	@Override
-	public List<PostsVO> getPostsList() {
+	public List<PostsVO> getPostsQuestion() {
 		
-		return mapper.getPostsList();
+		return mapper.getPostsQuestion();
 	}
 	
 }
