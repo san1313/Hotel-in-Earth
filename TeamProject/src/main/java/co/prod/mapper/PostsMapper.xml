@@ -4,12 +4,18 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.prod.mapper.PostsMapper">
   <select id="getPostsQuestion" resultType="PostsVO">
-    select * from posts where post_type='q' order by post_id desc
+select rownum, post_id, post_response, post_title, post_content, post_writedate, user_email
+from (select * from posts where post_type='Q' and post_requestid is null)
+order by rownum desc
   </select>
     <select id="getPostsNotice" resultType="PostsVO">
-    select * from posts where post_type='n' order by post_id desc
+select rownum, post_id, post_response, post_title, post_content, post_writedate, user_email
+from (select * from posts where post_type='N' and post_requestid is null)
+order by rownum desc
   </select>
     <select id="getPostsFAQ" resultType="PostsVO">
-    select * from posts where post_type='f' order by post_id desc
+select rownum, post_id, post_response, post_title, post_content, post_writedate, user_email
+from (select * from posts where post_type='F' and post_requestid is null)
+order by rownum desc
   </select>
 </mapper>

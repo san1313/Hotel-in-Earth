@@ -17,5 +17,17 @@ public class PostsServiceImpl implements PostsService{
 		
 		return mapper.getPostsQuestion();
 	}
+
+	@Override
+	public List<PostsVO> getPostsNotice() {
+		
+		return mapper.getPostsNotice();
+	}
+
+	@Override
+	public List<PostsVO> getPostsFAQ() {
+		
+		return mapper.getPostsFAQ();
+	}
 	
 }
