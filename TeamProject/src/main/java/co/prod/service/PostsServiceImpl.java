@@ -34,4 +34,9 @@ public class PostsServiceImpl implements PostsService{
 		
 		return mapper.getPost(pid);
 	}
+	@Override
+	public boolean writePost(PostsVO vo) {
+		
+		return mapper.writePost(vo) == 1;
+	}
 }

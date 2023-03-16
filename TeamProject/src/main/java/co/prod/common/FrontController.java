@@ -31,7 +31,7 @@ public class FrontController extends HttpServlet{
 		map.put("/mainpage.do", new MainPageListControl());
 		map.put("/viewPost.do", new ViewPostControl());
 		map.put("/postWriteForm.do", new PostWriteFormControl());
-		map.put("/postWrite", new PostWriteControl());
+		map.put("/postWrite.do", new PostWriteControl());
 	}
 	
 	@Override

@@ -12,4 +12,5 @@ public interface PostsService {
 	
 	//단건조회
 	public PostsVO getPost(int pid);
+	public boolean writePost(PostsVO vo);
 }

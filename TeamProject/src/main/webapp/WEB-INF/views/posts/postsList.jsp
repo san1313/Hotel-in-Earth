@@ -12,11 +12,11 @@
 				<meta name="keywords" content="tabs, inspiration, web design, css, modern, effects, svg" />
 				<meta name="author" content="Codrops" />
 				<link rel="shortcut icon" href="../favicon.ico">
-				<link rel="stylesheet" type="text/css" href="resources/css/posts/normalize.css" />
-				<link rel="stylesheet" type="text/css" href="resources/css/posts/tabs.css" />
-				<link rel="stylesheet" type="text/css" href="resources/css/posts/tabstyles.css" />
-				<link rel="stylesheet" type="text/css" href="resources/css/posts/style.css" />
-				<script src="resources/js/posts/modernizr.custom.js"></script>
+				<link rel="stylesheet" type="text/css" href="resources/css/posts/listForm/normalize.css" />
+				<link rel="stylesheet" type="text/css" href="resources/css/posts/listForm/tabs.css" />
+				<link rel="stylesheet" type="text/css" href="resources/css/posts/listForm/tabstyles.css" />
+				<link rel="stylesheet" type="text/css" href="resources/css/posts/listForm/style.css" />
+				<script src="resources/js/posts/listForm/modernizr.custom.js"></script>
 			</head>
 
 			<body>
@@ -119,7 +119,7 @@
 												</c:forEach>
 												<tr>
 													<td colspan="2" style="text-align: right;"><button
-															onclick="location.href='questionWrite.do'">작성</button></td>
+															onclick="location.href='postWriteForm.do'">작성</button></td>
 													<!-- TODO 버튼 레이아웃 지정-->
 												</tr>
 											</tbody>
