@@ -28,5 +28,6 @@
 	<mappers>
 		<mapper resource="co/prod/mapper/PostsMapper.xml" />
 		<mapper resource="co/prod/mapper/ManageHotelListMapper.xml" />
+		<mapper resource="co/prod/mapper/HotelFilterMapper.xml" />
 	</mappers>
 </configuration>
