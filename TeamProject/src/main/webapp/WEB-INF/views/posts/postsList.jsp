@@ -54,7 +54,7 @@
 											<tbody>
 												<c:forEach items="${notices}" var="post">
 													<tr>
-														<td>${post.postTitle}</td>
+														<td><a href="viewPost.do?pid=${post.postId }">${post.postTitle}</a></td>
 														<td class="center">
 															<fmt:formatDate value="${post.postWriteDate }" type="both"
 																pattern="yyyy-MM-dd HH:mm:ss" />
@@ -66,7 +66,7 @@
 									</div>
 								</section>
 								<section id="section-bar-2">
-								<div id="noticePosts">
+									<div id="noticePosts">
 										<table class="table">
 											<colgroup>
 												<col>
@@ -82,7 +82,7 @@
 											<tbody>
 												<c:forEach items="${faqs}" var="post">
 													<tr>
-														<td>${post.postTitle}</td>
+														<td><a href="viewPost.do?pid=${post.postId }">${post.postTitle}</a></td>
 														<td class="center">
 															<fmt:formatDate value="${post.postWriteDate }" type="both"
 																pattern="yyyy-MM-dd HH:mm:ss" />
@@ -94,7 +94,7 @@
 									</div>
 								</section>
 								<section id="section-bar-3">
-								<div id="noticePosts">
+									<div id="noticePosts">
 										<table class="table">
 											<colgroup>
 												<col>
@@ -110,13 +110,18 @@
 											<tbody>
 												<c:forEach items="${questions}" var="post">
 													<tr>
-														<td>${post.postTitle}</td>
+														<td><a href="viewPost.do?pid=${post.postId }">${post.postTitle}</a></td>
 														<td class="center">
 															<fmt:formatDate value="${post.postWriteDate }" type="both"
 																pattern="yyyy-MM-dd HH:mm:ss" />
 														</td>
 													</tr>
 												</c:forEach>
+												<tr>
+													<td colspan="2" style="text-align: right;"><button
+															onclick="location.href='questionWrite.do'">작성</button></td>
+													<!-- TODO 버튼 레이아웃 지정-->
+												</tr>
 											</tbody>
 										</table>
 									</div>

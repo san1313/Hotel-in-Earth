@@ -29,5 +29,9 @@ public class PostsServiceImpl implements PostsService{
 		
 		return mapper.getPostsFAQ();
 	}
-	
+	@Override
+	public PostsVO getPost(int pid) {
+		
+		return mapper.getPost(pid);
+	}
 }
