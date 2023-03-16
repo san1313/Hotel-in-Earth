@@ -15,7 +15,6 @@
 					href="resources/fonts/posts/writeForm/font-awesome-4.2.0/css/font-awesome.min.css" />
 				<link rel="stylesheet" type="text/css" href="resources/css/posts/writeForm/demo.css" />
 				<link rel="stylesheet" type="text/css" href="resources/css/posts/writeForm/set2.css" />
-				<link rel="shortcut icon" href="../favicon.ico">
 				<link rel="stylesheet" type="text/css" href="resources/css/posts/writeForm/normalize.css" />
 				<link rel="stylesheet" type="text/css" href="resources/css/posts/listForm/accordion.css" />
 				<link rel="stylesheet" type="text/css" href="resources/css/posts/listForm/normalize.css" />
@@ -38,13 +37,15 @@
 						<div class="tabs tabs-style-bar">
 							<nav>
 								<ul>
-									<li><a href="#section-bar-1"><span>공지사항</span></a></li> <!-- 위쪽 버튼3개 -->
+									<li><a href="#section-bar-1"><span>공지사항</span></a></li>
+									<!-- 위쪽 버튼3개 -->
 									<li><a href="#section-bar-2"><span>자주 묻는 질문</span></a></li>
 									<li><a href="#section-bar-3"><span>Q/A</span></a></li>
 								</ul>
 							</nav>
 							<div class="content-wrap">
-								<section id="section-bar-1"> <!-- 공지사항 -->
+								<section id="section-bar-1">
+									<!-- 공지사항 -->
 									<div id="noticePosts">
 										<table class="table">
 											<colgroup>
@@ -129,26 +130,29 @@
 										</table>
 										<button class="accordion">글쓰기</button>
 										<div class="panel">
-											<span class="input input--yoshiko">
-												<input class="input__field input__field--yoshiko" type="text" id="postTitle" />
-												<label class="input__label input__label--yoshiko" for="postTitle">
-													<span class="input__label-content input__label-content--yoshiko" data-content="제목">제목</span>
-												</label>
-											</span>
-											<br>
-											<span class="input input--yoshiko">
-												<textarea class="input__field input__field--yoshiko" id="postContent"></textarea>
-												<label class="input__label input__label--yoshiko" for="postTitle">
-													<span class="input__label-content input__label-content--yoshiko" data-content="내용">내용</span>
-												</label>
-											</span>
-											<br>
-											<button class="btn" id="writeBtn">제출</button>
+											<form action="postWrite.do" method="post">
+												<span class="input input--yoshiko"> <input class="input__field input__field--yoshiko"
+														type="text" id="postTitle" name="title" /> <label class="input__label input__label--yoshiko"
+														for="postTitle">
+														<span class="input__label-content input__label-content--yoshiko" data-content="제목">제목</span>
+													</label>
+												</span> <br> <span class="input input--yoshiko"> <textarea
+														class="input__field input__field--yoshiko" id="postContent" name="content"></textarea>
+													<label class="input__label input__label--yoshiko" for="postTitle">
+														<span class="input__label-content input__label-content--yoshiko" data-content="내용">내용</span>
+													</label>
+												</span> <br> <input type="hidden" id="postType" name="postType" value="Q"> <input type="hidden"
+													id="email" name="email" value="user1@email">
+												<!-- TODO 로그인시스템 만들어지면 내용 고칠것 -->
+												<button type="button" class="btn" id="writeBtn">제출</button>
+											</form>
 										</div>
 									</div>
 								</section>
-							</div><!-- /content -->
-						</div><!-- /tabs -->
+							</div>
+							<!-- /content -->
+						</div>
+						<!-- /tabs -->
 					</section>
 				</div>
 
@@ -212,7 +216,66 @@
 						}
 					})();
 
-					document.getElementById('writeBtn').addEventListener('click', function () {
+					let writeBtn = document.getElementById('writeBtn').addEventListener('click', function () {
+						let tbody = this.parentElement.parentElement.parentElement.firstChild
+						console.log(tbody);
+						/*
+			
+			let title = document.querySelector('#postTitle').value;
+			let content = document.querySelector('#postContent').value;
+			let type = document.querySelector('#postType').value;
+			let email = document.querySelector('#email').value;
+			if (!title || !content) {
+				alert("값을 입력하세요");
+				return;
+			}
+			fetch('postWrite.do', {
+				method: 'post',
+				headers: { 'Content-type': 'application/x-www-form-urlencoded' },
+				body: 'title=' + title + '&content=' + content + '&type=' + type + '&email=' + email
+			})
+				.then(resolve => resolve.json())
+				.then(result => {
+					console.log(result);
+					if (result.retCode == 'Success') {
+						makeTr(result.post);
+						initField();
+					}
+				})
+				.catch(reject => console.error(reject))
+		})
 
+		function makeTr(post = {}) {
+			let tr = document.createElement('tr');
+			for (let prop in post) {
+				let td = document.createElement('td');
+				td.innerText = post[prop];
+				tr.append(td);
+			}
+			let delBtn = document.createElement('button'); // <button>삭제</button>
+			delBtn.innerText = '삭제';
+			delBtn.addEventListener('click', function () {
+				console.log(this);
+				let delId = this.parentElement.parentElement.children[0].innerText;
+				fetch('memberRemoveAjax.do', {
+					method: 'post',
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, // key==val&key&val
+					body: 'id=' + delId
+				})
+					.then(resolve => resolve.json())
+					.then(result => {
+					})
+					.catch(reject => console.log(reject));
+			})
+			let td = document.createElement('td');
+			td.append(delBtn); // <td><button>삭제</button></td>
+			tr.append(td);
+			document.getElementById('postList').append(tr);
+		}
+
+		function initField() {
+			document.getElementById('postTitle').value = '';
+			document.getElementById('postContent').value = '';
+			*/
 					})
 				</script>
