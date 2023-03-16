@@ -1,4 +1,4 @@
-package co.prod.controller;
+package co.prod.controller.posts;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,17 +15,16 @@ public class PostListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		//질문, 공지, 자주묻는질문 각각 리스트로 가져와서
 		List<PostsVO> list = new PostsServiceImpl().getPostsQuestion();
 		List<PostsVO> list2 = new PostsServiceImpl().getPostsNotice();
 		List<PostsVO> list3 = new PostsServiceImpl().getPostsFAQ();
-		System.out.println(list);
-		System.out.println(list2);
-		System.out.println(list3);
+		//아래 어트리뷰트에 담음
 		request.setAttribute("questions", list);
 		request.setAttribute("notices", list2);
 		request.setAttribute("faqs", list3);
 		try {
-			request.getRequestDispatcher("posts/posts.tiles").forward(request, response);
+			request.getRequestDispatcher("posts/postsList.tiles").forward(request, response);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}

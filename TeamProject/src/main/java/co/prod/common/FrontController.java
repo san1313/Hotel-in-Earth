@@ -11,8 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.prod.controller.MainPageListControl;
-import co.prod.controller.PostListControl;
+import co.prod.controller.posts.PostListControl;
+import co.prod.controller.posts.PostWriteControl;
+import co.prod.controller.posts.PostWriteFormControl;
 import co.prod.controller.TestControl;
+import co.prod.controller.posts.ViewPostControl;
 
 public class FrontController extends HttpServlet{
 	// url패턴과 실행 컨트롤러 등록.
@@ -26,6 +29,9 @@ public class FrontController extends HttpServlet{
 		map.put("/test.do", new TestControl()); // 삭제
 		map.put("/postList.do", new PostListControl());
 		map.put("/mainpage.do", new MainPageListControl());
+		map.put("/viewPost.do", new ViewPostControl());
+		map.put("/postWriteForm.do", new PostWriteFormControl());
+		map.put("/postWrite", new PostWriteControl());
 	}
 	
 	@Override
