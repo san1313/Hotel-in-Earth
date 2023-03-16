@@ -3,7 +3,9 @@
 /*****************************/
 /* Bar */
 /*****************************/
-
+.tabs-style-bar {
+	margin-top:50px
+}
 .tabs-style-bar nav {
 	background: rgba(40,44,42,0.05);
 }
