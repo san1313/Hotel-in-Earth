@@ -11,6 +11,6 @@ public interface PostsMapper {
 	public List<PostsVO> getPostsFAQ();
 	//단건 조회
 	public PostsVO getPost(int pid);
-	
+	public int writePost(PostsVO vo);
 	
 }
