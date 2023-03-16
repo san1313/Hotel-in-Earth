@@ -1,5 +1,8 @@
 package co.prod.vo;
 
+import lombok.Data;
+
+@Data
 public class UsersVO {
 
 //	USER_EMAIL    NOT NULL VARCHAR2(30)  
