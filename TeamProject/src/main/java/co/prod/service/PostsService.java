@@ -5,5 +5,6 @@ import java.util.List;
 import co.prod.vo.PostsVO;
 
 public interface PostsService {
-	public List<PostsVO> getPostsList();
+	public List<PostsVO> getPostsQuestion();
+
 }
