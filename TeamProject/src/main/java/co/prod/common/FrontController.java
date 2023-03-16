@@ -11,10 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.prod.controller.MainPageListControl;
-import co.prod.controller.ManageHotelAddControl;
+//import co.prod.controller.ManageHotelAddControl;
 import co.prod.controller.ManageHotelListControl;
-import co.prod.controller.ManageHotelModifyControl;
-import co.prod.controller.TestControl;
+//import co.prod.controller.ManageHotelModifyControl;
+//import co.prod.controller.TestControl;
+
 import co.prod.controller.posts.PostListControl;
 import co.prod.controller.posts.PostWriteControl;
 import co.prod.controller.posts.PostWriteFormControl;
