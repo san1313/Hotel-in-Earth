@@ -15,7 +15,7 @@ public class PostsServiceImpl implements PostsService{
 	@Override
 	public List<PostsVO> getPostsList() {
 		
-		return mapper.getPostsList();
+		return mapper.getPostsQuestion();
 	}
 	
 }
