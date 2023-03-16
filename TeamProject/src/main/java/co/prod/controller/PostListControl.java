@@ -15,8 +15,15 @@ public class PostListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		List<PostsVO> list = new PostsServiceImpl().getPostsList();
-		request.setAttribute("list1", list);
+		List<PostsVO> list = new PostsServiceImpl().getPostsQuestion();
+		List<PostsVO> list2 = new PostsServiceImpl().getPostsNotice();
+		List<PostsVO> list3 = new PostsServiceImpl().getPostsFAQ();
+		System.out.println(list);
+		System.out.println(list2);
+		System.out.println(list3);
+		request.setAttribute("questions", list);
+		request.setAttribute("notices", list2);
+		request.setAttribute("faqs", list3);
 		try {
 			request.getRequestDispatcher("posts/posts.tiles").forward(request, response);
 		} catch (ServletException | IOException e) {
