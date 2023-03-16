@@ -1,49 +1,61 @@
 package co.prod.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.prod.common.Control;
+import co.prod.service.ManageHotelListService;
+import co.prod.service.ManagerHotelListServiceImpl;
+import co.prod.vo.HotelsVO;
 
 public class ManageHotelAddControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String hotelId = request.getParameter("code");
-		String hotelLocation = request.getParameter("author");
-		String hotelName = request.getParameter("title");
-		String hotelTel = request.getParameter("press");
-		String hotelService = request.getParameter("desc");
-		String hotelView = request.getParameter("price");
-		int hotelRate = request.getParameter("price");
-		String hotelAddress = request.getParameter("price");
-		String hotelPhoto = request.getParameter("price");
-		String hotelCheckIn = request.getParameter("price");
-		String hotelCheckOut = request.getParameter("price");
-		int hotelLike = request.getParameter("price");
+		
+		String hotelId = request.getParameter("hotelId");
+		String hotelLocation = request.getParameter("hotelLocation");
+		String hotelName = request.getParameter("hotelName");
+		String hotelTel = request.getParameter("hotelTel");
+		String hotelService = request.getParameter("hotelService");
+		String hotelView = request.getParameter("hotelView");
+		String hotelAddress = request.getParameter("hotelAddress");
+		String hotelPhoto = request.getParameter("hotelPhoto");
+		String hotelCheckIn = request.getParameter("hotelCheckIn");
+		String hotelCheckOut = request.getParameter("hotelCheckOut");
 
-		BookVO vo = new BookVO();
-		vo.setBookCode(code);
-		vo.setBookAuthor(author);
-		vo.setBookTitle(title);
-		vo.setBookPress(press);
-		vo.setBookDesc(desc);
-		vo.setBookPrice(Integer.parseInt(price));
+		HotelsVO vo = new HotelsVO();
+		vo.setHotelId(hotelId);
+		vo.setHotelLocation(hotelLocation);
+		vo.setHotelName(hotelName);
+		vo.setHotelTel(hotelTel);
+		vo.setHotelService(hotelService);
+		vo.setHotelView(hotelView);
+		vo.setHotelAddress(hotelAddress);
+		vo.setHotelPhoto(hotelPhoto);
+		vo.setHotelCheckIn(hotelCheckIn);
+		vo.setHotelCheckOut(hotelCheckOut);
 		
-		BookService service = new BookServiceMybatis();
+		ManageHotelListService service = new ManagerHotelListServiceImpl();
 		
-		if(service.addBook(vo)) {
-			List<BookVO> list = service.bookList();
+		if(service.addHotel(vo)) {
+			List<HotelsVO> list = service.getHotelList();
 			
 			request.setAttribute("list", list);
-			request.getRequestDispatcher("WEB-INF/book/bookList.jsp").forward(request, response);
-		}else {
-			request.getRequestDispatcher("WEB-INF/book/bookAddForm.jsp").forward(request, response);
+			try {
+				request.getRequestDispatcher("manageHotelList.do").forward(request, response);
+			} catch (ServletException | IOException e) {
+				e.printStackTrace();
+			}
 		}
-		}
+//			else {
+//			request.getRequestDispatcher("WEB-INF/book/bookAddForm.jsp").forward(request, response);
+//		}
 	}
 
 }
