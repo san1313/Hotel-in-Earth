@@ -17,4 +17,9 @@ public class ManagerHotelListServiceImpl implements ManageHotelListService{
 		
 		return mapper.getHotelList();
 	}
+
+	@Override
+	public boolean addHotel(HotelsVO vo) {
+		return mapper.insertHotel(vo)>0;
+	}
 }
