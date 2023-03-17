@@ -7,5 +7,11 @@ public interface Service {
 	// 로그인
 	
 	public UsersVO login(UsersVO vo);
-	// 로그아웃
+	
+	// 회원가입
+	public boolean addUser(UsersVO vo);
+	
+	// 로그아웃 ??
+	
+	
 }

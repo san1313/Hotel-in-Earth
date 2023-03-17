@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import co.prod.control.LoginControl;
 import co.prod.control.LoginFormControl;
 import co.prod.control.LogoutControl;
+import co.prod.control.SignUpControl;
+import co.prod.control.SignUpFormControl;
 import co.prod.controller.MainPageListControl;
 import co.prod.controller.ManageHotelAddControl;
 //import co.prod.controller.ManageHotelAddControl;
@@ -38,12 +40,12 @@ public class FrontController extends HttpServlet{
 		map.put("/test.do", new TestControl()); // 삭제
 		map.put("/postList.do", new PostListControl());
 		map.put("/mainpage.do", new MainPageListControl());
-		map.put("/login.do", new LoginControl());
-		map.put("/loginForm.do", new LoginFormControl());
-		map.put("/logout.do", new LogoutControl());
+		map.put("/login.do", new LoginControl());	// 로그인 등록처리
+		map.put("/loginForm.do", new LoginFormControl());	// 로그인 등록화면
+		map.put("/logout.do", new LogoutControl());	// 로그아웃
+		map.put("/signUp.do", new SignUpControl());	// 회원가입처리
+		map.put("/signUpForm.do", new SignUpFormControl());	//회원가입화면
 		map.put("/manageHotelList.do", new ManageHotelListControl()); //관리자페이지 홈
-		map.put("/manageHotelAdd.do", new ManageHotelAddControl()); //관리자페이지 호텔 추가
-		map.put("/manageHotelModify", new ManageHotelModifyControl()); //관리자페이지 호텔 수정
 		map.put("/viewPost.do", new ViewPostControl());
 		map.put("/postWriteForm.do", new PostWriteFormControl());
 		map.put("/postWrite.do", new PostWriteControl());

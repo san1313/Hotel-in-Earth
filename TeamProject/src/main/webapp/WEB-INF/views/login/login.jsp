@@ -1,173 +1,317 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
-
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+* {
+    box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f6f5f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: -20px 0 50px;
+		margin-top: 20px;
 }
 
-button:hover {
-  opacity: 0.8;
+h1 {
+    font-weight: bold;
+    margin: 0;
 }
 
-/* Extra styles for the cancel button */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
+p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: .5px;
+    margin: 20px 0 30px;
 }
 
-/* Center the image and position the close button */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-  position: relative;
+span {
+    font-size: 12px;
 }
 
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
+a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
 }
 
 .container {
-  padding: 16px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
 }
 
-span.psw {
-  float: right;
-  padding-top: 16px;
+.form-container form {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding:  0 50px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
+.social-container {
+    margin: 20px 0;
 }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+.social-container a {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
 }
 
-/* The Close Button (x) */
-.close {
-  position: absolute;
-  right: 25px;
-  top: 0;
-  color: #000;
-  font-size: 35px;
-  font-weight: bold;
+.form-container input {
+    background: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
 }
 
-.close:hover,
-.close:focus {
-  color: red;
-  cursor: pointer;
+button {
+    border-radius: 20px;
+    border: 1px solid #ff4b2b;
+    background: #ff445c;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
 }
 
-/* Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
+button:active {
+    transform: scale(.95);
 }
 
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
-}
-  
-@keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
+button:focus {
+    outline: none;
 }
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
+button.ghost {
+    background: transparent;
+    border-color: #fff;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all .6s ease-in-out;
+}
+
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    z-index: 1;
+    opacity: 0;
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform .6s ease-in-out;
+    z-index: 100;
+}
+
+.overlay {
+    background: #ff416c;
+    background: linear-gradient(to right, #ff4b2b, #ff416c) no-repeat 0 0 / cover;
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateY(0);
+    transition: transform .6s ease-in-out;
+}
+
+.overlay-panel {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform .6s ease-in-out;
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateY(0);
+}
+
+.overlay-left {
+    transform: translateY(-20%);
+}
+
+/* Move signin to right */
+.container.right-panel-active .sign-in-container {
+    transform: translateY(100%);
+}
+
+/* Move overlay to left */
+.container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+/* Bring signup over signin */
+.container.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+}
+
+/* Move overlay back to right */
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+/* Bring back the text to center */
+.container.right-panel-active .overlay-left {
+    transform: translateY(0);
+}
+
+/* Same effect for right */
+.container.right-panel-active .overlay-right {
+    transform: translateY(20%);
+}
+
+.footer {
+	margin-top: 25px;
+	text-align: center;
+}
+
+
+.icons {
+	display: flex;
+	width: 30px;
+	height: 30px;
+	letter-spacing: 15px;
+	align-items: center;
 }
 </style>
 <title>Insert title here</title>
 </head>
 
 <body>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous">
 
-  <div>
-  <form class="modal-content animate" action="login.do" method="post">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+<div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="signUp.do" method="post">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="email" placeholder="Email" name="umail" required/>
+                <input type="password" placeholder="Password" name="upw" required/>
+                <input type="text" placeholder="NickName" name="uname" required/>
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="login.do" method="post">
+                <h1>Sign in</h1>
+               <!--  
+               
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>   
+                <span>or use your account</span>
+                
+                -->
+                <input type="text" placeholder="Email" name="umail" required/>
+                <input type="password" placeholder="Password" name="upw" required/>
+                <a href="#">Forgot your password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="umail" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="upw" required>
-        
-      <button type="submit" >Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
-</div>
-
+<div class="footer">
+<b>	Follow me on </b>
+	<div class="icons">
+		<a href="https://github.com/kvaibhav01" target="_blank" class="social"><i class="fab fa-github"></i></a>
+		<a href="https://www.instagram.com/vaibhavkhulbe143/" target="_blank" class="social"><i class="fab fa-instagram"></i></a>
+		<a href="https://medium.com/@vaibhavkhulbe" target="_blank" class="social"><i class="fab fa-medium"></i></a>
+		<a href="https://twitter.com/vaibhav_khulbe" target="_blank" class="social"><i class="fab fa-twitter-square"></i></a>
+		<a href="https://linkedin.com/in/vaibhav-khulbe/" target="_blank" class="social"><i class="fab fa-linkedin"></i></a>
+		</div>
+	</div>
+	
 <script>
-// Get the modal
-var modal = document.getElementById('id01');
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+signUpButton.addEventListener('click', () =>
+container.classList.add('right-panel-active'));
+
+signInButton.addEventListener('click', () =>
+container.classList.remove('right-panel-active'));
 </script>
 
 </body>
