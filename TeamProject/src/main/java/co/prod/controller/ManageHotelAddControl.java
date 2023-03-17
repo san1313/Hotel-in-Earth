@@ -29,6 +29,10 @@ public class ManageHotelAddControl implements Control {
 		String hotelCheckIn = request.getParameter("hotelCheckIn");
 		String hotelCheckOut = request.getParameter("hotelCheckOut");
 
+		
+		
+		
+		System.out.println("test");
 		HotelsVO vo = new HotelsVO();
 		vo.setHotelId(hotelId);
 		vo.setHotelLocation(hotelLocation);
