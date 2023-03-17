@@ -130,16 +130,16 @@
 										</table>
 										<!-- Start Pagination -->
 										<ul class="pagination">
-										<c:if test="${pageQ.prev }">
+											<c:if test="${pageQ.prev }">
 												<li><a href="postList.do?pageQ=${pageQ.startPage -1 }">&lt;</a></li>
 											</c:if>
 											<c:forEach var="i" begin="${pageQ.startPage }" end="${pageQ.endPage }">
 												<c:choose>
 													<c:when test="${i == pageQ.page}">
-														<li><a class="active" href="postList.do?pageQ=${i }">${i }</a></li>
+														<li><a class="active" href="javascript:getPageList(${i }, 'Q')">${i }</a></li>
 													</c:when>
 													<c:otherwise>
-														<li><a href="postList.do?pageQ=${i }">${i }</a></li>
+														<li><a href="javascript:getPageList(${i }, 'Q');">${i }</a></li>
 													</c:otherwise>
 												</c:choose>
 											</c:forEach>
@@ -307,4 +307,22 @@
 						seconds = seconds < 10 ? '0' + seconds : seconds;
 						return year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds
 					}
+
+					function getPageList(page, QFN) {
+						fetch('postList.do', {
+							method: 'post',
+							headers: { 'Content-type': 'application/x-www-form-urlencoded' },
+							body: 'page' + QFN + '=' + page
+						})
+							.then(resolve => resolve.json())
+							.then(result => {
+								console.log(result);
+								if (result.retCode == 'Success') {
+									console.log(page)
+								}
+							})
+							.catch(reject => console.error(reject))
+					}
+
+
 				</script>
