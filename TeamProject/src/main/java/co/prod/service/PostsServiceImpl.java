@@ -1,6 +1,7 @@
 package co.prod.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -43,5 +44,15 @@ public class PostsServiceImpl implements PostsService{
 	public int getPostId() {
 		
 		return mapper.getPostId();
+	}
+	@Override
+	public int getTotalCount(String type) {
+		
+		return mapper.getTotalCount(type);
+	}
+	@Override
+	public List<PostsVO> postListPaging(Map<String, Object> map) {
+		
+		return mapper.postListPaging(map);
 	}
 }
