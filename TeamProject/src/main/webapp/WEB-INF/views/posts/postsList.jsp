@@ -217,65 +217,70 @@
 					})();
 
 					let writeBtn = document.getElementById('writeBtn').addEventListener('click', function () {
-						let tbody = this.parentElement.parentElement.parentElement.firstChild
-						console.log(tbody);
-						/*
-			
-			let title = document.querySelector('#postTitle').value;
-			let content = document.querySelector('#postContent').value;
-			let type = document.querySelector('#postType').value;
-			let email = document.querySelector('#email').value;
-			if (!title || !content) {
-				alert("값을 입력하세요");
-				return;
-			}
-			fetch('postWrite.do', {
-				method: 'post',
-				headers: { 'Content-type': 'application/x-www-form-urlencoded' },
-				body: 'title=' + title + '&content=' + content + '&type=' + type + '&email=' + email
-			})
-				.then(resolve => resolve.json())
-				.then(result => {
-					console.log(result);
-					if (result.retCode == 'Success') {
-						makeTr(result.post);
-						initField();
+						let tbody = this.parentElement.parentElement.parentElement.children[0].children[2]
+						let title = document.querySelector('#postTitle').value;
+						let content = document.querySelector('#postContent').value;
+						let type = document.querySelector('#postType').value;
+						let email = document.querySelector('#email').value;
+						if (!title || !content) {
+							alert("값을 입력하세요");
+							return;
+						}
+						fetch('postWrite.do', {
+							method: 'post',
+							headers: { 'Content-type': 'application/x-www-form-urlencoded' },
+							body: 'title=' + title + '&content=' + content + '&type=' + type + '&email=' + email
+						})
+							.then(resolve => resolve.json())
+							.then(result => {
+								console.log(result);
+								if (result.retCode == 'Success') {
+									makeTr(result.post, tbody);
+									initField();
+								}
+							})
+							.catch(reject => console.error(reject))
+					})
+
+
+					function makeTr(post = {}, list) {
+						let tr = document.createElement('tr');
+						let td = document.createElement('td');
+						let a = document.createElement('a');
+						a.innerText = post.postTitle;
+						a.href = 'viewPost.do?pid=' + post.postId;
+						td.append(a);
+						tr.append(td);
+						td = document.createElement('td');
+						td.className = 'center';
+						let time = getTime();
+						td.innerText = time;
+						tr.append(td);
+						list.prepend(tr);
 					}
-				})
-				.catch(reject => console.error(reject))
-		})
 
-		function makeTr(post = {}) {
-			let tr = document.createElement('tr');
-			for (let prop in post) {
-				let td = document.createElement('td');
-				td.innerText = post[prop];
-				tr.append(td);
-			}
-			let delBtn = document.createElement('button'); // <button>삭제</button>
-			delBtn.innerText = '삭제';
-			delBtn.addEventListener('click', function () {
-				console.log(this);
-				let delId = this.parentElement.parentElement.children[0].innerText;
-				fetch('memberRemoveAjax.do', {
-					method: 'post',
-					headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, // key==val&key&val
-					body: 'id=' + delId
-				})
-					.then(resolve => resolve.json())
-					.then(result => {
-					})
-					.catch(reject => console.log(reject));
-			})
-			let td = document.createElement('td');
-			td.append(delBtn); // <td><button>삭제</button></td>
-			tr.append(td);
-			document.getElementById('postList').append(tr);
-		}
 
-		function initField() {
-			document.getElementById('postTitle').value = '';
-			document.getElementById('postContent').value = '';
-			*/
-					})
+					//글쓴후 필드를 비워줌
+					function initField() {
+						document.getElementById('postTitle').value = '';
+						document.getElementById('postContent').value = '';
+					}
+
+
+					//현재 시간 구하는 method
+					function getTime() {
+						var today = new Date();
+						let year = today.getFullYear();
+						let month = today.getMonth() + 1
+						month = month < 10 ? '0' + month : month;
+						let date = today.getDate();
+						date = date < 10 ? '0' + date : date;
+						let hours = today.getHours();
+						hours = hours < 10 ? '0' + hours : hours;
+						let minutes = today.getMinutes();
+						minutes = minutes < 10 ? '0' + minutes : minutes;
+						let seconds = today.getSeconds();
+						seconds = seconds < 10 ? '0' + seconds : seconds;
+						return year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds
+					}
 				</script>

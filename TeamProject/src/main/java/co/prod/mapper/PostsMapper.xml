@@ -6,17 +6,17 @@
   <select id="getPostsQuestion" resultType="PostsVO">
 select rownum, post_id, post_response, post_title, post_content, post_writedate, user_email
 from (select * from posts where post_type='Q' and post_requestid is null)
-order by rownum desc
+order by post_writedate desc
   </select>
     <select id="getPostsNotice" resultType="PostsVO">
 select rownum, post_id, post_response, post_title, post_content, post_writedate, user_email
 from (select * from posts where post_type='N' and post_requestid is null)
-order by rownum desc
+order by post_writedate desc
   </select>
     <select id="getPostsFAQ" resultType="PostsVO">
 select rownum, post_id, post_response, post_title, post_content, post_writedate, user_email
 from (select * from posts where post_type='F' and post_requestid is null)
-order by rownum desc
+order by post_writedate desc
   </select>
   <select id="getPost" parameterType="int" resultType="PostsVO">
   select * from posts where post_id = #{pid}
@@ -25,4 +25,6 @@ order by rownum desc
   <insert id="writePost" parameterType="PostsVO">
 Insert into POSTS (POST_ID,POST_TYPE,POST_TITLE,POST_CONTENT,USER_EMAIL) values (posts_seq.nextval,#{postType},#{postTitle},#{postContent},#{userEmail})
   </insert>
+  
+  <select id="getPostId"></select>
 </mapper>
