@@ -8,17 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.prod.common.Control;
-import co.prod.service.PostsServiceImpl;
-import co.prod.vo.PostsVO;
+import co.prod.service.ManagerHotelListServiceImpl;
+import co.prod.vo.HotelsVO;
 
-public class PostListControl implements Control {
+public class ManageHotelListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		List<PostsVO> list = new PostsServiceImpl().getPostsList();
-		request.setAttribute("list", list);
+		List<HotelsVO> list = new ManagerHotelListServiceImpl().getHotelList();
+		request.setAttribute("managehotellist", list);
 		try {
-			request.getRequestDispatcher("posts/posts.tiles").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/views/manager/manageHotelList.jsp").forward(request, response);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}

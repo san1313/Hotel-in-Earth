@@ -3,7 +3,26 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.prod.mapper.PostsMapper">
-  <select id="getPostsList" resultType="PostsVO">
-    select * from posts order by post_id desc
+  <select id="getPostsQuestion" resultType="PostsVO">
+select rownum, post_id, post_response, post_title, post_content, post_writedate, user_email
+from (select * from posts where post_type='Q' and post_requestid is null)
+order by rownum desc
   </select>
+    <select id="getPostsNotice" resultType="PostsVO">
+select rownum, post_id, post_response, post_title, post_content, post_writedate, user_email
+from (select * from posts where post_type='N' and post_requestid is null)
+order by rownum desc
+  </select>
+    <select id="getPostsFAQ" resultType="PostsVO">
+select rownum, post_id, post_response, post_title, post_content, post_writedate, user_email
+from (select * from posts where post_type='F' and post_requestid is null)
+order by rownum desc
+  </select>
+  <select id="getPost" parameterType="int" resultType="PostsVO">
+  select * from posts where post_id = #{pid}
+  </select>
+  
+  <insert id="writePost" parameterType="PostsVO">
+Insert into POSTS (POST_ID,POST_TYPE,POST_TITLE,POST_CONTENT,USER_EMAIL) values (posts_seq.nextval,#{postType},#{postTitle},#{postContent},#{userEmail})
+  </insert>
 </mapper>

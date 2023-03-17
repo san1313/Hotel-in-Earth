@@ -1,14 +1,15 @@
 /* Default tab style */
+                
 
 @font-face {
 	font-weight: normal;
 	font-style: normal;
 	font-family: 'stroke7pixeden';
-	src:url('../test_fonts/stroke7pixeden/stroke7pixeden.eot?u58ytb');
-	src:url('../test_fonts/stroke7pixeden/stroke7pixeden.eot?#iefixu58ytb') format('embedded-opentype'),
-		url('../test_fonts/stroke7pixeden/stroke7pixeden.woff?u58ytb') format('woff'),
-		url('../test_fonts/stroke7pixeden/stroke7pixeden.ttf?u58ytb') format('truetype'),
-		url('../test_fonts/stroke7pixeden/stroke7pixeden.svg?u58ytb#stroke7pixeden') format('svg');
+	src:url('../../../fonts/posts/listForm/stroke7pixeden/stroke7pixeden.eot?u58ytb');
+	src:url('../../../fonts/posts/listForm/stroke7pixeden/stroke7pixeden.eot?#iefixu58ytb') format('embedded-opentype'),
+		url('../../../fonts/posts/listForm/stroke7pixeden/stroke7pixeden.woff?u58ytb') format('woff'),
+		url('../../../fonts/posts/listForm/stroke7pixeden/stroke7pixeden.ttf?u58ytb') format('truetype'),
+		url('../../../fonts/posts/listForm/stroke7pixeden/stroke7pixeden.svg?u58ytb#stroke7pixeden') format('svg');
 }
 
 .tabs {
@@ -71,7 +72,6 @@
 
 .tabs nav a span {
 	vertical-align: middle;
-	font-size: 0.75em;
 }
 
 .tabs nav li.tab-current a {

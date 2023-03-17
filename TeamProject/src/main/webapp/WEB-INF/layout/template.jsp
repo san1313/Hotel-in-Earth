@@ -40,50 +40,6 @@
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-            <style>
-                #noticePosts tr {
-                    height: 50px;
-                }
-
-                #noticePosts td {
-                    vertical-align: middle;
-                }
-                #noticePosts td:first-child{
-                border-left: 1px solid #ddd;
-                }
-                #noticePosts td:last-child{
-                border-right: 1px solid #ddd;
-                }
-
-                #noticePosts tbody:last-child {
-                    border-bottom: 1px solid #ddd;
-                }
-
-                #noticePosts th {
-                    text-align: center;
-                    vertical-align: middle;
-                    border-top: 1px solid #ddd;
-                }
-                #noticePosts th:first-child {
-                	border-left: 1px solid #ddd;
-                }
-                #noticePosts th:last-child{
-                border-right: 1px solid #ddd;
-                }
-
-
-                #noticePosts {
-                    margin-top: 20px;
-                    border: 1px;
-                    width:80%;
-                    margin-left: 10%;
-                }
-
-                #noticePosts .center {
-                    text-align: center;
-                }
-                
-            </style>
         </head>
 
         <body data-spy="scroll" data-target="#header">

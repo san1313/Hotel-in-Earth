@@ -1,5 +1,8 @@
 package co.prod.vo;
 
+import lombok.Data;
+
+@Data
 public class RoomsVO {
 //	ROOM_ID        NOT NULL NUMBER         
 //	ROOM_NAME               VARCHAR2(50)   

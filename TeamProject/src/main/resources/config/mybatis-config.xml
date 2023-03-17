@@ -11,6 +11,7 @@
 
 	<typeAliases>
 		<typeAlias type="co.prod.vo.PostsVO" alias="PostsVO" />
+		<typeAlias type="co.prod.vo.HotelsVO" alias="HotelsVO" />
 	</typeAliases>
 
 	<environments default="development">
@@ -27,5 +28,7 @@
 	<mappers>
 		<mapper resource="co/prod/mapper/PostsMapper.xml" />
 		<mapper resource="co/prod/mapper/Mapper.xml"/>
+		<mapper resource="co/prod/mapper/ManageHotelListMapper.xml" />
+		<mapper resource="co/prod/mapper/HotelFilterMapper.xml" />
 	</mappers>
 </configuration>
