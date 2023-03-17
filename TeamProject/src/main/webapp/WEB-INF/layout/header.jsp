@@ -29,10 +29,18 @@
                                     <li><a href="#event">event</a></li>
                                     <li><a href="#testimonial">testimonial</a></li>
                                     <li><a href="#blog">blog</a></li>
-                                    <li><a href="#contact">login</a></li>
-                                    <li><a href=""> 더보기 </a></li>
+                                    <%
+                                String email = (String) session.getAttribute("email");
+                                %>
+                                <%if(email ==null){ %>
+                                <li class="nav-item"><a class="nav-link" href="loginForm.do">로그인</a></li>
+                                <%} else{%>
+                                <li class="nav-item"><a class="nav-link" href="logout.do">로그아웃</a></li>
+                                <%} %>
+                                    <li><a href=""> 더보기 </a></li>                              
                                 </ul>
-                                <input type="button" value="팝업창" onclick="showPopup();"/>
+                                
+                                
                             </div>
                             <!-- /.navbar-collapse -->
                         </nav>

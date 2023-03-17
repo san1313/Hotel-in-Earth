@@ -9,8 +9,5 @@ public class ManageHotelModifyControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-
-		
 	}
-
 }
