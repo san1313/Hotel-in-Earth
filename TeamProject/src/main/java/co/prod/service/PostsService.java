@@ -12,5 +12,10 @@ public interface PostsService {
 	
 	//단건조회
 	public PostsVO getPost(int pid);
+	
+	//글 쓰기
 	public boolean writePost(PostsVO vo);
+	
+	//다음 작성할 글의 번호를 가져옴
+	public int getPostId();
 }

@@ -141,8 +141,11 @@
 													<label class="input__label input__label--yoshiko" for="postTitle">
 														<span class="input__label-content input__label-content--yoshiko" data-content="내용">내용</span>
 													</label>
-												</span> <br> <input type="hidden" id="postType" name="postType" value="Q"> <input type="hidden"
-													id="email" name="email" value="user1@email">
+												</span>
+												<br>
+												<input type="hidden" id="postType" name="postType" value="Q">
+												<input type="hidden" id="email" name="email" value="user1@email">
+												<input type="hidden" id="postNextId" name="postNextId" value="${postNextId }">
 												<!-- TODO 로그인시스템 만들어지면 내용 고칠것 -->
 												<button type="button" class="btn" id="writeBtn">제출</button>
 											</form>
@@ -248,7 +251,8 @@
 						let td = document.createElement('td');
 						let a = document.createElement('a');
 						a.innerText = post.postTitle;
-						a.href = 'viewPost.do?pid=' + post.postId;
+						let nextId = document.getElementById('postNextId').value;
+						a.href = 'viewPost.do?pid=' + nextId;
 						td.append(a);
 						tr.append(td);
 						td = document.createElement('td');

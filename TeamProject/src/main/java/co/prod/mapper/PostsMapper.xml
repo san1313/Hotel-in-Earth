@@ -26,5 +26,7 @@ order by post_writedate desc
 Insert into POSTS (POST_ID,POST_TYPE,POST_TITLE,POST_CONTENT,USER_EMAIL) values (posts_seq.nextval,#{postType},#{postTitle},#{postContent},#{userEmail})
   </insert>
   
-  <select id="getPostId"></select>
+  <select id="getPostId" resultType="int"> <!-- Sequence의 currval(현재값)을 가져옴 -->
+  SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'POSTS_SEQ'
+  </select>
 </mapper>

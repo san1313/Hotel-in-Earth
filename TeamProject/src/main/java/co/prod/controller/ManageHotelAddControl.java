@@ -23,7 +23,7 @@ public class ManageHotelAddControl implements Control {
 		String hotelCheckIn = request.getParameter("price");
 		String hotelCheckOut = request.getParameter("price");
 
-
+	}
 	}
 
 
