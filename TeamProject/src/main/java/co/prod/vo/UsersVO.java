@@ -12,7 +12,7 @@ public class UsersVO {
 //	USER_COUPON            VARCHAR2(300) 
 //	USER_LIKELIST          VARCHAR2(300) 
 	
-	String userName;
+	String userEmail;
 	String userPassword;
 	String userAuth;
 	String userNickname;

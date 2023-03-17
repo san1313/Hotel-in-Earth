@@ -22,7 +22,7 @@ public class MainPageListControl implements Control {
 		HotelFilterService service = new HotelFilterServiceImpl();
 		
 		List<HotelsVO> list = service.getHotelList();
-		
+		request.setAttribute("hotelList", list);
 		
 		
 		String path = "main_page/main_page.tiles";

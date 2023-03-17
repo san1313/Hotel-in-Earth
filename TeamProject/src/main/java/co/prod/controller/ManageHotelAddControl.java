@@ -17,7 +17,6 @@ public class ManageHotelAddControl implements Control {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
 		String hotelId = request.getParameter("hotelId");
 		String hotelLocation = request.getParameter("hotelLocation");
 		String hotelName = request.getParameter("hotelName");
@@ -28,6 +27,7 @@ public class ManageHotelAddControl implements Control {
 		String hotelPhoto = request.getParameter("hotelPhoto");
 		String hotelCheckIn = request.getParameter("hotelCheckIn");
 		String hotelCheckOut = request.getParameter("hotelCheckOut");
+
 
 		
 		
@@ -60,6 +60,7 @@ public class ManageHotelAddControl implements Control {
 //			else {
 //			request.getRequestDispatcher("WEB-INF/book/bookAddForm.jsp").forward(request, response);
 //		}
+
 	}
 
 }

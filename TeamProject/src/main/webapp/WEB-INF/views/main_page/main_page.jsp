@@ -51,8 +51,8 @@
 .img-list{
   float: left;
   border: 1px solid #ccc;
-  width: 100px;
-  height: 100px;
+  width: 1000px;
+  height: 1000px;
   background-color: #fff ;
 }
 
@@ -63,8 +63,11 @@
   background-color: #fff ;
 }
     
-    
-    
+.hotel-main-img{
+	width: 300px;
+	height: 240px;
+	
+	
     
     
     
@@ -158,26 +161,28 @@
         
 <div id="hotel-myBtnContainer" class="hotel-BtnContainer">
   <button class="hotel-btn active" onclick="filterSelection('all')"> hotel-Show all</button>
-  <button class="hotel-btn" onclick="filterSelection('cars')"> Cars</button>
+  <button class="hotel-btn" onclick="filterSelection('기상천외')"> Cars</button>
   <button class="hotel-btn" onclick="filterSelection('animals')"> Animals</button>
   <button class="hotel-btn" onclick="filterSelection('fruits')"> Fruits</button>
   <button class="hotel-btn" onclick="filterSelection('colors')"> Colors</button>
 </div>
 
 <div class="hotel-container">
-  <div class="hotel-filterDiv cars">BMW</div>
-  <div class="hotel-filterDiv colors fruits">Orange</div>
+	<c:forEach var="hotel" items="${hotelList }">
+  <div class="hotel-filterDiv ${hotel.hotelView }"><img src="resources/img/hotels/${hotel.hotelName}/${hotel.hotelPhoto}" class="hotel-main-img">${hotel.hotelName}, ${hotel.hotelAddress}</div>
+<!--   <div class="hotel-filterDiv colors fruits"><img src="resources/img/hotels/Marietta/Marietta07.jpg"></div>
   <div class="hotel-filterDiv cars">Volvo</div>
   <div class="hotel-filterDiv colors">Red</div>
   <div class="hotel-filterDiv cars animals">Mustang</div>
   <div class="hotel-filterDiv colors">Blue</div>
   <div class="hotel-filterDiv animals">Cat</div>
   <div class="hotel-filterDiv animals">Dog</div>
-  <div class="hotel-filterDiv fruits">Melon</div>
+<div class="hotel-filterDiv fruits">Melon</div>
   <div class="hotel-filterDiv fruits animals">Kiwi</div>
   <div class="hotel-filterDiv fruits">Banana</div>
   <div class="hotel-filterDiv fruits">Lemon</div>
-  <div class="hotel-filterDiv animals">Cow</div>
+  <div class="hotel-filterDiv animals">Cow</div> -->
+  </c:forEach>
 </div>
         
         
