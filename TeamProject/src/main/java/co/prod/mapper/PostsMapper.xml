@@ -23,6 +23,6 @@ order by rownum desc
   </select>
   
   <insert id="writePost" parameterType="PostsVO">
-Insert into POSTS (POST_ID,POST_TYPE,POST_TITLE,POST_CONTENT,USER_EMAIL) values (posts_seq.nextval,#{postType},#{postTitle},#{postContent},#{userEmail});
+Insert into POSTS (POST_ID,POST_TYPE,POST_TITLE,POST_CONTENT,USER_EMAIL) values (posts_seq.nextval,#{postType},#{postTitle},#{postContent},#{userEmail})
   </insert>
 </mapper>
