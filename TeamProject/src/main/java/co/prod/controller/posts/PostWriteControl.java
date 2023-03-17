@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.prod.common.Control;
+import co.prod.service.PostsService;
 import co.prod.service.PostsServiceImpl;
 import co.prod.vo.PostsVO;
 
@@ -23,7 +24,8 @@ public class PostWriteControl implements Control {
 		vo.setPostTitle(request.getParameter("title"));
 		vo.setPostContent(request.getParameter("content"));
 		vo.setUserEmail(request.getParameter("email"));
-		boolean result = new PostsServiceImpl().writePost(vo);
+		PostsService service = new PostsServiceImpl();
+		boolean result = service.writePost(vo);
 		Map<String, Object> map = new HashMap<>();
 		Gson gson = new GsonBuilder().create();
 		String json = "";
