@@ -17,6 +17,7 @@ public class ManageHotelListControl implements Control {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		List<HotelsVO> list = new ManagerHotelListServiceImpl().getHotelList();
 		request.setAttribute("managehotellist", list);
+		System.out.println(request.getAttribute("managehotellist"));
 		try {
 			request.getRequestDispatcher("WEB-INF/views/manager/manageHotelList.jsp").forward(request, response);
 		} catch (ServletException | IOException e) {
