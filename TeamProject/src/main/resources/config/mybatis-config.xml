@@ -27,6 +27,7 @@
 	</environments>
 	<mappers>
 		<mapper resource="co/prod/mapper/PostsMapper.xml" />
+		<mapper resource="co/prod/mapper/Mapper.xml"/>
 		<mapper resource="co/prod/mapper/ManageHotelListMapper.xml" />
 		<mapper resource="co/prod/mapper/HotelFilterMapper.xml" />
 	</mappers>
