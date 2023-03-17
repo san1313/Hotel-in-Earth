@@ -128,6 +128,26 @@
 												<!-- TODO 버튼 레이아웃 지정-->
 											</tbody>
 										</table>
+										<!-- Start Pagination -->
+										<ul class="pagination">
+											<c:if test="${pageQ.prev }">
+												<li><a href="postList.do?pageQ=${pageQ.startPage -1 }">&lt;</a></li>
+											</c:if>
+											<c:forEach var="i" begin="${pageQ.startPage }" end="${pageQ.endPage }">
+												<c:choose>
+													<c:when test="${i == pageQ.page}">
+														<li><a class="active" href="javascript:getPageList(${i }, 'Q')">${i }</a></li>
+													</c:when>
+													<c:otherwise>
+														<li><a href="javascript:getPageList(${i }, 'Q');">${i }</a></li>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>
+											<c:if test="${pageQ.next }">
+												<li><a href="postList.do?pageQ=${pageQ.endPage + 1 }"> &raquo;</a></li>
+											</c:if>
+										</ul>
+										<!-- End Pagination -->
 										<button class="accordion">글쓰기</button>
 										<div class="panel">
 											<form action="postWrite.do" method="post">
@@ -141,8 +161,11 @@
 													<label class="input__label input__label--yoshiko" for="postTitle">
 														<span class="input__label-content input__label-content--yoshiko" data-content="내용">내용</span>
 													</label>
-												</span> <br> <input type="hidden" id="postType" name="postType" value="Q"> <input type="hidden"
-													id="email" name="email" value="user1@email">
+												</span>
+												<br>
+												<input type="hidden" id="postType" name="postType" value="Q">
+												<input type="hidden" id="email" name="email" value="user1@email">
+												<input type="hidden" id="postNextId" name="postNextId" value="${postNextId }">
 												<!-- TODO 로그인시스템 만들어지면 내용 고칠것 -->
 												<button type="button" class="btn" id="writeBtn">제출</button>
 											</form>
@@ -217,65 +240,89 @@
 					})();
 
 					let writeBtn = document.getElementById('writeBtn').addEventListener('click', function () {
-						let tbody = this.parentElement.parentElement.parentElement.firstChild
-						console.log(tbody);
-						/*
-			
-			let title = document.querySelector('#postTitle').value;
-			let content = document.querySelector('#postContent').value;
-			let type = document.querySelector('#postType').value;
-			let email = document.querySelector('#email').value;
-			if (!title || !content) {
-				alert("값을 입력하세요");
-				return;
-			}
-			fetch('postWrite.do', {
-				method: 'post',
-				headers: { 'Content-type': 'application/x-www-form-urlencoded' },
-				body: 'title=' + title + '&content=' + content + '&type=' + type + '&email=' + email
-			})
-				.then(resolve => resolve.json())
-				.then(result => {
-					console.log(result);
-					if (result.retCode == 'Success') {
-						makeTr(result.post);
-						initField();
+						let tbody = this.parentElement.parentElement.parentElement.children[0].children[2]
+						let title = document.querySelector('#postTitle').value;
+						let content = document.querySelector('#postContent').value;
+						let type = document.querySelector('#postType').value;
+						let email = document.querySelector('#email').value;
+						if (!title || !content) {
+							alert("값을 입력하세요");
+							return;
+						}
+						fetch('postWrite.do', {
+							method: 'post',
+							headers: { 'Content-type': 'application/x-www-form-urlencoded' },
+							body: 'title=' + title + '&content=' + content + '&type=' + type + '&email=' + email
+						})
+							.then(resolve => resolve.json())
+							.then(result => {
+								console.log(result);
+								if (result.retCode == 'Success') {
+									makeTr(result.post, tbody);
+									initField();
+								}
+							})
+							.catch(reject => console.error(reject))
+					})
+
+
+					function makeTr(post = {}, list) {
+						let tr = document.createElement('tr');
+						let td = document.createElement('td');
+						let a = document.createElement('a');
+						a.innerText = post.postTitle;
+						let nextId = document.getElementById('postNextId').value;
+						a.href = 'viewPost.do?pid=' + nextId;
+						td.append(a);
+						tr.append(td);
+						td = document.createElement('td');
+						td.className = 'center';
+						let time = getTime();
+						td.innerText = time;
+						tr.append(td);
+						list.prepend(tr);
 					}
-				})
-				.catch(reject => console.error(reject))
-		})
 
-		function makeTr(post = {}) {
-			let tr = document.createElement('tr');
-			for (let prop in post) {
-				let td = document.createElement('td');
-				td.innerText = post[prop];
-				tr.append(td);
-			}
-			let delBtn = document.createElement('button'); // <button>삭제</button>
-			delBtn.innerText = '삭제';
-			delBtn.addEventListener('click', function () {
-				console.log(this);
-				let delId = this.parentElement.parentElement.children[0].innerText;
-				fetch('memberRemoveAjax.do', {
-					method: 'post',
-					headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, // key==val&key&val
-					body: 'id=' + delId
-				})
-					.then(resolve => resolve.json())
-					.then(result => {
-					})
-					.catch(reject => console.log(reject));
-			})
-			let td = document.createElement('td');
-			td.append(delBtn); // <td><button>삭제</button></td>
-			tr.append(td);
-			document.getElementById('postList').append(tr);
-		}
 
-		function initField() {
-			document.getElementById('postTitle').value = '';
-			document.getElementById('postContent').value = '';
-			*/
-					})
+					//글쓴후 필드를 비워줌
+					function initField() {
+						document.getElementById('postTitle').value = '';
+						document.getElementById('postContent').value = '';
+					}
+
+
+					//현재 시간 구하는 method
+					function getTime() {
+						var today = new Date();
+						let year = today.getFullYear();
+						let month = today.getMonth() + 1
+						month = month < 10 ? '0' + month : month;
+						let date = today.getDate();
+						date = date < 10 ? '0' + date : date;
+						let hours = today.getHours();
+						hours = hours < 10 ? '0' + hours : hours;
+						let minutes = today.getMinutes();
+						minutes = minutes < 10 ? '0' + minutes : minutes;
+						let seconds = today.getSeconds();
+						seconds = seconds < 10 ? '0' + seconds : seconds;
+						return year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds
+					}
+
+					function getPageList(page, QFN) {
+						fetch('postList.do', {
+							method: 'post',
+							headers: { 'Content-type': 'application/x-www-form-urlencoded' },
+							body: 'page' + QFN + '=' + page
+						})
+							.then(resolve => resolve.json())
+							.then(result => {
+								console.log(result);
+								if (result.retCode == 'Success') {
+									console.log(page)
+								}
+							})
+							.catch(reject => console.error(reject))
+					}
+
+
 				</script>

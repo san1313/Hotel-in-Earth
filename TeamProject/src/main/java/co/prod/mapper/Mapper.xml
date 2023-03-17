@@ -8,4 +8,9 @@
   <select id="login" parameterType="co.prod.vo.UsersVO" resultType="co.prod.vo.UsersVO">
     select * from users where user_email = #{userEmail} and user_password = #{userPassword}
   </select>
+  
+  <insert id="insertUser" parameterType="co.prod.vo.UsersVO">
+  insert into users(user_email, user_password, user_nickname)
+values(#{userEmail},#{userPassword},#{userNickname})
+  </insert>
 </mapper>
