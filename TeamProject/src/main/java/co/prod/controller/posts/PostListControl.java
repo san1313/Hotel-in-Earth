@@ -38,7 +38,6 @@ public class PostListControl implements Control {
 		Map<String, Object> map = new HashMap<>();
 		map.put("type", "Q");
 		map.put("page", page);
-		System.out.println(map);
 		List<PostsVO> tempList = service.postListPaging(map);
 		request.setAttribute("questions", tempList);
 		//글쓰기 ajax에 필요한 ID 
