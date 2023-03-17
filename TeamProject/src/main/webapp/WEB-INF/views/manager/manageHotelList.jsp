@@ -149,7 +149,7 @@
 					</tr>
 				</thead>
 				<c:forEach items="${managehotellist }" var="hotel">
-					<tr id='tr${hotel.hotelId }'>
+					<tr>
 						<td>${hotel.hotelPhoto }</td>
 						<td>${hotel.hotelId }</td>
 						<td>${hotel.hotelLocation }</td>
@@ -177,22 +177,15 @@
 			<div id="modal" class="modal-overlay">
 				<div class="modal-window">
 					<div class="title">
-						<h2>호텔정보수정</h2>
+						<h2>모달</h2>
 					</div>
 					<div class="close-area">X</div>
 					<div class="content">
-					
-					사진: <input type="text" name="hotelPhoto" id="modalPhoto"><br>
-					ID: <input type="text" name="hotelId" id="modalId"><br>
-					위치: <input type="text" name="hotelLocation" id="modalLocation"><br>
-					호텔명: <input type="text" name="hotelName" id="modalName"><br>
-					전화번호: <input type="text" name="hotelTel" id="modalTel"><br>
-					서비스: <textarea cols="20" rows="3" name="hotelService" id="modalService"></textarea> <br>
-					전망: <input type="text" name="hotelView" id="modalView"><br>
-					주소: <input type="text" name="hotelAddress" id="modalAddress"><br>
-					체크인: <input type="text" name="hotelCheckIn" id="modalCheckIn"><br>
-					체크아웃: <input type="text" name="hotelCheckOut" id="modalCheckOut"><br>
-					
+						<p>가나다라마바사 아자차카타파하</p>
+						<p>가나다라마바사 아자차카타파하</p>
+						<p>가나다라마바사 아자차카타파하</p>
+						<p>가나다라마바사 아자차카타파하</p>
+
 					</div>
 				</div>
 			</div>
@@ -230,26 +223,6 @@
 				let btnModals = document.querySelectorAll('#btn-modal');
 				btnModals.forEach(ele => {
 					ele.addEventListener("click", e => {
-						let td = ele.parentElement.parentElement.children[0].innerText;
-						document.getElementById('modalPhoto').value = td;
-						let td1 = ele.parentElement.parentElement.children[1].innerText;
-						document.getElementById('modalId').value = td1;
-						let td2 = ele.parentElement.parentElement.children[2].innerText;
-						document.getElementById('modalLocation').value = td2;
-						let td3 = ele.parentElement.parentElement.children[3].innerText;
-						document.getElementById('modalName').value = td3;
-						let td4 = ele.parentElement.parentElement.children[4].innerText;
-						document.getElementById('modalTel').value = td4;
-						let td5 = ele.parentElement.parentElement.children[5].innerText;
-						document.getElementById('modalService').value = td5;
-						let td6 = ele.parentElement.parentElement.children[6].innerText;
-						document.getElementById('modalView').value = td6;
-						let td8 = ele.parentElement.parentElement.children[8].innerText;
-						document.getElementById('modalAddress').value = td8;
-						let td9 = ele.parentElement.parentElement.children[9].innerText;
-						document.getElementById('modalCheckIn').value = td9;
-						let td10 = ele.parentElement.parentElement.children[10].innerText;
-						document.getElementById('modalCheckOut').value = td10;
 						modal.style.display = "flex"
 					})
 				})
@@ -271,9 +244,8 @@
 						modal.style.display = "none"
 					}
 				})
-				
 			</script>
-		</body>		
+		</body>
 
 
 
