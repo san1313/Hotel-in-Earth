@@ -1,6 +1,7 @@
 package co.prod.service;
 
 import java.util.List;
+import java.util.Map;
 
 import co.prod.vo.PostsVO;
 
@@ -18,4 +19,8 @@ public interface PostsService {
 	
 	//다음 작성할 글의 번호를 가져옴
 	public int getPostId();
+	
+	public int getTotalCount(String type);
+	
+	public List<PostsVO> postListPaging(Map<String, Object> map);
 }

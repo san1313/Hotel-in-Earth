@@ -128,6 +128,26 @@
 												<!-- TODO 버튼 레이아웃 지정-->
 											</tbody>
 										</table>
+										<!-- Start Pagination -->
+										<ul class="pagination">
+										<c:if test="${pageQ.prev }">
+												<li><a href="postList.do?pageQ=${pageQ.startPage -1 }">&lt;</a></li>
+											</c:if>
+											<c:forEach var="i" begin="${pageQ.startPage }" end="${pageQ.endPage }">
+												<c:choose>
+													<c:when test="${i == pageQ.page}">
+														<li><a class="active" href="postList.do?pageQ=${i }">${i }</a></li>
+													</c:when>
+													<c:otherwise>
+														<li><a href="postList.do?pageQ=${i }">${i }</a></li>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>
+											<c:if test="${pageQ.next }">
+												<li><a href="postList.do?pageQ=${pageQ.endPage + 1 }"> &raquo;</a></li>
+											</c:if>
+										</ul>
+										<!-- End Pagination -->
 										<button class="accordion">글쓰기</button>
 										<div class="panel">
 											<form action="postWrite.do" method="post">
