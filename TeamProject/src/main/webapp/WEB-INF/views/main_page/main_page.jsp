@@ -63,7 +63,11 @@
   background-color: #fff ;
 }
     
-
+.hotel-main-img{
+	width: 300px;
+	height: 240px;
+	
+	
     
     
     
@@ -165,19 +169,19 @@
 
 <div class="hotel-container">
 	<c:forEach var="hotel" items="${hotelList }">
-  <div class="hotel-filterDiv ${hotel.hotelView }"><img src="resources/img/hotels/Abiansermal/Abiansermal01.jpg">${hotel.hotelId}</div>
-  <div class="hotel-filterDiv colors fruits"><img src="resources/img/hotels/Marietta/Marietta07.jpg"></div>
+  <div class="hotel-filterDiv ${hotel.hotelView }"><img src="resources/img/hotels/${hotel.hotelName}/${hotel.hotelPhoto}" class="hotel-main-img">${hotel.hotelName}, ${hotel.hotelAddress}</div>
+<!--   <div class="hotel-filterDiv colors fruits"><img src="resources/img/hotels/Marietta/Marietta07.jpg"></div>
   <div class="hotel-filterDiv cars">Volvo</div>
   <div class="hotel-filterDiv colors">Red</div>
   <div class="hotel-filterDiv cars animals">Mustang</div>
   <div class="hotel-filterDiv colors">Blue</div>
   <div class="hotel-filterDiv animals">Cat</div>
   <div class="hotel-filterDiv animals">Dog</div>
-  <div class="hotel-filterDiv fruits">Melon</div>
+<div class="hotel-filterDiv fruits">Melon</div>
   <div class="hotel-filterDiv fruits animals">Kiwi</div>
   <div class="hotel-filterDiv fruits">Banana</div>
   <div class="hotel-filterDiv fruits">Lemon</div>
-  <div class="hotel-filterDiv animals">Cow</div>
+  <div class="hotel-filterDiv animals">Cow</div> -->
   </c:forEach>
 </div>
         
