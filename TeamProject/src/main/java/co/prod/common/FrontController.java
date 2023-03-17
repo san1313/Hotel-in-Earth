@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.prod.controller.MainPageListControl;
+import co.prod.controller.ManageHotelAddControl;
 //import co.prod.controller.ManageHotelAddControl;
 import co.prod.controller.ManageHotelListControl;
+import co.prod.controller.ManageHotelModifyControl;
 //import co.prod.controller.ManageHotelModifyControl;
 //import co.prod.controller.TestControl;
 import co.prod.controller.TestControl;
@@ -34,8 +36,8 @@ public class FrontController extends HttpServlet{
 		map.put("/postList.do", new PostListControl());
 		map.put("/mainpage.do", new MainPageListControl());
 		map.put("/manageHotelList.do", new ManageHotelListControl()); //관리자페이지 홈
-//		map.put("/manageHotelAdd.do", new ManageHotelAddControl()); //관리자페이지 호텔 추가
-//		map.put("/manageHotelModify", new ManageHotelModifyControl()); //관리자페이지 호텔 수정
+		map.put("/manageHotelAdd.do", new ManageHotelAddControl()); //관리자페이지 호텔 추가
+		map.put("/manageHotelModify", new ManageHotelModifyControl()); //관리자페이지 호텔 수정
 		map.put("/viewPost.do", new ViewPostControl());
 		map.put("/postWriteForm.do", new PostWriteFormControl());
 		map.put("/postWrite.do", new PostWriteControl());
