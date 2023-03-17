@@ -221,7 +221,7 @@
 				const modal = document.getElementById("modal")
 				const btnModal = document.getElementById("btn-modal")
 				let btnModals = document.querySelectorAll('#btn-modal');
-				btnModals.forEach(ele => {
+					.forEach(ele => {
 					ele.addEventListener("click", e => {
 						modal.style.display = "flex"
 					})
@@ -244,6 +244,13 @@
 						modal.style.display = "none"
 					}
 				})
+				
+				$(document).ready(function() {     
+        	$('#modifylist').on('show.bs.modal', function(event) {          
+        		hotelPhoto = $(event.relatedTarget).data('hotelPhoto');
+            
+        });
+    });
 			</script>
 		</body>
 
