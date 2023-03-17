@@ -17,17 +17,16 @@ public class ManageHotelAddControl implements Control {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
-		String hotelId = request.getParameter("hotelId");
-		String hotelLocation = request.getParameter("hotelLocation");
-		String hotelName = request.getParameter("hotelName");
-		String hotelTel = request.getParameter("hotelTel");
-		String hotelService = request.getParameter("hotelService");
-		String hotelView = request.getParameter("hotelView");
-		String hotelAddress = request.getParameter("hotelAddress");
-		String hotelPhoto = request.getParameter("hotelPhoto");
-		String hotelCheckIn = request.getParameter("hotelCheckIn");
-		String hotelCheckOut = request.getParameter("hotelCheckOut");
+		String hotelId = request.getParameter("code");
+		String hotelLocation = request.getParameter("author");
+		String hotelName = request.getParameter("title");
+		String hotelTel = request.getParameter("press");
+		String hotelService = request.getParameter("desc");
+		String hotelView = request.getParameter("price");
+		String hotelAddress = request.getParameter("price");
+		String hotelPhoto = request.getParameter("price");
+		String hotelCheckIn = request.getParameter("price");
+		String hotelCheckOut = request.getParameter("price");
 
 		
 		
@@ -60,6 +59,7 @@ public class ManageHotelAddControl implements Control {
 //			else {
 //			request.getRequestDispatcher("WEB-INF/book/bookAddForm.jsp").forward(request, response);
 //		}
+
 	}
 
 }
