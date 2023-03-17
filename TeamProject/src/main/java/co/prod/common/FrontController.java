@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.prod.control.LoginControl;
+import co.prod.control.LoginFormControl;
+import co.prod.control.LogoutControl;
 import co.prod.controller.MainPageListControl;
 import co.prod.controller.PostListControl;
 import co.prod.controller.TestControl;
@@ -26,6 +29,10 @@ public class FrontController extends HttpServlet{
 		map.put("/test.do", new TestControl()); // 삭제
 		map.put("/postList.do", new PostListControl());
 		map.put("/mainpage.do", new MainPageListControl());
+		map.put("/login.do", new LoginControl());
+		map.put("/loginForm.do", new LoginFormControl());
+		map.put("/logout.do", new LogoutControl());
+		
 	}
 	
 	@Override

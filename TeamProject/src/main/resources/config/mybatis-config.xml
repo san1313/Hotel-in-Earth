@@ -26,5 +26,6 @@
 	</environments>
 	<mappers>
 		<mapper resource="co/prod/mapper/PostsMapper.xml" />
+		<mapper resource="co/prod/mapper/Mapper.xml"/>
 	</mappers>
 </configuration>
