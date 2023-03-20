@@ -25,4 +25,15 @@ public class ServiceImpl implements Service {
 		return mapper.insertUser(vo) == 1;
 	}
 
+	@Override
+	public String getUser(UsersVO vo) {
+
+		return mapper.selectUser(vo);
+	}
+
+	@Override
+	public UsersVO search(String userEmail) {
+		return mapper.searchUser(userEmail);
+	}
+
 }

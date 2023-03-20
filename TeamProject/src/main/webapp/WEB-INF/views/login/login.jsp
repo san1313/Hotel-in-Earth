@@ -271,7 +271,7 @@ button.ghost {
                 -->
                 <input type="text" placeholder="Email" name="umail" required/>
                 <input type="password" placeholder="Password" name="upw" required/>
-                <a href="#">Forgot your password?</a>
+                <a href="findPwForm.do">Forgot your password?</a>
                 <button>Sign In</button>
             </form>
         </div>
@@ -312,6 +312,11 @@ container.classList.add('right-panel-active'));
 
 signInButton.addEventListener('click', () =>
 container.classList.remove('right-panel-active'));
+
+let msg = '${msg}';
+if(msg){
+	alert(msg);
+}
 </script>
 
 </body>
