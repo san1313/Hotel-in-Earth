@@ -1,10 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-		<!DOCTYPE html>
-		<html>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+	
+<jsp:include page="../../../includes/sidebar.jsp"></jsp:include>
+<jsp:include page="../../../includes/top.jsp"></jsp:include>
+		
 
-		<head>
+		
 			<style>
+			
+			.center {
+  text-align: center;
+}
 				th {
 					background-color: cadetblue;
 				}
@@ -107,10 +115,7 @@
 			</style>
 			<meta charset="UTF-8">
 			<title>hotel in earth 관리자 페이지</title>
-		</head>
 
-		<body>
-			<h1>관리자 페이지</h1>
 			<p>[호텔 관리]</p>
 
 			<button class="accordion">호텔추가</button>
@@ -155,7 +160,7 @@
 				</thead>
 				<c:forEach items="${managehotellist }" var="hotel">
 					<tr id='tr${hotel.hotelId }'>
-						<td>${hotel.hotelPhoto }</td>
+						<td><img src="Licin01.jpg" />${hotel.hotelPhoto }</td>
 						<td>${hotel.hotelId }</td>
 						<td>${hotel.hotelLocation }</td>
 						<td>${hotel.hotelName }</td>
@@ -320,8 +325,8 @@
 
 
 			</script>
-		</body>
+		<jsp:include page="../../../includes/footer.jsp"></jsp:include>
 
 
 
-		</html>
+		
