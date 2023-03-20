@@ -23,6 +23,7 @@ import co.prod.controller.ManageHotelModifyControl;
 //import co.prod.controller.ManageHotelModifyControl;
 //import co.prod.controller.TestControl;
 import co.prod.controller.TestControl;
+import co.prod.controller.hotelInfoForm;
 import co.prod.controller.posts.PostListControl;
 import co.prod.controller.posts.PostWriteControl;
 import co.prod.controller.posts.PostWriteFormControl;
@@ -38,8 +39,11 @@ public class FrontController extends HttpServlet{
 	public void init(ServletConfig config) throws ServletException {
 		enc = config.getInitParameter("encoding");
 		map.put("/test.do", new TestControl()); // 삭제
-		map.put("/postList.do", new PostListControl());
+		//메인페이지 및 호텔INFO [INKYU]
 		map.put("/mainpage.do", new MainPageListControl());
+		map.put("/hotelInfoForm.do", new hotelInfoForm());
+		
+		map.put("/postList.do", new PostListControl());
 		map.put("/login.do", new LoginControl());	// 로그인 등록처리
 		map.put("/loginForm.do", new LoginFormControl());	// 로그인 등록화면
 		map.put("/logout.do", new LogoutControl());	// 로그아웃

@@ -162,6 +162,26 @@ body {font-family: Verdana, sans-serif;}
 }
 
 /* 이미지필터 항목 끝 ! */
+
+
+.check-box{
+          margin: 0 auto;
+          margin-top: 30px;
+          text-align: center;
+          font-size: 30px;
+          font-family: Arial;
+        }
+        
+
+        input[type="checkbox"]{
+          
+          display: none;
+        }
+        input[type="checkbox"]{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        borde
 </style>
 
 
@@ -204,20 +224,33 @@ body {font-family: Verdana, sans-serif;}
 <!--이미지 필터 시작 !-->
 
     <div class="check-box">
+      <label for="checkbox-container">
       <input type="checkbox" class="hotel-check 인도네시아" id="인도네시아">
-      <label for="check1">인도네시아</label>
+      인도네시아</label>
+
+      <label for="checkbox-container">
       <input type="checkbox" class="hotel-check 필리핀" id="필리핀">
-      <label for="check2">필리핀</label>
-      <input type="checkbox" class="hotel-check test3" id="test3">
-      <label for="check3">test3 !</label>
+      필리핀</label>
+
+      <label for="checkbox-container">
+      <input type="checkbox" class="hotel-check 태국" id="태국">
+      태국</label>
+
+      <label for="checkbox-container">
+      <input type="checkbox" class="hotel-check 아랍에메리트" id="아랍에메리트">
+      아랍에메리트</label>
+
+      <label for="checkbox-container">
+      <input type="checkbox" class="hotel-check 프랑스" id="프랑스">
+      프랑스</label>
     </div>
 
 
 <div id="hotel-myBtnContainer" class="hotel-myBtnContainer">
       <button class="hotel-btn all active" > Show all</button>
       <button class="hotel-btn 기상천외" > 기상천외</button>
-      <button class="hotel-btn animals" > animals</button>
-      <button class="hotel-btn fruits" > fruits</button>
+      <button class="hotel-btn 보트" > 보트</button>
+      <button class="hotel-btn 도시" > 도시</button>
       <button class="hotel-btn colors" > Colors</button>
 </div>
 
