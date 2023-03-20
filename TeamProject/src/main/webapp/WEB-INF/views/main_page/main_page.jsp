@@ -139,6 +139,7 @@ body {font-family: Verdana, sans-serif;}
 .hotel-btn {
   border: none;
   outline: none;
+  height: 45px;
   padding: 12px 16px;
   background-color: #f1f1f1;
   cursor: pointer;
@@ -202,17 +203,27 @@ body {font-family: Verdana, sans-serif;}
 
 <!--이미지 필터 시작 !-->
 
-<div id="hotel-myBtnContainer" class="hotel-BtnContainer">
-  <button class="hotel-btn active" onclick="filterSelection('all')"> hotel-Show all</button>
-  <button class="hotel-btn" onclick="filterSelection('기상천외')"> 기상천외</button>
-  <button class="hotel-btn" onclick="filterSelection('도시')"> 도시</button>
-  <button class="hotel-btn" onclick="filterSelection('보트')"> 보트</button>
-  <button class="hotel-btn" onclick="filterSelection('colors')"> Colors</button>
+    <div class="check-box">
+      <input type="checkbox" class="hotel-check 인도네시아" id="인도네시아">
+      <label for="check1">인도네시아</label>
+      <input type="checkbox" class="hotel-check 필리핀" id="필리핀">
+      <label for="check2">필리핀</label>
+      <input type="checkbox" class="hotel-check test3" id="test3">
+      <label for="check3">test3 !</label>
+    </div>
+
+
+<div id="hotel-myBtnContainer" class="hotel-myBtnContainer">
+      <button class="hotel-btn all active" > Show all</button>
+      <button class="hotel-btn 기상천외" > 기상천외</button>
+      <button class="hotel-btn animals" > animals</button>
+      <button class="hotel-btn fruits" > fruits</button>
+      <button class="hotel-btn colors" > Colors</button>
 </div>
 
 <div class="hotel-container">
 	<c:forEach var="hotel" items="${hotelList }">
-  <div class="hotel-filterDiv ${hotel.hotelView }"><img src="resources/img/hotels/${hotel.hotelName}/${hotel.hotelPhoto}" class="hotel-main-img">${hotel.hotelName}, ${hotel.hotelAddress}</div>
+  <div class="hotel-filterDiv ${hotel.hotelView} ${hotel.hotelAddress}"><img src="resources/img/hotels/${hotel.hotelName}/${hotel.hotelPhoto}" class="hotel-main-img">${hotel.hotelName}, ${hotel.hotelAddress}</div>
 
   </c:forEach>
 </div>
@@ -251,14 +262,57 @@ body {font-family: Verdana, sans-serif;}
 
 <!-- /* 이미지필터 항목 시작 ! */ -->
     <script>
+        var hotelArrList = []
+      
+      var checkBtns = document.getElementsByClassName("hotel-check");
+
+      for(var i = 0; i< checkBtns.length; i++){
+        checkBtns[i].addEventListener("click", function(){
+
+          var btnArr1
+          btnArr1 = this.className.split(" ")[1]
+
+          let selectResult = btnArr1
+              btnArr1 = "#"  +btnArr1
+
+          let query = document.querySelector(btnArr1)
+          if(query.checked){
+          console.log("체크되었음")
+            hotelArrList.push(selectResult)
+            console.log(hotelArrList)
+
+        }else{
+          console.log("체크되어 있지 않음 ")
+          hotelArrList.splice(selectResult,1)
+          console.log(hotelArrList)
+
+        }
+    });
+}     
+    
+
+
         filterSelection("all")
         function filterSelection(c) {
           var x, i;
           x = document.getElementsByClassName("hotel-filterDiv");
+          // console.log(x)
+          // console.log(x[1].className)
+          // console.log(x[1].className.indexOf(c))
           if (c == "all") c = "";
           for (i = 0; i < x.length; i++) {
             w3RemoveClass(x[i], "hotel-show");
-            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "hotel-show");
+            if(hotelArrList.length > 0){
+                for(let j = 0; j<hotelArrList.length; j++){
+                    if (x[i].className.indexOf(c) > -1 && x[i].className.indexOf(hotelArrList[j]) > -1){
+                        console.log("HOTELARRLIST 데이터 감지! 필터작동됌 ! : " + hotelArrList.length + hotelArrList[j] + x[i].className)
+                    w3AddClass(x[i], "hotel-show");    
+                    }
+                        
+                }
+            }else{
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "hotel-show");
+            }
           }
         }
         
@@ -285,13 +339,19 @@ body {font-family: Verdana, sans-serif;}
         
         // Add active class to the current button (highlight it)
         var btnContainer = document.getElementById("hotel-myBtnContainer");
-        var btns = btnContainer.getElementsByClassName("btn");
+        var btns = btnContainer.getElementsByClassName("hotel-btn");
         for (var i = 0; i < btns.length; i++) {
           btns[i].addEventListener("click", function(){
             var current = document.getElementsByClassName("active");
             current[0].className = current[0].className.replace(" active", "");
             this.className += " active";
-          });
+          
+
+          var btnArr1
+            btnArr1 = this.className.split(" ")[1]
+            console.log(btnArr1 + " 테스트 중인 클래스 이름자르는 기능")
+            filterSelection(btnArr1);
+        });
         }
         </script>
 
