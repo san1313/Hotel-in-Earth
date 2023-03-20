@@ -76,3 +76,9 @@
 .pagination li:last-child a {
   border-radius: 0 40px 40px 0;
 }
+.listF .center {
+  display: none;
+}
+.listF td {
+  border-right: 1px solid #ddd;
+}

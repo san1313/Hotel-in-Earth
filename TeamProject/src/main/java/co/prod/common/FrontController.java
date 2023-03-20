@@ -23,6 +23,7 @@ import co.prod.controller.ManageHotelModifyControl;
 //import co.prod.controller.ManageHotelModifyControl;
 //import co.prod.controller.TestControl;
 import co.prod.controller.TestControl;
+import co.prod.controller.posts.PostListAjaxControl;
 import co.prod.controller.posts.PostListControl;
 import co.prod.controller.posts.PostWriteControl;
 import co.prod.controller.posts.PostWriteFormControl;
@@ -49,6 +50,7 @@ public class FrontController extends HttpServlet{
 		map.put("/viewPost.do", new ViewPostControl());
 		map.put("/postWriteForm.do", new PostWriteFormControl());
 		map.put("/postWrite.do", new PostWriteControl());
+		map.put("/postListAjax.do", new PostListAjaxControl());
 	}
 	
 	@Override
