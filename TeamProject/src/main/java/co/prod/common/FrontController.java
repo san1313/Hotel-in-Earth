@@ -20,6 +20,7 @@ import co.prod.controller.ManageHotelAddControl;
 //import co.prod.controller.ManageHotelAddControl;
 import co.prod.controller.ManageHotelListControl;
 import co.prod.controller.ManageHotelModifyControl;
+import co.prod.controller.ManageHotelRemoveControl;
 //import co.prod.controller.ManageHotelModifyControl;
 //import co.prod.controller.TestControl;
 import co.prod.controller.TestControl;
@@ -49,18 +50,22 @@ public class FrontController extends HttpServlet{
 		map.put("/viewPost.do", new ViewPostControl());
 		map.put("/postWriteForm.do", new PostWriteFormControl());
 		map.put("/postWrite.do", new PostWriteControl());
+		map.put("/manageHotelAdd.do", new ManageHotelAddControl());
+		map.put("/manageHotelRemove.do", new ManageHotelRemoveControl());
+		map.put("/manageHotelModify.do", new ManageHotelModifyControl());
+		
 	}
 	
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding(enc);
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding(enc);
 		// url - control 매칭.
-		String uri = req.getRequestURI();
-		String context = req.getContextPath();
+		String uri = request.getRequestURI();
+		String context = request.getContextPath();
 		String path = uri.substring(context.length());
 		System.out.println(path);
 		
 		Control sub = map.get(path);
-		sub.execute(req, resp);
+		sub.execute(request, response);
 	}
 }

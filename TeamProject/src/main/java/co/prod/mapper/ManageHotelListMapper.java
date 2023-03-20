@@ -8,4 +8,8 @@ public interface ManageHotelListMapper {
 	public List<HotelsVO> getHotelList();
 	
 	public int insertHotel(HotelsVO vo);
+	
+	public int deleteHotel(String hid);
+	
+	public int updateHotel(HotelsVO vo);
 }

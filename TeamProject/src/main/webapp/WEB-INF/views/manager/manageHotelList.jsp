@@ -115,7 +115,7 @@
 
 			<button class="accordion">호텔추가</button>
 			<div class="panel">
-				<form action="manageHotelAdd.do">
+				<form action="manageHotelAdd.do" method="post">
 					사진: <input type="text" name="hotelPhoto"><br>
 					ID: <input type="text" name="hotelId"><br>
 					위치: <input type="text" name="hotelLocation"><br>
@@ -129,10 +129,13 @@
 					<button class="addBtn" type="submit">추가하기</button>
 				</form>
 			</div>
+
 			<table>
+
 				<thead>
 
 					<tr>
+
 						<th>사진</th>
 						<th>ID</th>
 						<th>위치</th>
@@ -146,6 +149,8 @@
 						<th>체크아웃</th>
 						<th>찜목록</th>
 						<th class="mod">수정하기</th>
+						<th class="mod">삭제</th>
+						
 					</tr>
 				</thead>
 				<c:forEach items="${managehotellist }" var="hotel">
@@ -163,41 +168,71 @@
 						<td>${hotel.hotelCheckOut }</td>
 						<td>${hotel.hotelLike }</td>
 						<td><button id="btn-modal">호텔정보수정</button></td>
+						<td><button id="delBtn">삭제</button> </td>
 					</tr>
 
 				</c:forEach>
-
 			</table>
+
 			<!-- ===================================모달====================================== -->
-			<div id="container">
+			<form id="myFrm" action="manageHotelModify.do">
+				<div id="container">
 
 
-				<div id="lorem-ipsum"></div>
-			</div>
-			<div id="modal" class="modal-overlay">
-				<div class="modal-window">
-					<div class="title">
-						<h2>호텔정보수정</h2>
-					</div>
-					<div class="close-area">X</div>
-					<div class="content">
-					
-					사진: <input type="text" name="hotelPhoto" id="modalPhoto"><br>
-					ID: <input type="text" name="hotelId" id="modalId"><br>
-					위치: <input type="text" name="hotelLocation" id="modalLocation"><br>
-					호텔명: <input type="text" name="hotelName" id="modalName"><br>
-					전화번호: <input type="text" name="hotelTel" id="modalTel"><br>
-					서비스: <textarea cols="20" rows="3" name="hotelService" id="modalService"></textarea> <br>
-					전망: <input type="text" name="hotelView" id="modalView"><br>
-					주소: <input type="text" name="hotelAddress" id="modalAddress"><br>
-					체크인: <input type="text" name="hotelCheckIn" id="modalCheckIn"><br>
-					체크아웃: <input type="text" name="hotelCheckOut" id="modalCheckOut"><br>
-					
+					<div id="lorem-ipsum"></div>
+				</div>
+				<div id="modal" class="modal-overlay">
+					<div class="modal-window">
+						<div class="title">
+							<h2>호텔정보수정</h2>
+						</div>
+						<div class="close-area">X</div>
+						<div class="content">
+
+							ID: <input type="text" name="hotelId" id="modalId" readonly><br>
+							위치: <input type="text" name="hotelLocation" id="modalLocation"><br>
+							호텔명: <input type="text" name="hotelName" id="modalName" ><br>
+							전화번호: <input type="text" name="hotelTel" id="modalTel"><br>
+							서비스: <textarea cols="20" rows="3" name="hotelService" id="modalService"></textarea> <br>
+							전망: <input type="text" name="hotelView" id="modalView"><br>
+							주소: <input type="text" name="hotelAddress" id="modalAddress"><br>
+							<button id="modBtn">수정</button>
+						</div>
 					</div>
 				</div>
-			</div>
 
+
+			</form>
+
+			<form action="manageHotelRemove.do" method="post" id="deleteForm"></form>
 			<script>
+				document.querySelector('#modBtn').addEventListener('click', function (e) {
+					e.preventDefault();
+					let isOk = true;
+					let myFrm = document.querySelector('#myFrm')
+					let hotelId = document.querySelector('input[name="hotelId"]').value;
+					let hotelLocation = document.querySelector('input[name="hotelLocation"]').value;
+					let hotelName = document.querySelector('input[name="hotelName"]').value;
+					let hotelTel = document.querySelector('input[name="hotelTel"]').value;
+					let hotelService = document.querySelector('textarea[name="hotelService"]').textContent;
+					let hotelView = document.querySelector('input[name="hotelView"]').value;
+					let hotelAddress = document.querySelector('input[name="hotelAddress"]').value;
+
+					myFrm.append(document.querySelector('input[name="hotelId"]'));
+					myFrm.append(document.querySelector('input[name="hotelLocation"]'));
+					myFrm.append(document.querySelector('input[name="hotelName"]'));
+					myFrm.append(document.querySelector('input[name="hotelTel"]'));
+					myFrm.append(document.querySelector('textarea[name="hotelService"]'));
+					myFrm.append(document.querySelector('input[name="hotelView"]'));
+					myFrm.append(document.querySelector('input[name="hotelAddress"]'));
+					console.log(myFrm);
+
+					if (isOk) {
+						myFrm.submit();
+					}
+				})
+
+
 				var acc = document.getElementsByClassName("accordion");
 				var i;
 
@@ -230,8 +265,7 @@
 				let btnModals = document.querySelectorAll('#btn-modal');
 				btnModals.forEach(ele => {
 					ele.addEventListener("click", e => {
-						let td = ele.parentElement.parentElement.children[0].innerText;
-						document.getElementById('modalPhoto').value = td;
+
 						let td1 = ele.parentElement.parentElement.children[1].innerText;
 						document.getElementById('modalId').value = td1;
 						let td2 = ele.parentElement.parentElement.children[2].innerText;
@@ -246,10 +280,7 @@
 						document.getElementById('modalView').value = td6;
 						let td8 = ele.parentElement.parentElement.children[8].innerText;
 						document.getElementById('modalAddress').value = td8;
-						let td9 = ele.parentElement.parentElement.children[9].innerText;
-						document.getElementById('modalCheckIn').value = td9;
-						let td10 = ele.parentElement.parentElement.children[10].innerText;
-						document.getElementById('modalCheckOut').value = td10;
+
 						modal.style.display = "flex"
 					})
 				})
@@ -271,9 +302,25 @@
 						modal.style.display = "none"
 					}
 				})
-				
+
+
+				document.querySelector('#delBtn').addEventListener('click', function (e) {
+					e.preventDefault();
+
+					let delFrm = document.querySelector('#deleteForm');
+					let input = document.createElement('input');
+					input.type = 'hidden';
+					input.name='hotelId'
+					input.value= this.parentElement.parentElement.children[1].innerText;
+					delFrm.append(input);
+					// myFrm.action='manageHotelRemove.do';
+					//myFrm.setAttribute('action','manageHotelRemove.do');
+						delFrm.submit();
+				})
+
+
 			</script>
-		</body>		
+		</body>
 
 
 
