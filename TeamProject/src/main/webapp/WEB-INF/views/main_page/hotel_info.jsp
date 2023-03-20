@@ -234,7 +234,7 @@
             <hr>
             
             <br/><b style="font-size: 40px;">숙소 편의시설 (hotel_service)</b><br>정원 전망<br>산 전망<br>호수나 강과 인접<br>주방<br>무선 인터넷<br>
-
+											더보기 칸 만들겨
             <hr>
             <b style="font-size: 30px;"> CHECK IN : 16:00</b><br>
             <b style="font-size: 30px;"> CHECK OUT : 10:00</b>
