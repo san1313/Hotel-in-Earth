@@ -23,9 +23,10 @@ public class MainPageListControl implements Control {
 		
 		List<HotelsVO> list = service.getHotelList();
 		request.setAttribute("hotelList", list);
+//		"main_page/main_page.jsp"
+//		"WEB-INF/views/main_page/main_page.jsp"
 		
-		
-		String path = "main_page/main_page.tiles";
+		String path = "WEB-INF/views/main_page/main_page.jsp";
 		try {
 			request.getRequestDispatcher(path).forward(request, response);
 		} catch (ServletException | IOException e) {
