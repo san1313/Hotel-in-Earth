@@ -1,3 +1,5 @@
+<%@page import="co.prod.vo.HotelsVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -8,6 +10,7 @@
 
 <head>
 <meta charset="UTF-8">
+
 
 <!-- 이곳 부터 갈아 엎으면서 메모장에 뺵업합니다. -->
 <style>
@@ -256,7 +259,7 @@ body {font-family: Verdana, sans-serif;}
 
 <div class="hotel-container">
 	<c:forEach var="hotel" items="${hotelList }">
-  <div class="hotel-filterDiv ${hotel.hotelView} ${hotel.hotelAddress}"><img src="resources/img/hotels/${hotel.hotelName}/${hotel.hotelPhoto}" class="hotel-main-img">${hotel.hotelName}, ${hotel.hotelAddress}</div>
+  <div class="hotel-filterDiv ${hotel.hotelView} ${hotel.hotelAddress}"><a href="hotelInfoForm.do?hotel-id=${hotel.hotelId}" id=""><img src="resources/img/hotels/${hotel.hotelName}/${hotel.hotelPhoto}" class="hotel-main-img">${hotel.hotelName}, ${hotel.hotelAddress}</a></div>
 
   </c:forEach>
 </div>

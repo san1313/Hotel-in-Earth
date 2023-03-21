@@ -22,6 +22,16 @@ public class MainPageListControl implements Control {
 		HotelFilterService service = new HotelFilterServiceImpl();
 		
 		List<HotelsVO> list = service.getHotelList();
+		for(int i=0; i<list.size(); i++) {
+			HotelsVO testVO = list.get(i);
+			testVO.setHotelPhoto((list.get(i).getHotelPhoto().split("\\+"))[0]);
+			testVO.setHotelView((list.get(i).getHotelView().split("\\+"))[0]);
+			list.set(i, testVO);
+		}
+		
+		for(HotelsVO i : list) {
+			System.out.println("Photo의 값은 1개 이여야 합니다: "+i);
+		}
 		request.setAttribute("hotelList", list);
 //		"main_page/main_page.tiles"
 //		"WEB-INF/views/main_page/main_page.jsp"

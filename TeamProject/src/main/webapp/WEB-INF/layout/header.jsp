@@ -15,7 +15,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="navbar-brand custom_navbar-brand" href="#"><img src="resources/test_img/logo.png" alt=""></a>
+                                <a class="navbar-brand custom_navbar-brand" href="mainpage.do"><img src="resources/test_img/logo.png" alt=""></a>
                             </div>
                             <!--End of navbar-header-->
 

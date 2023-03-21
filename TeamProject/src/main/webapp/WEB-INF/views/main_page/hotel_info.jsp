@@ -5,17 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="resources/css/mainpage/mobiscroll.javascript.min.css">
+<script src="resources/js/mainpage/mobiscroll.javascript.min.js"></script>
 
 <style>
     .hotel-info-container {
       font-family: Arial;
       margin: 0 auto;
       width: 1350px;
-      border: #222 solid 1px;
+      /* border: #222 solid 1px; */
       
     }
     
     hr{
+        border: 1px solid black;
         opacity: 0.5;
     }
     
@@ -124,26 +128,90 @@
     
     /* text area 입니다 ! */
     .into-text-area{
-        margin: 30px auto;
-        width: 1200px;
+        margin: 70px 0px;
+        width: 1350px;
         overflow: hidden;
         
     }
     
     .info-text{
+        margin-left: 20px;
         float: left;
-        width: 775px;
-        border: red 1px solid;
-        font-size: 30px;
+        width: 800px;
+        /* border: red 1px solid; */
+        font-size: 25px;
         
+    }
+
+    /* info중 긴거 */
+    .long-info{
+        height: 250px;
+        width: 600px;
+        margin-left: 40px;
+        overflow: scroll;
     }
     
     .calendar{
-        float: left;
-        margin-left: 30px;
-        width: 350px;
-        border: blue 1px solid;
+        float: right;
+        /* margin-left: 60px; */
+        width: 430px;
+        /* border: blue 1px solid; */
+        font-size: 25px;
+        text-align: center;
+        
+        
     }
+
+    /* 버튼 */
+
+    button.reservation{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        
+        margin: 10px 0;
+        
+        padding: 0.5rem 1rem;
+
+        font-family: "Noto Sans KR", sans-serif;
+        font-size: 30px;
+        font-weight: 400;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+
+        display: inline-block;
+        width: 300px;
+        height: 84px;
+
+        border: none;
+        border-radius: 14px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+        cursor: pointer;
+
+        transition: 0.5s;
+        
+    }
+    button.reservation:active,
+    button.reservation:hover,
+    button.reservation:focus {
+    background: var(--button-hover-bg-color);
+    outline: 0;
+    }
+    .calendar button:disabled {
+    opacity: 0.5;
+    }
+
+    button{
+        background: var(--button-bg-color);
+        color: var(--button-color)
+    }
+    button{
+        --button-hover-bg-color: #5dd036 ;
+        --button-bg-color: #5fb342;
+    }
+    
     
     /* 구글Maps 관련! 관계자외 접근금지 !!!! */
     #map {
@@ -153,69 +221,81 @@
       height: 550px;
     }
     
+     /* 캘린더 피커 작성 */
+    input.md-mobile-picker-input {
+        color: initial;
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0 12px 0;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        font-family: arial, verdana, sans-serif;
+        font-size: 14px;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+    }
+    
     </style>
-</head>
 <body>
+
 <div class="hotel-info-container">
     <div class="info-title">
-        <h1>제목</h1>
+        <h1>${hotelInfo.hotelName}, ${hotelInfo.hotelAddress}</h1>
         
     </div>
-
-        <h2 style="text-align:center">Slideshow Gallery</h2>
         
     <div class="info-container">
         
     <div class="mySlides">
         <div class="numbertext">1 / 5</div>
-        <img src="jpg/Abiansermal/Abiansermal01.jpg">
+        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[0]}">
     </div>
 
     <div class="mySlides">
         <div class="numbertext">2 / 5</div>
-        <img src="jpg/Abiansermal/Abiansermal02.jpg" >
+        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[1]}" >
     </div>
 
     <div class="mySlides">
         <div class="numbertext">3 / 5</div>
-        <img src="jpg/Abiansermal/Abiansermal03.jpg" >
+        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[2]}" >
     </div>
         
     <div class="mySlides">
         <div class="numbertext">4 / 5</div>
-        <img src="jpg/Abiansermal/Abiansermal04.jpg" >
+        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[3]}" >
     </div>
 
     <div class="mySlides">
         <div class="numbertext">5 / 5</div>
-        <img src="jpg/Abiansermal/Abiansermal05.jpg">
+        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[4]}">
     </div>
     
     
     <div class="row">
         <div class="column">
-        <img class="demo cursor" src="jpg/Abiansermal/Abiansermal01.jpg" onclick="currentSlide(1)" alt="The Woods">
+        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[0]}" onclick="currentSlide(1)" alt="The Woods">
         </div>
         <div class="column">
-        <img class="demo cursor" src="jpg/Abiansermal/Abiansermal02.jpg" onclick="currentSlide(2)" alt="Cinque Terre">
+        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[1]}" onclick="currentSlide(2)" alt="Cinque Terre">
         </div>
         <div class="column">
-        <img class="demo cursor" src="jpg/Abiansermal/Abiansermal03.jpg" onclick="currentSlide(3)" alt="Mountains and fjords">
+        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[2]}" onclick="currentSlide(3)" alt="Mountains and fjords">
         </div>
         <div class="column">
-        <img class="demo cursor" src="jpg/Abiansermal/Abiansermal04.jpg" onclick="currentSlide(4)" alt="Northern Lights">
+        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[3]}" onclick="currentSlide(4)" alt="Northern Lights">
         </div>
         <div class="column">
-        <img class="demo cursor" src="jpg/Abiansermal/Abiansermal05.jpg" onclick="currentSlide(5)" alt="Nature and sunrise">
+        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[4]}" onclick="currentSlide(5)" alt="Nature and sunrise">
         </div>    
     </div>
     </div>
 
-<div class="into-text-area">
+    <div class="into-text-area">
 
         <div class="info-text">
 
-            <p><b style="font-size: 40px;">성훈 님이 호스팅하는 펜션</b><br>
+            <p><b style="font-size: 40px;">${hotelInfo.hostName} 님이 호스팅하는 펜션</b><br>
                 최대 인원 6명·침실 3개·침대 3개·욕실 3개</p>
 
             <hr>
@@ -225,16 +305,11 @@
             <br/>객실전망,전경
 
             <hr>
-            <br/><p class="long-info">영월의 스테이하우스는 커플이 프라이빗하게 쉬기 좋은 객실입니다.
-            별도의 출입문 계단이 있는 2층 전체를 사용합니다.
-            창밖으로 보이는 주변 뷰와 예쁜 정원이 아름답고, 창밖으로 들리는 계곡물소리와 지저귀는 새소리 그리고 맑은 공기는 도시에서 지친 마음에 휴식을 주며, 매일 청결하게 관리하는 침구는 편안한 잠자리를 제공합니다.
-            김삿갓계곡의 외씨버선길과 가깝고 숙소 바로 앞에는 아름다운 계곡이 흐르고 있습니다.
-            객실에서는 Marshall 스피커로 감미로운 음악과 함께 빔 프로젝터로 보다 실감나고 편하게 영화를 감상하실 수 있으며, 해질녘에는 아름다운 정원의 해먹에 누워 자연속에서 재충전의 시간을 가져보세요~
-            + 예약가능인원: 성인 2명(영월 스테이하우스는 노키즈존으로 운영됩니다.)</p>
-            <hr>
+            <br/><p class="long-info">${hotelInfo.hotelMemo}</p>
+            더보기 칸 만들겨<hr>
             
             <br/><b style="font-size: 40px;">숙소 편의시설 (hotel_service)</b><br>정원 전망<br>산 전망<br>호수나 강과 인접<br>주방<br>무선 인터넷<br>
-
+                
             <hr>
             <b style="font-size: 30px;"> CHECK IN : 16:00</b><br>
             <b style="font-size: 30px;"> CHECK OUT : 10:00</b>
@@ -249,12 +324,21 @@
         </div>
 
         <div class="calendar">
-            날자 설정 구역 !!
-            <br>별점
-            <br>1박 당 금액
-            <br>체크 인/아웃 시간
+            <br><p style="margin-right:80px ;"><b style="font-size: 30px;">￦${hotelInfo.hotelPrice}</b> /박</p>
+            <br><div style="margin-right:200px ;">★4.0</div>
             <br>인원수 체크 <br>
-            <br>[예약버튼]
+           <br>
+            <div style="height:100%">
+              <div class="mbsc-grid">
+                <div class="mbsc-row">
+                    <div class="mbsc-col-12">
+                        <input id="demo-mobile-picker-input" class="md-mobile-picker-input" placeholder="Please Select..." />
+                    </div>
+                  </div>
+                </div>
+             </div>
+            <button class="reservation" ><b>예약하기</b></button>
+            <p>예약 확정 전에는 요금이 <br>청구되지 않습니다.</p>
         
         </div>
         
@@ -270,7 +354,7 @@
         <div id="map"></div>
         
     </div>
-</div>  <!-- hotel-info-container -->
+</div>   <!-- hotel-info-container -->
 
 
 
@@ -332,6 +416,53 @@ function initMap() {
 window.initMap = initMap;
 
 </script>
+
+
+<!-- 캘린더 피커 작성 -->
+<script>
+   
+    
+  var now = new Date(),
+      week = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 6);
+  
+  mobiscroll.datepicker('#demo-mobile-picker-input', {
+      controls: ['calendar'],       // More info about controls: https://docs.mobiscroll.com/5-22-2/javascript/range#opt-controls
+      select: 'range',              // More info about select: https://docs.mobiscroll.com/5-22-2/javascript/range#methods-select
+      showRangeLabels: true
+  });
+  
+  var instance = mobiscroll.datepicker('#demo-mobile-picker-button', {
+      controls: ['calendar'],       // More info about controls: https://docs.mobiscroll.com/5-22-2/javascript/range#opt-controls
+      select: 'range',              // More info about select: https://docs.mobiscroll.com/5-22-2/javascript/range#methods-select
+      showRangeLabels: true,
+      showOnClick: false,           // More info about showOnClick: https://docs.mobiscroll.com/5-22-2/javascript/range#opt-showOnClick
+      showOnFocus: false,           // More info about showOnFocus: https://docs.mobiscroll.com/5-22-2/javascript/range#opt-showOnFocus
+  });
+  
+  instance.setVal([now, week]);
+  
+  mobiscroll.datepicker('#demo-mobile-picker-mobiscroll', {
+      controls: ['calendar'],       // More info about controls: https://docs.mobiscroll.com/5-22-2/javascript/range#opt-controls
+      select: 'range',              // More info about select: https://docs.mobiscroll.com/5-22-2/javascript/range#methods-select
+      showRangeLabels: true
+  });
+  
+  var inlineInst = mobiscroll.datepicker('#demo-mobile-picker-inline', {
+      controls: ['calendar'],       // More info about controls: https://docs.mobiscroll.com/5-22-2/javascript/range#opt-controls
+      select: 'range',              // More info about select: https://docs.mobiscroll.com/5-22-2/javascript/range#methods-select
+      showRangeLabels: true,
+      display: 'inline',            // Specify display mode like: display: 'bottom' or omit setting to use default
+  });
+  
+  inlineInst.setVal([now, week]);
+  
+  document
+      .getElementById('show-mobile-date-picker')
+      .addEventListener('click', function () {
+          instance.open();
+          return false;
+      });
+  </script>
 
 </body>
 </html>

@@ -23,6 +23,7 @@ import co.prod.controller.ManageHotelModifyControl;
 //import co.prod.controller.ManageHotelModifyControl;
 //import co.prod.controller.TestControl;
 import co.prod.controller.TestControl;
+import co.prod.controller.hotelInfoControl;
 import co.prod.controller.hotelInfoForm;
 import co.prod.controller.posts.PostListControl;
 import co.prod.controller.posts.PostWriteControl;
