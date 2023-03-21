@@ -18,14 +18,20 @@ public class hotelInfoForm implements Control {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		
-//		HotelFilterService service = new HotelFilterServiceImpl();
+		String hotelId = request.getParameter("hotel-id");
+		System.out.println(hotelId + "데이터를 출력해줄 단일id파라메터");
+		HotelFilterService service = new HotelFilterServiceImpl();
 		
-//		List<HotelsVO> list = service.getHotelList();
-//		request.setAttribute("hotelList", list);
-//		"main_page/main_page.tiles"
-//		"WEB-INF/views/main_page/main_page.jsp"
+		HotelsVO hotelInfo = service.getHotelInfo(hotelId);
+		System.out.println(hotelInfo);
+		String[] hotelPhotoList = (hotelInfo.getHotelPhoto().split("\\+"));
+				
+		request.setAttribute("hotelInfo", hotelInfo);
+		request.setAttribute("hotelPhoto", hotelPhotoList);
+//		"main_page/hotel_info.tiles"
+//		"WEB-INF/views/main_page/hotel_info.jsp"
 		
-		String path = "main_page/hotel_info.tiles";
+		String path = "WEB-INF/views/main_page/hotel_info.jsp";
 		try {
 			request.getRequestDispatcher(path).forward(request, response);
 		} catch (ServletException | IOException e) {
