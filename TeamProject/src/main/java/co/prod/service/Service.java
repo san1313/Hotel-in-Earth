@@ -16,7 +16,8 @@ public interface Service {
 	public String getUser(UsersVO vo);
 	
 	// 
-	public UsersVO search(String userEmail);
+	public UsersVO searchE(UsersVO vo);
 	
+	public UsersVO searchN(String userNickname);
 //	이메일 
 }

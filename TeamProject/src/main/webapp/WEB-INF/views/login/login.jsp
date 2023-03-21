@@ -251,6 +251,7 @@ button.ghost {
                 </div>
                 <span>or use your email for registration</span>
                 <input type="email" placeholder="Email" name="umail" required/>
+                <input type="button" value="중복확인" class="dup" onclick="winopen()" style="WIDTH: 60pt";><br>
                 <input type="password" placeholder="Password" name="upw" required/>
                 <input type="text" placeholder="NickName" name="uname" required/>
                 <button>Sign Up</button>
@@ -302,7 +303,17 @@ button.ghost {
 		</div>
 	</div>
 	
+	
+	
 <script>
+
+let passwd = '${passwdResult}';
+if(passwd != "") {
+	alert(passwd);
+	passwd = "";
+}
+
+
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');

@@ -100,7 +100,9 @@
         </section>
 
     </div>
-
+<script>
+	
+</script>
     <!-- JS -->
     <script src="resources/vendor/login/jquery/jquery.min.js"></script>
     <script src="resources/js/login/main.js"></script>
