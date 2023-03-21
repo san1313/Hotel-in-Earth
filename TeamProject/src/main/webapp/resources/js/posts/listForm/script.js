@@ -151,6 +151,12 @@ function getPageList(page, QFN) { // ajax로 리스트 불러오기
 				let td = document.createElement('td');
 				let a = document.createElement('a');
 				a.innerText = result.list[i].postTitle;
+				if(result.list[i].postResponse == 'Y'){
+					let span = document.createElement('span');
+					span.className="responseY";
+					span.innerText="답변완료";
+					a.append(span);
+					}
 				a.href = 'viewPost.do?pid=' + result.list[i].postId;
 				td.append(a);
 				tr.append(td);

@@ -82,3 +82,14 @@
 .listF td {
   border-right: 1px solid #ddd;
 }
+.table td a {
+	display: block;
+	width: 100%;
+	line-height: 2.5em;
+}
+.responseY{
+	background-color: #04AA6D;
+	color: white;
+	margin-left:5px;
+	font-size: 0.8em;
+}

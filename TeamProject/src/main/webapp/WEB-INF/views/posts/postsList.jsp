@@ -90,6 +90,7 @@
 											</c:if>
 										</ul>
 										<!-- End Pagination -->
+										<c:if test="${userVO.userAuth == 'M'}">
 										<button class="accordion">글쓰기</button>
 										<div class="panel">
 											<form action="postWrite.do" method="post">
@@ -106,12 +107,13 @@
 												</span>
 												<br>
 												<input type="hidden" id="postType" name="postType" value="N">
-												<input type="hidden" id="email" name="email" value="user1@email">
+												<input type="hidden" id="email" name="email" value="${email }">
 												<input type="hidden" id="postNextId" name="postNextId" value="${postNextId }">
 												<!-- TODO 로그인시스템 만들어지면 내용 고칠것 -->
 												<button type="button" class="btn" id="writeBtn">제출</button>
 											</form>
 										</div>
+										</c:if>
 									</div>
 								</section>
 								<section id="section-bar-2">
@@ -154,6 +156,7 @@
 											</c:if>
 										</ul>
 										<!-- End Pagination -->
+										<c:if test="${userVO.userAuth == 'M'}">
 										<button class="accordion">글쓰기</button>
 										<div class="panel">
 											<form action="postWrite.do" method="post">
@@ -170,12 +173,12 @@
 												</span>
 												<br>
 												<input type="hidden" id="postType" name="postType" value="F">
-												<input type="hidden" id="email" name="email" value="user1@email">
+												<input type="hidden" id="email" name="email" value="${email }">
 												<input type="hidden" id="postNextId" name="postNextId" value="${postNextId }">
-												<!-- TODO 로그인시스템 만들어지면 내용 고칠것 -->
 												<button type="button" class="btn" id="writeBtn">제출</button>
 											</form>
 										</div>
+										</c:if>
 									</div>
 								</section>
 								<section id="section-bar-3">
@@ -195,7 +198,9 @@
 											<tbody class="listQ">
 												<c:forEach items="${questions}" var="post">
 													<tr>
-														<td><a href="viewPost.do?pid=${post.postId }">${post.postTitle}</a></td>
+														<td><a href="viewPost.do?pid=${post.postId }">${post.postTitle}
+														<c:if test="${post.postResponse == 'Y'}"><span class="responseY">답변완료</span></c:if>
+														</a></td>
 														<td class="center">
 															<fmt:formatDate value="${post.postWriteDate }" type="both"
 																pattern="yyyy-MM-dd HH:mm:ss" />
@@ -240,9 +245,8 @@
 												</span>
 												<br>
 												<input type="hidden" id="postType" name="postType" value="Q">
-												<input type="hidden" id="email" name="email" value="user1@email">
+												<input type="hidden" id="email" name="email" value="${email }">
 												<input type="hidden" id="postNextId" name="postNextId" value="${postNextId }">
-												<!-- TODO 로그인시스템 만들어지면 내용 고칠것 -->
 												<button type="button" class="btn" id="writeBtn">제출</button>
 											</form>
 										</div>

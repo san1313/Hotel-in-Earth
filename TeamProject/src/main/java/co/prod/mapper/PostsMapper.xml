@@ -38,7 +38,7 @@
 
 	<select id="getTotalCount" resultType="int"
 		parameterType="String">
-		select count(*) from posts where post_type = '${type}'
+		select count(*) from posts where post_type = '${type}' and post_requestid is null
 	</select>
 	
 	  <select id="postListPaging" resultType="PostsVO" parameterType="hashMap">
@@ -47,5 +47,9 @@
     from(select rownum rn, post_id, post_response, post_title, post_content, post_writedate, user_email from(select * from posts where post_type = '${type}' and post_requestid is null order by post_id desc)a where rownum <= #{page}*10)b
     where b.rn > (#{page}-1)*10
 ]]>
+  </select>
+  
+  <select id="getPostResponse" parameterType="String">
+  select * from posts where post_requestid = ${pid}
   </select>
 </mapper>

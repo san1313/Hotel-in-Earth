@@ -22,6 +22,8 @@ public interface PostsMapper {
 	//페이징
 	//포스트 개수 가져오기
 	public int getTotalCount(String type);
-	//Question 페이징 list
+	//페이징 list
 	public List<PostsVO> postListPaging(Map<String, Object> map);
+	//답변 가져오기
+	public PostsVO getPostResponse(int pid);
 }

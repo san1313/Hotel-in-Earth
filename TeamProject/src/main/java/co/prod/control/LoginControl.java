@@ -30,6 +30,7 @@ public class LoginControl implements Control {
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("email", vo.getUserEmail());
+		session.setAttribute("userVO", vo);
 		
 		try {
 			response.sendRedirect("test.do");

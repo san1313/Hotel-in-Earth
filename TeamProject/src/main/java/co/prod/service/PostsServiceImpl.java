@@ -55,4 +55,9 @@ public class PostsServiceImpl implements PostsService{
 		
 		return mapper.postListPaging(map);
 	}
+	@Override
+	public PostsVO getPostResponse(int pid) {
+		
+		return mapper.getPostResponse(pid);
+	}
 }
