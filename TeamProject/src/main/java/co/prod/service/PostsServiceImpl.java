@@ -60,4 +60,9 @@ public class PostsServiceImpl implements PostsService{
 		
 		return mapper.getPostResponse(pid);
 	}
+	@Override
+	public boolean postResponseUpdate(int pid) {
+		
+		return mapper.postResponseUpdate(pid) == 1;
+	}
 }

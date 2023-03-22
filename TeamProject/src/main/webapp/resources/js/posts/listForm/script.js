@@ -182,3 +182,18 @@ function getPageList(page, QFN) { // ajax로 리스트 불러오기
 		})
 		.catch(reject => console.error(reject))
 }
+
+var coll = document.getElementsByClassName("collapsible");
+var iiiii;
+
+for (iiiii = 0; iiiii < coll.length; iiiii++) {
+  coll[iiiii].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}

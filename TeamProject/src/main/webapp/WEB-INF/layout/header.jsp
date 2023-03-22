@@ -23,7 +23,7 @@
                             <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right main_menu">
                                     <li class="active"><a href="#header">Home <span class="sr-only">(current)</span></a></li>
-                                    <li><a href="#welcome">about</a></li>
+                                    <li><a href="postList.do">about</a></li>
                                     <li><a href="#portfolio">project</a></li>
                                     <li><a href="#counter">achivment</a></li>
                                     <li><a href="#event">event</a></li>

@@ -26,4 +26,6 @@ public interface PostsMapper {
 	public List<PostsVO> postListPaging(Map<String, Object> map);
 	//답변 가져오기
 	public PostsVO getPostResponse(int pid);
+	//답변완료로 변경
+	public int postResponseUpdate(int pid);
 }

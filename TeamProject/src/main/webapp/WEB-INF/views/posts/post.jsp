@@ -32,7 +32,7 @@
 					}
 
 					#container {
-						width: 70%;
+						width: 60%;
 						margin: 0 auto;
 					}
 
@@ -98,10 +98,50 @@
 										</c:if>
 								</tbody>
 							</table>
+							<c:if test="${userVO.userAuth == 'M' && postResponse == null && post.postType == 'Q'}">
+										<button class="accordion">글쓰기</button>
+										<div class="panel">
+											<form action="postWriteNotAjax.do" method="post">
+												<span class="input input--yoshiko" style="display:none"> <input class="input__field input__field--yoshiko"
+														type="text" id="postTitle" name="title" value="Response"/> <label class="input__label input__label--yoshiko"
+														for="postTitle">
+														<span class="input__label-content input__label-content--yoshiko" data-content="제목">제목</span>
+													</label>
+												</span> <br> <span class="input input--yoshiko"> <textarea
+														class="input__field input__field--yoshiko" id="postContent" name="content"></textarea>
+													<label class="input__label input__label--yoshiko" for="postContent">
+														<span class="input__label-content input__label-content--yoshiko" data-content="내용">내용</span>
+													</label>
+												</span>
+												<br>
+												<input type="hidden" id="postType" name="type" value="Q">
+												<input type="hidden" id="email" name="email" value="${email }">
+												<input type="hidden" id="postNextId" name="postNextId" value="${postNextId }">
+												<input type="hidden" id="postRequestId" name="postRequestId" value="${post.postId }">
+												<button type="submit" class="btn" id="writeBtn">제출</button>
+											</form>
+										</div>
+										</c:if>
 							<button type="button" class="btn" onclick="location.href='postList.do'">목록으로</button>
+							<!-- 여기부터 작성 -->
 						</div>
 					</section>
 				</div>
+								<script>
+								var acc = document.getElementsByClassName("accordion");
+								for (let i = 0; i < acc.length; i++) {
+									acc[i].addEventListener("click", function () {
+										this.classList.toggle("active");
+										var panel = this.nextElementSibling;
+										panel.classList.toggle("activePanel")
+										if (panel.style.maxHeight) {
+											panel.style.maxHeight = null;
+										} else {
+											panel.style.maxHeight = panel.scrollHeight + "px";
+										}
+									});
+								}
+								</script>
 			</body>
 
 			</html>

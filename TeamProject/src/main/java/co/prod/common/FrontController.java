@@ -25,6 +25,7 @@ import co.prod.controller.ManageHotelModifyControl;
 import co.prod.controller.TestControl;
 import co.prod.controller.posts.PostListAjaxControl;
 import co.prod.controller.posts.PostListControl;
+import co.prod.controller.posts.PostWriteAjaxControl;
 import co.prod.controller.posts.PostWriteControl;
 import co.prod.controller.posts.PostWriteFormControl;
 import co.prod.controller.posts.ViewPostControl;
@@ -49,7 +50,8 @@ public class FrontController extends HttpServlet{
 		map.put("/manageHotelList.do", new ManageHotelListControl()); //관리자페이지 홈
 		map.put("/viewPost.do", new ViewPostControl());
 		map.put("/postWriteForm.do", new PostWriteFormControl());
-		map.put("/postWrite.do", new PostWriteControl());
+		map.put("/postWrite.do", new PostWriteAjaxControl());
+		map.put("/postWriteNotAjax.do", new PostWriteControl());
 		map.put("/postListAjax.do", new PostListAjaxControl());
 	}
 	

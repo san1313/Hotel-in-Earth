@@ -25,4 +25,6 @@ public interface PostsService {
 	public List<PostsVO> postListPaging(Map<String, Object> map);
 	
 	public PostsVO getPostResponse(int pid);
+	
+	public boolean postResponseUpdate(int pid);
 }

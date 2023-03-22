@@ -91,35 +91,37 @@
 										</ul>
 										<!-- End Pagination -->
 										<c:if test="${userVO.userAuth == 'M'}">
-										<button class="accordion">글쓰기</button>
-										<div class="panel">
-											<form action="postWrite.do" method="post">
-												<span class="input input--yoshiko"> <input class="input__field input__field--yoshiko"
-														type="text" id="postTitle" name="title" /> <label class="input__label input__label--yoshiko"
-														for="postTitle">
-														<span class="input__label-content input__label-content--yoshiko" data-content="제목">제목</span>
-													</label>
-												</span> <br> <span class="input input--yoshiko"> <textarea
-														class="input__field input__field--yoshiko" id="postContent" name="content"></textarea>
-													<label class="input__label input__label--yoshiko" for="postTitle">
-														<span class="input__label-content input__label-content--yoshiko" data-content="내용">내용</span>
-													</label>
-												</span>
-												<br>
-												<input type="hidden" id="postType" name="postType" value="N">
-												<input type="hidden" id="email" name="email" value="${email }">
-												<input type="hidden" id="postNextId" name="postNextId" value="${postNextId }">
-												<!-- TODO 로그인시스템 만들어지면 내용 고칠것 -->
-												<button type="button" class="btn" id="writeBtn">제출</button>
-											</form>
-										</div>
+											<button class="accordion">글쓰기</button>
+											<div class="panel">
+												<form action="postWrite.do" method="post">
+													<span class="input input--yoshiko"> <input class="input__field input__field--yoshiko"
+															type="text" id="postTitle" name="title" /> <label
+															class="input__label input__label--yoshiko" for="postTitle">
+															<span class="input__label-content input__label-content--yoshiko"
+																data-content="제목">제목</span>
+														</label>
+													</span> <br> <span class="input input--yoshiko"> <textarea
+															class="input__field input__field--yoshiko" id="postContent" name="content"></textarea>
+														<label class="input__label input__label--yoshiko" for="postTitle">
+															<span class="input__label-content input__label-content--yoshiko"
+																data-content="내용">내용</span>
+														</label>
+													</span>
+													<br>
+													<input type="hidden" id="postType" name="postType" value="N">
+													<input type="hidden" id="email" name="email" value="${email }">
+													<input type="hidden" id="postNextId" name="postNextId" value="${postNextId }">
+													<!-- TODO 로그인시스템 만들어지면 내용 고칠것 -->
+													<button type="button" class="btn" id="writeBtn">제출</button>
+												</form>
+											</div>
 										</c:if>
 									</div>
 								</section>
 								<section id="section-bar-2">
 									<div id="noticePosts">
 										<table class="table">
-										<colgroup></colgroup>
+											<colgroup></colgroup>
 											<thead>
 												<tr>
 													<th>제목</th>
@@ -128,11 +130,10 @@
 											<tbody class=listF>
 												<c:forEach items="${faqs}" var="post">
 													<tr>
-														<td><a href="viewPost.do?pid=${post.postId }">${post.postTitle}</a></td>
-														<td class="center">
-															<fmt:formatDate value="${post.postWriteDate }" type="both"
-																pattern="yyyy-MM-dd HH:mm:ss" />
-														</td>
+														<td colspan='2'><button type="button" class="collapsible">${post.postTitle}</button>
+															<div class="contentFAQ">
+																<p>${post.postContent}</p>
+															</div>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -157,27 +158,29 @@
 										</ul>
 										<!-- End Pagination -->
 										<c:if test="${userVO.userAuth == 'M'}">
-										<button class="accordion">글쓰기</button>
-										<div class="panel">
-											<form action="postWrite.do" method="post">
-												<span class="input input--yoshiko"> <input class="input__field input__field--yoshiko"
-														type="text" id="postTitle" name="title" /> <label class="input__label input__label--yoshiko"
-														for="postTitle">
-														<span class="input__label-content input__label-content--yoshiko" data-content="제목">제목</span>
-													</label>
-												</span> <br> <span class="input input--yoshiko"> <textarea
-														class="input__field input__field--yoshiko" id="postContent" name="content"></textarea>
-													<label class="input__label input__label--yoshiko" for="postTitle">
-														<span class="input__label-content input__label-content--yoshiko" data-content="내용">내용</span>
-													</label>
-												</span>
-												<br>
-												<input type="hidden" id="postType" name="postType" value="F">
-												<input type="hidden" id="email" name="email" value="${email }">
-												<input type="hidden" id="postNextId" name="postNextId" value="${postNextId }">
-												<button type="button" class="btn" id="writeBtn">제출</button>
-											</form>
-										</div>
+											<button class="accordion">글쓰기</button>
+											<div class="panel">
+												<form action="postWrite.do" method="post">
+													<span class="input input--yoshiko"> <input class="input__field input__field--yoshiko"
+															type="text" id="postTitle" name="title" /> <label
+															class="input__label input__label--yoshiko" for="postTitle">
+															<span class="input__label-content input__label-content--yoshiko"
+																data-content="제목">제목</span>
+														</label>
+													</span> <br> <span class="input input--yoshiko"> <textarea
+															class="input__field input__field--yoshiko" id="postContent" name="content"></textarea>
+														<label class="input__label input__label--yoshiko" for="postTitle">
+															<span class="input__label-content input__label-content--yoshiko"
+																data-content="내용">내용</span>
+														</label>
+													</span>
+													<br>
+													<input type="hidden" id="postType" name="postType" value="F">
+													<input type="hidden" id="email" name="email" value="${email }">
+													<input type="hidden" id="postNextId" name="postNextId" value="${postNextId }">
+													<button type="button" class="btn" id="writeBtn">제출</button>
+												</form>
+											</div>
 										</c:if>
 									</div>
 								</section>
@@ -199,8 +202,8 @@
 												<c:forEach items="${questions}" var="post">
 													<tr>
 														<td><a href="viewPost.do?pid=${post.postId }">${post.postTitle}
-														<c:if test="${post.postResponse == 'Y'}"><span class="responseY">답변완료</span></c:if>
-														</a></td>
+																<c:if test="${post.postResponse == 'Y'}"><span class="responseY">답변완료</span></c:if>
+															</a></td>
 														<td class="center">
 															<fmt:formatDate value="${post.postWriteDate }" type="both"
 																pattern="yyyy-MM-dd HH:mm:ss" />
@@ -229,27 +232,31 @@
 											</c:if>
 										</ul>
 										<!-- End Pagination -->
-										<button class="accordion">글쓰기</button>
-										<div class="panel">
-											<form action="postWrite.do" method="post">
-												<span class="input input--yoshiko"> <input class="input__field input__field--yoshiko"
-														type="text" id="postTitle" name="title" /> <label class="input__label input__label--yoshiko"
-														for="postTitle">
-														<span class="input__label-content input__label-content--yoshiko" data-content="제목">제목</span>
-													</label>
-												</span> <br> <span class="input input--yoshiko"> <textarea
-														class="input__field input__field--yoshiko" id="postContent" name="content"></textarea>
-													<label class="input__label input__label--yoshiko" for="postTitle">
-														<span class="input__label-content input__label-content--yoshiko" data-content="내용">내용</span>
-													</label>
-												</span>
-												<br>
-												<input type="hidden" id="postType" name="postType" value="Q">
-												<input type="hidden" id="email" name="email" value="${email }">
-												<input type="hidden" id="postNextId" name="postNextId" value="${postNextId }">
-												<button type="button" class="btn" id="writeBtn">제출</button>
-											</form>
-										</div>
+										<c:if test="${userVO != null }">
+											<button class="accordion">글쓰기</button>
+											<div class="panel">
+												<form action="postWrite.do" method="post">
+													<span class="input input--yoshiko"> <input class="input__field input__field--yoshiko"
+															type="text" id="postTitle" name="title" /> <label
+															class="input__label input__label--yoshiko" for="postTitle">
+															<span class="input__label-content input__label-content--yoshiko"
+																data-content="제목">제목</span>
+														</label>
+													</span> <br> <span class="input input--yoshiko"> <textarea
+															class="input__field input__field--yoshiko" id="postContent" name="content"></textarea>
+														<label class="input__label input__label--yoshiko" for="postTitle">
+															<span class="input__label-content input__label-content--yoshiko"
+																data-content="내용">내용</span>
+														</label>
+													</span>
+													<br>
+													<input type="hidden" id="postType" name="postType" value="Q">
+													<input type="hidden" id="email" name="email" value="${email }">
+													<input type="hidden" id="postNextId" name="postNextId" value="${postNextId }">
+													<button type="button" class="btn" id="writeBtn">제출</button>
+												</form>
+											</div>
+										</c:if>
 									</div>
 								</section>
 							</div>
@@ -258,7 +265,7 @@
 						<!-- /tabs -->
 					</section>
 				</div>
-				
+
 				<script src="resources/test_js/cbpFWTabs.js"></script>
 				<script src="resources/js/posts/listForm/classie.js"></script>
 				<script src="resources/js/posts/listForm/script.js"></script>
