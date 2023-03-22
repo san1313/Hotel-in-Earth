@@ -226,6 +226,7 @@
 						<td>${hotel.hotelCheckIn}</td>
 						<td>${hotel.hotelCheckOut}</td>
 						<td>${hotel.hotelLike}</td>
+						
 						<td><button id="btn-modal" style="border:none">호텔정보수정</button></td>
 						<td><button id="delBtn" style="border:none">삭제</button> </td>
 					</tr>

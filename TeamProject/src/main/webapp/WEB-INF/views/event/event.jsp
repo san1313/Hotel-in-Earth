@@ -197,7 +197,9 @@ input[type="button"] {
 											    </header>
 											    <section class="numSection">
 											    
-											        <strong>숫자를 맞춰보세요.</strong>
+											        <strong>1~20사이의 숫자를 입력해주세요</strong>
+											        <strong>3회안에 정답 : 30%쿠폰 지급<br> 4회 이상 : 10%쿠폰 지급</strong>
+											        
 											        <div class="ipt_wrap">
 											            <input type="number" id="ipt_num" value="0" onkeyup="enterkey();">
 											            <input type="button" value="확인" onclick="numChk();">
@@ -252,7 +254,7 @@ input[type="button"] {
             const modal = document.getElementById("modal")
 			const btnModal = document.getElementById("btn-modal")
 			btnModal.addEventListener("click", e => {
-			    num = Math.floor(Math.random() * 100);
+			    num = Math.floor(Math.random() * 20);
 			    try_count = 0;
 			    document.getElementById("try_num").innerHTML=try_count;
 			    document.getElementById("guide").innerHTML="";
@@ -296,7 +298,11 @@ input[type="button"] {
                 document.getElementById("guide").innerHTML="Up!";
             } else if( custom_number == num ) {
                 document.getElementById("guide").innerHTML="<b>정답</b>입니다!";
-                alert('쿠폰이 지급되었습니다');
+                if(try_count<4){
+                	alert('30%쿠폰이 지급되었습니다');
+                }else if(try_count>=4){
+                	alert('10%쿠폰이 지급되었습니다');
+                }
             } else {
                 document.getElementById("guide").innerHTML="숫자만 입력해주세요.";
             }
