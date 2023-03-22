@@ -25,6 +25,7 @@ import co.prod.controller.ManageHotelModifyControl;
 import co.prod.controller.TestControl;
 import co.prod.controller.hotelInfoControl;
 import co.prod.controller.hotelInfoForm;
+import co.prod.controller.purchasePageForm;
 import co.prod.controller.posts.PostListControl;
 import co.prod.controller.posts.PostWriteControl;
 import co.prod.controller.posts.PostWriteFormControl;
@@ -43,6 +44,7 @@ public class FrontController extends HttpServlet{
 		//메인페이지 및 호텔INFO [INKYU]
 		map.put("/mainpage.do", new MainPageListControl());
 		map.put("/hotelInfoForm.do", new hotelInfoForm());
+		map.put("/purchasePageForm.do", new purchasePageForm());
 		
 		map.put("/postList.do", new PostListControl());
 		map.put("/login.do", new LoginControl());	// 로그인 등록처리

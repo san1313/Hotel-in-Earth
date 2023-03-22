@@ -6,8 +6,47 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="resources/css/mainpage/mobiscroll.javascript.min.css">
-<script src="resources/js/mainpage/mobiscroll.javascript.min.js"></script>
+<!-- <link rel="stylesheet" href="resources/css/mainpage/mobiscroll.javascript.min.css">
+<script src="resources/js/mainpage/mobiscroll.javascript.min.js"></script> -->
+
+<!-- Jquery 페이지 ! 여차하면 즉결 처형하라 -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script>
+	$( function() {
+		var dateFormat = "mm/dd/yy",
+			from = $( "#from" )
+				.datepicker({
+					defaultDate: "+1w",
+					changeMonth: true,
+					numberOfMonths: 3
+				})
+				.on( "change", function() {
+					to.datepicker( "option", "minDate", getDate( this ) );
+				}),
+			to = $( "#to" ).datepicker({
+				defaultDate: "+1w",
+				changeMonth: true,
+				numberOfMonths: 3
+			})
+			.on( "change", function() {
+				from.datepicker( "option", "maxDate", getDate( this ) );
+			});
+
+		function getDate( element ) {
+			var date;
+			try {
+				date = $.datepicker.parseDate( dateFormat, element.value );
+			} catch( error ) {
+				date = null;
+			}
+
+			return date;
+		}
+	} );
+	</script>
 
 <style>
     .hotel-info-container {
@@ -153,13 +192,13 @@
     
     .calendar{
         float: right;
-        /* margin-left: 60px; */
+        margin-right: 30px;
         width: 430px;
-        /* border: blue 1px solid; */
+        border: 1px solid gray;
+        border-radius: 1em;
+        box-shadow: 5px 5px 5px gray;
         font-size: 25px;
         text-align: center;
-        
-        
     }
 
     /* 버튼 */
@@ -185,7 +224,7 @@
         height: 84px;
 
         border: none;
-        border-radius: 14px;
+        border-radius: 0.8em;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
         cursor: pointer;
@@ -222,7 +261,7 @@
     }
     
      /* 캘린더 피커 작성 */
-    input.md-mobile-picker-input {
+    /* input.md-mobile-picker-input {
         color: initial;
         width: 100%;
         padding: 10px;
@@ -233,9 +272,42 @@
         font-size: 14px;
         box-sizing: border-box;
         -webkit-appearance: none;
+    } */
+
+    /* 캘린더 영역 ! */
+    #from, #to{
+      width: 100%;
+      height: 50%;
+      border: none;
+      font-size: 18px;
     }
+    .check-date-picker{
+      font-size: 18px;
+      width: 320px;
+      height: 90px;
+      border: #5dd036 1px solid;
+      border-radius: 0.8em;
+      margin: 0 auto;
+      
+    }
+    .check-date-picker{
+      line-height: 0px;
+    }
+    .check-in{
+      width: 160px;
+      height: 100%;
+      float: left;
+      border-right: #5dd036 1px solid;
+    }
+    .check-out{
+      width: 155px;
+      height: 100%;
+      float: left;
+    }
+
     
     </style>
+</head>
 <body>
 
 <div class="hotel-info-container">
@@ -311,7 +383,7 @@
             <br/><b style="font-size: 40px;">숙소 편의시설 (hotel_service)</b><br>정원 전망<br>산 전망<br>호수나 강과 인접<br>주방<br>무선 인터넷<br>
                 
             <hr>
-            <b style="font-size: 30px;"> CHECK IN : 16:00</b><br>
+            <b style="font-size: 30px;"> CHECK &nbsp&nbspIN &nbsp&nbsp: 16:00</b><br>
             <b style="font-size: 30px;"> CHECK OUT : 10:00</b>
             
             <hr>
@@ -326,9 +398,20 @@
         <div class="calendar">
             <br><p style="margin-right:80px ;"><b style="font-size: 30px;">￦${hotelInfo.hotelPrice}</b> /박</p>
             <br><div style="margin-right:200px ;">★4.0</div>
-            <br>인원수 체크 <br>
+            <br><br>
            <br>
-            <div style="height:100%">
+
+           <div class="check-date-picker">
+            <div class="check-in" >
+              <label for="from"><p>Check IN</p></label>
+              <input type="text" id="from" name="from">
+            </div>
+            <div class="check-out">
+              <label for="to"><p>Check OUT</p></label>
+              <input type="text" id="to" name="to">
+            </div>
+          </div>
+            <!-- <div style="height:100%">
               <div class="mbsc-grid">
                 <div class="mbsc-row">
                     <div class="mbsc-col-12">
@@ -336,8 +419,8 @@
                     </div>
                   </div>
                 </div>
-             </div>
-            <button class="reservation" ><b>예약하기</b></button>
+             </div> -->
+            <button class="reservation"><b>예약하기</b></button>
             <p>예약 확정 전에는 요금이 <br>청구되지 않습니다.</p>
         
         </div>
@@ -349,7 +432,7 @@
         
         <link rel="stylesheet" type="text/css" href="./style.css" />
         <script type="module" src="./index.js"></script>
-    </head>
+    
 
         <div id="map"></div>
         
@@ -456,13 +539,26 @@ window.initMap = initMap;
   
   inlineInst.setVal([now, week]);
   
-  document
-      .getElementById('show-mobile-date-picker')
-      .addEventListener('click', function () {
-          instance.open();
-          return false;
-      });
+  // document
+  //     .getElementById('show-mobile-date-picker')
+  //     .addEventListener('click', function () {
+  //         instance.open();
+  //         return false;
+  //     });
   </script>
 
+<script>
+//예약하기 버튼 클릭시 폼
+  document.querySelector('.reservation').addEventListener('click', nextpage);
+
+  var cast = {
+    "이름" : "${hotelInfo.hostName}"
+  };
+  localStorage.setItem("cast" , JSON.stringify(cast));
+  function nextpage(e){
+    console.log(e + "클릭되었음")
+    window.location.href = "purchasePageForm.do";
+  }
+</script>
 </body>
 </html>

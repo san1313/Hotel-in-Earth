@@ -11,11 +11,29 @@
 <head>
 <meta charset="UTF-8">
 
+<!-- 버튼관련 jquery 여차하면 조져버릴것.-->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script>
+	$( function() {
+		$( "input" ).checkboxradio({
+			icon: false
+		});
+	} );
+	</script>
 
 <!-- 이곳 부터 갈아 엎으면서 메모장에 뺵업합니다. -->
 <style>
 
 
+/* 버튼관련 jquery 여차하면 조져버릴것. */
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+  
+  border: rgb(46, 130, 46);
+  background: rgb(38, 162, 38);
+}
 
 
 /* 이벤트 항목 시작 ! */
@@ -227,25 +245,25 @@ body {font-family: Verdana, sans-serif;}
 <!--이미지 필터 시작 !-->
 
     <div class="check-box">
-      <label for="checkbox-container">
-      <input type="checkbox" class="hotel-check 인도네시아" id="인도네시아">
-      인도네시아</label>
+      <label for="인도네시아" id="checkbox-1">
+      <input type="checkbox" name="checkbox-1" class="hotel-check 인도네시아" id="인도네시아">
+      <b style="font-size: 27px;">인도네시아</b></label>
 
-      <label for="checkbox-container">
+      <label for="필리핀">
       <input type="checkbox" class="hotel-check 필리핀" id="필리핀">
-      필리핀</label>
+      <b style="font-size: 27px;">필리핀</b></label>
 
-      <label for="checkbox-container">
+      <label for="태국">
       <input type="checkbox" class="hotel-check 태국" id="태국">
-      태국</label>
+      <b style="font-size: 27px;">태국</b></label>
 
-      <label for="checkbox-container">
+      <label for="아랍에메리트">
       <input type="checkbox" class="hotel-check 아랍에메리트" id="아랍에메리트">
-      아랍에메리트</label>
+      <b style="font-size: 27px;">아랍에메리트</b></label>
 
-      <label for="checkbox-container">
+      <label for="프랑스">
       <input type="checkbox" class="hotel-check 프랑스" id="프랑스">
-      프랑스</label>
+      <b style="font-size: 27px;">프랑스</b></label>
     </div>
 
 
