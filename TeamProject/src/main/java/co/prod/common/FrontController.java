@@ -19,11 +19,13 @@ import co.prod.control.MyPageFormControl;
 import co.prod.control.SignUpControl;
 import co.prod.control.SignUpFormControl;
 import co.prod.control.UserListControl;
+import co.prod.controller.EventpageControl;
 import co.prod.controller.MainPageListControl;
 import co.prod.controller.ManageHotelAddControl;
 //import co.prod.controller.ManageHotelAddControl;
 import co.prod.controller.ManageHotelListControl;
 import co.prod.controller.ManageHotelModifyControl;
+import co.prod.controller.ManageHotelRemoveControl;
 //import co.prod.controller.ManageHotelModifyControl;
 //import co.prod.controller.TestControl;
 import co.prod.controller.TestControl;
@@ -71,6 +73,11 @@ public class FrontController extends HttpServlet{
 		map.put("/postListAjax.do", new PostListAjaxControl());
 		map.put("/postRemove.do", new PostRemoveControl());
 		map.put("/postModify.do", new PostModifyControl());
+		map.put("/manageHotelAdd.do", new ManageHotelAddControl());
+		map.put("/manageHotelRemove.do", new ManageHotelRemoveControl());
+		map.put("/manageHotelModify.do", new ManageHotelModifyControl());
+		map.put("/eventpage.do", new EventpageControl());
+		
 	}
 	
 	@Override
