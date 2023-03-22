@@ -17,7 +17,7 @@ insert into hotels (HOTEL_ID,HOTEL_LOCATION,HOTEL_NAME,HOTEL_TEL,HOTEL_SERVICE,H
  
    
 <update id="updateHotel" parameterType="co.prod.vo.HotelsVO">
-update hotels set HOTEL_ID=#{hotelId}, HOTEL_LOCATION=#{hotelLocation}, HOTEL_NAME=#{hotelName},HOTEL_TEL=#{hotelTel},HOTEL_SERVICE=#{hotelService},HOTEL_VIEW=#{hotelView},HOTEL_ADDRESS=#{hotelAddress} where hotel_id=#{hotelId}
+update hotels set HOTEL_ID=#{hotelId}, HOTEL_LOCATION=#{hotelLocation}, HOTEL_NAME=#{hotelName},HOTEL_TEL=#{hotelTel},HOTEL_SERVICE=#{hotelService},HOTEL_VIEW=#{hotelView},HOTEL_ADDRESS=#{hotelAddress},HOTEL_PHOTO=#{hotelPhoto, } where hotel_id=#{hotelId}
 </update>
 
 </mapper>

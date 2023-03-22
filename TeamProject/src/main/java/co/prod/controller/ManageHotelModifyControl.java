@@ -14,6 +14,7 @@ public class ManageHotelModifyControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		String hotelPhoto = request.getParameter("hotelPhoto");
 		String hotelId = request.getParameter("hotelId");
 		String hotelLocation = request.getParameter("hotelLocation");
 		String hotelName = request.getParameter("hotelName");
@@ -24,6 +25,7 @@ public class ManageHotelModifyControl implements Control {
 		
 		
 		HotelsVO hotel = new HotelsVO();
+		hotel.setHotelPhoto(hotelPhoto);
 		hotel.setHotelId(hotelId);
 		hotel.setHotelLocation(hotelLocation);;
 		hotel.setHotelName(hotelName);
@@ -36,8 +38,6 @@ public class ManageHotelModifyControl implements Control {
 		ManageHotelListService service = new ManagerHotelListServiceImpl();
 		if(service.modifyHotel(hotel)>0) {
 			System.out.println("수정 성공");
-		}else {
-			System.out.println("도와주세요 창우씨ㅠ");
 		}
 		try {
 			response.sendRedirect("manageHotelList.do");

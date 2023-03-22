@@ -15,6 +15,7 @@ import co.prod.control.LoginFormControl;
 import co.prod.control.LogoutControl;
 import co.prod.control.SignUpControl;
 import co.prod.control.SignUpFormControl;
+import co.prod.controller.EventpageControl;
 import co.prod.controller.MainPageListControl;
 import co.prod.controller.ManageHotelAddControl;
 //import co.prod.controller.ManageHotelAddControl;
@@ -53,6 +54,7 @@ public class FrontController extends HttpServlet{
 		map.put("/manageHotelAdd.do", new ManageHotelAddControl());
 		map.put("/manageHotelRemove.do", new ManageHotelRemoveControl());
 		map.put("/manageHotelModify.do", new ManageHotelModifyControl());
+		map.put("/eventpage.do", new EventpageControl());
 		
 	}
 	

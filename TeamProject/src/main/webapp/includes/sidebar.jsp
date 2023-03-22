@@ -17,20 +17,18 @@
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading bord	er-bottom bg-light">관리자 페이지</div>
+                <div class="sidebar-heading border-bottom bg-light">관리자 페이지</div>
                 <div class="list-group list-group-flush">
                 
                
                 
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="manageHotelList.do">호텔관리</a>
                    
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberInsertForm.do">회원관리</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="mainpage.do">홈페이지로 가기</a>
                     
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberSearchForm.do">예약내역관리</a>
                     
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="noticeList.do"></a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="noticeWriteForm.do"></a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberUpdateForm.do"></a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberDeleteForm.do"></a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="noticeList.do"> </a>
+                   
                 </div>
             </div>
