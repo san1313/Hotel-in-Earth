@@ -1,6 +1,8 @@
 package co.prod.controller.posts;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +26,10 @@ public class PostWriteControl implements Control {
 		String requestId = request.getParameter("postRequestId");
 		if (requestId != null) {
 			vo.setPostRequestId(Integer.parseInt(requestId));
-			service.postResponseUpdate(Integer.parseInt(requestId));
+			Map<String, Object> map = new HashMap<>();
+			map.put("pid", requestId);
+			map.put("response", "Y");
+			service.postResponseUpdate(map);
 		}
 		boolean result = service.writePost(vo);
 		if (result) {

@@ -26,5 +26,9 @@ public interface PostsService {
 	
 	public PostsVO getPostResponse(int pid);
 	
-	public boolean postResponseUpdate(int pid);
+	public boolean postResponseUpdate(Map<String, Object> map);
+	
+	public boolean postRemove(int pid);
+	
+	public boolean postModify(PostsVO vo);
 }

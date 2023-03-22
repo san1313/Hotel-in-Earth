@@ -27,5 +27,9 @@ public interface PostsMapper {
 	//답변 가져오기
 	public PostsVO getPostResponse(int pid);
 	//답변완료로 변경
-	public int postResponseUpdate(int pid);
+	public int postResponseUpdate(Map<String, Object> map);
+	//포스트삭제
+	public int postRemove(int pid);
+	//포스트 수정
+	public int postModify(PostsVO vo);
 }

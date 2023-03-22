@@ -134,6 +134,7 @@ function getTime() {
 	return year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds
 }
 
+
 //페이징 버튼 눌렀을시 동작
 function getPageList(page, QFN) { // ajax로 리스트 불러오기
 	fetch('postListAjax.do', {

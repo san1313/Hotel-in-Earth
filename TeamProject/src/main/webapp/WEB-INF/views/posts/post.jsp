@@ -80,7 +80,7 @@
 								</colgroup>
 								<thead>
 									<tr>
-										<th>${post.postTitle}</th>
+										<th id="postTitleBox">${post.postTitle}</th>
 										<th>
 											<fmt:formatDate value="${post.postWriteDate }" type="both" pattern="yyyy-MM-dd HH:mm:ss" />
 										</th>
@@ -88,60 +88,98 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td colspan="2" class="postContent">${post.postContent}</td>
+										<td colspan="2" class="postContent" id="postContentBox">${post.postContent}</td>
 									</tr>
-										<c:if test="${postResponse != null }">
-										<tr><th colspan="2">답변입니다.</th></tr>
+									<c:if test="${postResponse != null }">
 										<tr>
-										<td colspan="2" class="postContent">${postResponse.postContent }</td>
+											<th colspan="2">답변입니다.</th>
 										</tr>
-										</c:if>
+										<tr>
+											<td colspan="2" class="postContent">${postResponse.postContent }</td>
+										</tr>
+									</c:if>
 								</tbody>
 							</table>
 							<c:if test="${userVO.userAuth == 'M' && postResponse == null && post.postType == 'Q'}">
-										<button class="accordion">글쓰기</button>
-										<div class="panel">
-											<form action="postWriteNotAjax.do" method="post">
-												<span class="input input--yoshiko" style="display:none"> <input class="input__field input__field--yoshiko"
-														type="text" id="postTitle" name="title" value="Response"/> <label class="input__label input__label--yoshiko"
-														for="postTitle">
-														<span class="input__label-content input__label-content--yoshiko" data-content="제목">제목</span>
-													</label>
-												</span> <br> <span class="input input--yoshiko"> <textarea
-														class="input__field input__field--yoshiko" id="postContent" name="content"></textarea>
-													<label class="input__label input__label--yoshiko" for="postContent">
-														<span class="input__label-content input__label-content--yoshiko" data-content="내용">내용</span>
-													</label>
-												</span>
-												<br>
-												<input type="hidden" id="postType" name="type" value="Q">
-												<input type="hidden" id="email" name="email" value="${email }">
-												<input type="hidden" id="postNextId" name="postNextId" value="${postNextId }">
-												<input type="hidden" id="postRequestId" name="postRequestId" value="${post.postId }">
-												<button type="submit" class="btn" id="writeBtn">제출</button>
-											</form>
-										</div>
-										</c:if>
+								<button class="accordion">글쓰기</button>
+								<div class="panel">
+									<form action="postWriteNotAjax.do" method="post">
+										<span class="input input--yoshiko" style="display:none"> <input
+												class="input__field input__field--yoshiko" type="text" id="postTitle" name="title"
+												value="Response" /> <label class="input__label input__label--yoshiko" for="postTitle">
+												<span class="input__label-content input__label-content--yoshiko" data-content="제목">제목</span>
+											</label>
+										</span> <br> <span class="input input--yoshiko"> <textarea
+												class="input__field input__field--yoshiko" id="postContent" name="content"></textarea>
+											<label class="input__label input__label--yoshiko" for="postContent">
+												<span class="input__label-content input__label-content--yoshiko" data-content="내용">내용</span>
+											</label>
+										</span>
+										<br>
+										<input type="hidden" id="postType" name="type" value="Q">
+										<input type="hidden" id="email" name="email" value="${email }">
+										<input type="hidden" id="postNextId" name="postNextId" value="${postNextId }">
+										<input type="hidden" id="postRequestId" name="postRequestId" value="${post.postId }">
+										<button type="submit" class="btn" id="writeBtn">제출</button>
+									</form>
+								</div>
+							</c:if>
 							<button type="button" class="btn" onclick="location.href='postList.do'">목록으로</button>
-							<!-- 여기부터 작성 -->
+							<c:if test="${userVO.userAuth == 'M' || userVO.userEmail == post.userEmail }">
+								<button type="button" class="btn" id="modifyBtn">수정</button>
+								<button type="button" class="btn" id="modifyBtn2" style="display:none">수정완료</button>
+								<button type="button" class="btn" onclick="location.href='postRemove.do?pid=${post.postId}'">삭제</button>
+							</c:if>
+
 						</div>
 					</section>
 				</div>
-								<script>
-								var acc = document.getElementsByClassName("accordion");
-								for (let i = 0; i < acc.length; i++) {
-									acc[i].addEventListener("click", function () {
-										this.classList.toggle("active");
-										var panel = this.nextElementSibling;
-										panel.classList.toggle("activePanel")
-										if (panel.style.maxHeight) {
-											panel.style.maxHeight = null;
-										} else {
-											panel.style.maxHeight = panel.scrollHeight + "px";
-										}
-									});
-								}
-								</script>
+				<form id="modFrm" action="postModify.do" method="post" style="display:none">
+				<input type="hidden" name="pid" value="${post.postId }">
+				</form>
+				<script>
+					var acc = document.getElementsByClassName("accordion");
+					for (let i = 0; i < acc.length; i++) {
+						acc[i].addEventListener("click", function () {
+							this.classList.toggle("active");
+							var panel = this.nextElementSibling;
+							panel.classList.toggle("activePanel")
+							if (panel.style.maxHeight) {
+								panel.style.maxHeight = null;
+							} else {
+								panel.style.maxHeight = panel.scrollHeight + "px";
+							}
+						});
+					}
+					document.querySelector('#modifyBtn').addEventListener('click', function () {
+						this.style.display = "none";
+						document.querySelector('#modifyBtn2').style.display = "inline-block";
+						let title = document.querySelector('#postTitleBox');
+						let titleInput = document.createElement('input');
+						titleInput.type = "text";
+						titleInput.name = "modTitle";
+						titleInput.className = "modInput";
+						titleInput.value = title.innerText;
+						title.innerText = '';
+						title.append(titleInput);
+						let content = document.querySelector('#postContentBox');
+						let contentInput = document.createElement('textarea');
+						contentInput.name = "modContent";
+						contentInput.className = "modInput";
+						contentInput.innerText = content.innerText;
+						content.innerText = '';
+						content.append(contentInput);
+					})
+
+					document.querySelector('#modifyBtn2').addEventListener('click', function () {
+						let form = document.querySelector('#modFrm');
+						let title = document.querySelector('input[name="modTitle"]');
+						let content = document.querySelector('textarea[name="modContent"]');
+						form.append(title);
+						form.append(content);
+						form.submit();
+					})
+				</script>
 			</body>
 
 			</html>
