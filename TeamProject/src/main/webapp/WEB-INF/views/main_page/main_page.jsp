@@ -1,3 +1,5 @@
+<%@page import="co.prod.vo.HotelsVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -9,10 +11,29 @@
 <head>
 <meta charset="UTF-8">
 
+<!-- 버튼관련 jquery 여차하면 조져버릴것.-->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script>
+	$( function() {
+		$( "input" ).checkboxradio({
+			icon: false
+		});
+	} );
+	</script>
+
 <!-- 이곳 부터 갈아 엎으면서 메모장에 뺵업합니다. -->
 <style>
 
 
+/* 버튼관련 jquery 여차하면 조져버릴것. */
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+  
+  border: rgb(46, 130, 46);
+  background: rgb(38, 162, 38);
+}
 
 
 /* 이벤트 항목 시작 ! */
@@ -162,6 +183,26 @@ body {font-family: Verdana, sans-serif;}
 }
 
 /* 이미지필터 항목 끝 ! */
+
+
+.check-box{
+          margin: 0 auto;
+          margin-top: 30px;
+          text-align: center;
+          font-size: 30px;
+          font-family: Arial;
+        }
+        
+
+        input[type="checkbox"]{
+          
+          display: none;
+        }
+        input[type="checkbox"]{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        borde
 </style>
 
 
@@ -204,26 +245,39 @@ body {font-family: Verdana, sans-serif;}
 <!--이미지 필터 시작 !-->
 
     <div class="check-box">
-      <input type="checkbox" class="hotel-check 인도네시아" id="인도네시아">
-      <label for="check1">인도네시아</label>
+      <label for="인도네시아" id="checkbox-1">
+      <input type="checkbox" name="checkbox-1" class="hotel-check 인도네시아" id="인도네시아">
+      <b style="font-size: 27px;">인도네시아</b></label>
+
+      <label for="필리핀">
       <input type="checkbox" class="hotel-check 필리핀" id="필리핀">
-      <label for="check2">필리핀</label>
-      <input type="checkbox" class="hotel-check test3" id="test3">
-      <label for="check3">test3 !</label>
+      <b style="font-size: 27px;">필리핀</b></label>
+
+      <label for="태국">
+      <input type="checkbox" class="hotel-check 태국" id="태국">
+      <b style="font-size: 27px;">태국</b></label>
+
+      <label for="아랍에메리트">
+      <input type="checkbox" class="hotel-check 아랍에메리트" id="아랍에메리트">
+      <b style="font-size: 27px;">아랍에메리트</b></label>
+
+      <label for="프랑스">
+      <input type="checkbox" class="hotel-check 프랑스" id="프랑스">
+      <b style="font-size: 27px;">프랑스</b></label>
     </div>
 
 
 <div id="hotel-myBtnContainer" class="hotel-myBtnContainer">
       <button class="hotel-btn all active" > Show all</button>
       <button class="hotel-btn 기상천외" > 기상천외</button>
-      <button class="hotel-btn animals" > animals</button>
-      <button class="hotel-btn fruits" > fruits</button>
+      <button class="hotel-btn 보트" > 보트</button>
+      <button class="hotel-btn 도시" > 도시</button>
       <button class="hotel-btn colors" > Colors</button>
 </div>
 
 <div class="hotel-container">
 	<c:forEach var="hotel" items="${hotelList }">
-  <div class="hotel-filterDiv ${hotel.hotelView} ${hotel.hotelAddress}"><img src="resources/img/hotels/${hotel.hotelName}/${hotel.hotelPhoto}" class="hotel-main-img">${hotel.hotelName}, ${hotel.hotelAddress}</div>
+  <div class="hotel-filterDiv ${hotel.hotelView} ${hotel.hotelAddress}"><a href="hotelInfoForm.do?hotel-id=${hotel.hotelId}" id=""><img src="resources/img/hotels/${hotel.hotelName}/${hotel.hotelPhoto}" class="hotel-main-img">${hotel.hotelName}, ${hotel.hotelAddress}</a></div>
 
   </c:forEach>
 </div>
