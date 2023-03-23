@@ -3,6 +3,7 @@ package co.prod.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,6 +32,7 @@ public class ManageHotelAddControl implements Control {
 		
 		
 		
+		System.out.println("test");
 		HotelsVO vo = new HotelsVO();
 		vo.setHotelId(hotelId);
 		vo.setHotelLocation(hotelLocation);
@@ -50,8 +52,8 @@ public class ManageHotelAddControl implements Control {
 			
 			request.setAttribute("list", list);
 			try {
-				response.sendRedirect("manageHotelList.do");
-			} catch (IOException e) {
+				request.getRequestDispatcher("manageHotelList.do").forward(request, response);
+			} catch (ServletException | IOException e) {
 				e.printStackTrace();
 			}
 		}

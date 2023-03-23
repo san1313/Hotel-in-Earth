@@ -15,7 +15,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="navbar-brand custom_navbar-brand" href="#"><img src="resources/test_img/logo.png" alt=""></a>
+                                <a class="navbar-brand custom_navbar-brand" href="mainpage.do"><img src="resources/test_img/logo.png" alt=""></a>
                             </div>
                             <!--End of navbar-header-->
 
@@ -23,10 +23,10 @@
                             <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right main_menu">
                                     <li class="active"><a href="#header">Home <span class="sr-only">(current)</span></a></li>
-                                    <li><a href="#welcome">about</a></li>
+                                    <li><a href="postList.do">about</a></li>
                                     <li><a href="#portfolio">project</a></li>
                                     <li><a href="#counter">achivment</a></li>
-                                    <li><a href="#event">event</a></li>
+                                    <li><a href="eventpage.do">event</a></li>
                                     <li><a href="#testimonial">testimonial</a></li>
                                     <li><a href="#blog">blog</a></li>
                                     <%

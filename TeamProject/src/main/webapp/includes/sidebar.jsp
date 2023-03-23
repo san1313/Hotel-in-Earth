@@ -12,6 +12,15 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        
+        <style>
+        .border-end bg-white{
+        
+        display: none;
+        overflow: hidden;
+        }
+        </style>
+        
     </head>
     <body>
         <div class="d-flex" id="wrapper">

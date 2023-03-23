@@ -170,6 +170,7 @@
 			<h2 style="margin-left : 10px">[호텔 관리]</h2>
 
 			<button class="accordion active" style="margin-left : 10px">호텔추가하기</button>
+			
 			<div class="panel" >
 				<form action="manageHotelAdd.do" method="post">
 				
@@ -213,7 +214,7 @@
 				<!-- ======================== 반복문으로 달러 중괄호 넣어야댐================================ -->
 					<tbody>
 					<c:forEach var="hotel" items="${managehotellist }">
-					<tr id="tr${list.hotelId }">
+					<tr id="tr${hotel.hotelId }">
 						<td><img src="resources/img/hotels/${hotel.hotelName}/${hotel.hotelPhoto}" width="200" height="200" alt="${hotel.hotelPhoto}"></td>
 						<td>${hotel.hotelId}</td>
 						<td>${hotel.hotelLocation}</td>
@@ -242,6 +243,7 @@
 
 					<div id="lorem-ipsum"></div>
 				</div>
+				
 				<div id="modal" class="modal-overlay" style="display: none;">
 					<div class="modal-window">
 						<div class="title">

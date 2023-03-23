@@ -251,6 +251,7 @@ button.ghost {
                 </div>
                 <span>or use your email for registration</span>
                 <input type="email" placeholder="Email" name="umail" required/>
+                <input type="button" value="중복확인" class="dup" onclick="winopen()" style="WIDTH: 60pt";><br>
                 <input type="password" placeholder="Password" name="upw" required/>
                 <input type="text" placeholder="NickName" name="uname" required/>
                 <button>Sign Up</button>
@@ -271,7 +272,7 @@ button.ghost {
                 -->
                 <input type="text" placeholder="Email" name="umail" required/>
                 <input type="password" placeholder="Password" name="upw" required/>
-                <a href="#">Forgot your password?</a>
+                <a href="findPwForm.do">Forgot your password?</a>
                 <button>Sign In</button>
             </form>
         </div>
@@ -302,7 +303,17 @@ button.ghost {
 		</div>
 	</div>
 	
+	
+	
 <script>
+
+let passwd = '${passwdResult}';
+if(passwd != "") {
+	alert(passwd);
+	passwd = "";
+}
+
+
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
@@ -312,6 +323,11 @@ container.classList.add('right-panel-active'));
 
 signInButton.addEventListener('click', () =>
 container.classList.remove('right-panel-active'));
+
+let msg = '${msg}';
+if(msg){
+	alert(msg);
+}
 </script>
 
 </body>
