@@ -77,7 +77,6 @@ border: none;
 }
 </style>
 </head>
-
 <body>
 
 <div id="container">

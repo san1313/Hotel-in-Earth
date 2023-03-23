@@ -23,9 +23,7 @@ public class SignUpControl implements Control {
 		
 		System.out.println(vo);
 		boolean result = new ServiceImpl().addUser(vo);
-	
 		if(result) {
-		
 			try {
 				request.setAttribute("msg", "회원가입을 축하합니다\\n 가입축하금 5000원이 지급되었습니다");
 				request.getRequestDispatcher("mainpage.do").forward(request, response);
