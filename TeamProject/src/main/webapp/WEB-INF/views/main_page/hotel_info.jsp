@@ -128,7 +128,8 @@
     
     /* Container for image text */
     .row{
-        float: left;
+        float: right;
+        margin-right: 0px;
         width: 270;
         height: 1000px;
     }
@@ -277,9 +278,10 @@
     /* 캘린더 영역 ! */
     #from, #to{
       width: 100%;
-      height: 50%;
+      height: 80%;
       border: none;
       font-size: 18px;
+      
     }
     .check-date-picker{
       font-size: 18px;
@@ -293,11 +295,12 @@
     .check-date-picker{
       line-height: 0px;
     }
+
     .check-in{
       width: 160px;
       height: 100%;
       float: left;
-      border-right: #5dd036 1px solid;
+      
     }
     .check-out{
       width: 155px;
@@ -318,49 +321,49 @@
         
     <div class="info-container">
         
-    <div class="mySlides">
-        <div class="numbertext">1 / 5</div>
-        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[0]}">
-    </div>
-
-    <div class="mySlides">
-        <div class="numbertext">2 / 5</div>
-        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[1]}" >
-    </div>
-
-    <div class="mySlides">
-        <div class="numbertext">3 / 5</div>
-        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[2]}" >
-    </div>
-        
-    <div class="mySlides">
-        <div class="numbertext">4 / 5</div>
-        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[3]}" >
-    </div>
-
-    <div class="mySlides">
-        <div class="numbertext">5 / 5</div>
-        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[4]}">
-    </div>
-    
-    
-    <div class="row">
-        <div class="column">
-        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[0]}" onclick="currentSlide(1)" alt="The Woods">
-        </div>
-        <div class="column">
-        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[1]}" onclick="currentSlide(2)" alt="Cinque Terre">
-        </div>
-        <div class="column">
-        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[2]}" onclick="currentSlide(3)" alt="Mountains and fjords">
-        </div>
-        <div class="column">
-        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[3]}" onclick="currentSlide(4)" alt="Northern Lights">
-        </div>
-        <div class="column">
-        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[4]}" onclick="currentSlide(5)" alt="Nature and sunrise">
-        </div>    
-    </div>
+	    <div class="mySlides">
+	        <div class="numbertext">1 / 5</div>
+	        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[0]}">
+	    </div>
+	
+	    <div class="mySlides">
+	        <div class="numbertext">2 / 5</div>
+	        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[1]}" >
+	    </div>
+	
+	    <div class="mySlides">
+	        <div class="numbertext">3 / 5</div>
+	        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[2]}" >
+	    </div>
+	        
+	    <div class="mySlides">
+	        <div class="numbertext">4 / 5</div>
+	        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[3]}" >
+	    </div>
+	
+	    <div class="mySlides">
+	        <div class="numbertext">5 / 5</div>
+	        <img src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[4]}">
+	    </div>
+	    
+	    
+	    <div class="row">
+	        <div class="column">
+	        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[0]}" onclick="currentSlide(1)" alt="The Woods">
+	        </div>
+	        <div class="column">
+	        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[1]}" onclick="currentSlide(2)" alt="Cinque Terre">
+	        </div>
+	        <div class="column">
+	        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[2]}" onclick="currentSlide(3)" alt="Mountains and fjords">
+	        </div>
+	        <div class="column">
+	        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[3]}" onclick="currentSlide(4)" alt="Northern Lights">
+	        </div>
+	        <div class="column">
+	        <img class="demo cursor" src="resources/img/hotels/${hotelInfo.hotelName}/${hotelPhoto[4]}" onclick="currentSlide(5)" alt="Nature and sunrise">
+	        </div>    
+	    </div>
     </div>
 
     <div class="into-text-area">
