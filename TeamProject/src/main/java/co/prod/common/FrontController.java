@@ -57,7 +57,7 @@ public class FrontController extends HttpServlet{
 		map.put("/hotelInfoForm.do", new hotelInfoForm());
 		map.put("/purchasePageForm.do", new purchasePageForm());
 		
-		map.put("/postList.do", new PostListControl());
+		map.put("/postList.do", new PostListControl());			// 공지사항
 		map.put("/login.do", new LoginControl());	// 로그인 등록처리
 		map.put("/loginForm.do", new LoginFormControl());	// 로그인 등록화면
 		map.put("/logout.do", new LogoutControl());	// 로그아웃

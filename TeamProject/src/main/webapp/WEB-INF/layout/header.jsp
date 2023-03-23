@@ -79,9 +79,9 @@
                                     <li><div class="dropdown">
 									  <button onclick="myFunction()" class="dropbtn">menu</button>
 									  <div id="myDropdown" class="dropdown-content">
-									    <a href="#">게시판</a>
-									    <a href="#">자주묻는질문</a>
-									    <a href="#">Q/A</a>
+									    <a href="postList.do">게시판</a>
+									    <a href="postList.do">자주묻는질문</a>
+									    <a href="postList.do">Q/A</a>
 									    <a href="eventpage.do">이벤트</a>
 									  </div>
 													</div></li>                              
