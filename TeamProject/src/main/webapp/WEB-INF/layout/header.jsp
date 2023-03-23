@@ -66,8 +66,19 @@
 
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
+<<<<<<< HEAD
                                 <ul class="nav navbar-nav navbar-right main_menu">                                
                                     <li><a href="myPageForm.do">마이 페이지</a></li>
+=======
+                                <ul class="nav navbar-nav navbar-right main_menu">
+                                    <li class="active"><a href="#header">Home <span class="sr-only">(current)</span></a></li>
+                                    <li><a href="postList.do">about</a></li>
+                                    <li><a href="#portfolio">project</a></li>
+                                    <li><a href="#counter">achivment</a></li>
+                                    <li><a href="eventpage.do">event</a></li>
+                                    <li><a href="#testimonial">testimonial</a></li>
+                                    <li><a href="#blog">blog</a></li>
+>>>>>>> refs/remotes/origin/seonjae
                                     <%
                                 String email = (String) session.getAttribute("email");
                                 %>

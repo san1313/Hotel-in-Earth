@@ -21,7 +21,7 @@
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                                 
                                 <%
-                                String id = (String) session.getAttribute("id");
+                                String id = (String) session.getAttribute("email");
                                 %>
                                 <%if(id ==null){ %>
                                 <li class="nav-item"><a class="nav-link" href="loginForm.do">로그인</a></li>
