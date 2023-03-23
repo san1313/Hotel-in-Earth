@@ -208,11 +208,8 @@
     <body>
 			
 			<h2 style="margin-left : 10px">[호텔 관리]</h2>
-			
-			
+
 			<button class="accordion active" style="margin-left : 10px">호텔추가하기</button>
-			
-			
 			
 			<div class="panel" >
 				<form action="manageHotelAdd.do" method="post">
@@ -235,7 +232,7 @@
 			<a class= "price" href="manageHotelList.do">id 순 조회</a>
 
 			<table id="hoteltable">
-	
+
 				<thead>
 
 					<tr>
