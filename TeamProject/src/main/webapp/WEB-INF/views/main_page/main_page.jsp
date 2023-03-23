@@ -307,6 +307,13 @@ body {font-family: Verdana, sans-serif;}
 
 <!-- /* 이미지필터 항목 시작 ! */ -->
     <script>
+    
+    <!-- /* 회원가입 메시지 */ -->
+    let msg = '${msg}';
+    if(msg){
+    	alert(msg);
+    }
+    
         var hotelArrList = []
       
       var checkBtns = document.getElementsByClassName("hotel-check");
@@ -398,6 +405,8 @@ body {font-family: Verdana, sans-serif;}
             filterSelection(btnArr1);
         });
         }
+        
+        
         </script>
 
 
