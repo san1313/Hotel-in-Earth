@@ -324,15 +324,15 @@ body {font-family: Verdana, sans-serif;}
           if(query.checked){
           console.log("체크되었음")
             hotelArrList.push(selectResult)
-            console.log(hotelArrList)
+            console.log(hotelArrList + " : hotelArrList")
 
         }else{
           console.log("체크되어 있지 않음 ")
           hotelArrList.splice(selectResult,1)
-          console.log(hotelArrList)
+          console.log(hotelArrList + " : hotelArrList")
 
         }
-    });
+   	});
 }     
     
 

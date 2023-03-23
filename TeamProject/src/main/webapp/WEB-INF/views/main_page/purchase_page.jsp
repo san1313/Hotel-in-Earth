@@ -274,7 +274,7 @@
               <div class="left-text">
                 <br><b style="font-size: 30px;">￦102,340</b> /박</p>
                 <br><p>￦252,175 x 5박</p>
-                <br><p style="font-size: 18px;">에어비앤비 서비스 수수료</p>
+                <br><p style="font-size: 18px;">Green Fair 서비스 수수료</p>
               </div>
 
                <br>
