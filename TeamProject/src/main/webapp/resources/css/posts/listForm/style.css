@@ -135,3 +135,7 @@
 	padding: 10px;
 	
 }
+#myDropdown{
+	position : fixed;
+	z-index : 2;	
+}
