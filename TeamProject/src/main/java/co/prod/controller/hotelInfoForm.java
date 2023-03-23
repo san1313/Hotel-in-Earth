@@ -31,7 +31,7 @@ public class hotelInfoForm implements Control {
 //		"main_page/hotel_info.tiles"
 //		"WEB-INF/views/main_page/hotel_info.jsp"
 		
-		String path = "WEB-INF/views/main_page/hotel_info.jsp";
+		String path = "main_page/hotel_info.tiles";
 		try {
 			request.getRequestDispatcher(path).forward(request, response);
 		} catch (ServletException | IOException e) {
