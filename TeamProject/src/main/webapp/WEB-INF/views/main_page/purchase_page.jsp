@@ -10,13 +10,12 @@
 
 
 
-
-<style>
+    <style>
 .buy-container {
   box-sizing: border-box;
 }
 
-.buy-container.row {
+.buy-container .row {
   display: -ms-flexbox; /* IE10 */
   display: flex;
   -ms-flex-wrap: wrap; /* IE10 */
@@ -24,27 +23,28 @@
   margin: 0 -16px;
 }
 
-.buy-container.col-50 {
+.buy-container .col-50 {
   -ms-flex: 50%; /* IE10 */
   flex: 50%;
 }
 
-.buy-container.col-75 {
+.buy-container .col-75 {
   -ms-flex: 75%; /* IE10 */
   flex: 75%;
 }
 
-.buy-container.col-25,
-.buy-container.col-50,
-.buy-container.col-75 {
+.buy-container .col-25,
+.buy-container .col-50,
+.buy-container .col-75 {
   padding: 0 16px;
 }
 
-.buy-container.container {
+.buy-container .container {
   background-color: #f2f2f2;
   padding: 5px 20px 15px 20px;
   border: 1px solid lightgrey;
   border-radius: 3px;
+  width: 800px
 }
 
 .buy-container input[type=text] {
@@ -60,13 +60,13 @@
   display: block;
 }
 
-.buy-container.icon-container {
+.buy-container .icon-container {
   margin-bottom: 20px;
   padding: 7px 0;
   font-size: 24px;
 }
 
-.buy-container.btn {
+.buy-container .btn {
   background-color: #04AA6D;
   color: white;
   padding: 12px;
@@ -78,16 +78,16 @@
   font-size: 17px;
 }
 
-.buy-container.btn:hover {
+.buy-container .btn:hover {
   background-color: #45a049;
 }
 
-.buy-containera {
+.buy-container a {
   color: #2196F3;
 }
 
 
-        .buy-container.text-container{
+.buy-container .text-container{
             margin-left: 20px;
         }
 
@@ -95,44 +95,25 @@
             width: 1350px;
             height: 2000px;
             margin: 30px auto;
-            border: 1px solid gray;
         }
         buy-container::-webkit-scrollbar {
             display: none; /* Chrome, Safari, Opera*/
         }
 
 
-        .buy-container.leftside{
+        .buy-container .leftside{
             float: left;
             padding-inline: 20px;
             
             border: 1px solid gray;
             border-radius: 1em;
-            width: 800px;
+            width: 900px;
             height: 2000px;
         }
 
-        .buy-container.rightside{
-            position: sticky;
-            display: inline-flex;
-            top: 0;
-            left: 20%;
-            background: white;
-            border-radius: 1em;
-            
-            float: right;
-            width: 430px;
-            height: 500px;
-            position: sticky;
-            
-            border: 1px solid gray;
-            box-shadow: 5px 5px 5px gray;
-            font-size: 25px;
-            text-align: center;
-        
-        }
+      
 
-        .buy-container.chance{
+        .buy-container .chance{
             margin-top: 40px;
             margin-left: 10px;
             width: 400px;
@@ -141,17 +122,62 @@
             border: 2px solid gray;
             border-radius: 1em;
         }
+          .buy-container .rightside{
+          float: right;
+          top: 20px;
+          background: white;
+          border-radius: 1em;
+          width: 430px;
+          height: 450px;
+          border: 1px solid gray;
+          box-shadow: 5px 5px 5px gray;
+          font-size: 25px;
+          }
+          .buy-container .rightside hr{
+          background-color: black;
+          height: 1px;
+          border: 0;
+          }
+        .inner-text{
+          width: 100%;
+          height: 320px;
+        }
+        .inner-text .left-text{
+          float: left;
+          text-align: left;
+          padding-inline: 10px;
+          width: 220px;
+        }
+        .inner-text .right-text{
+          float: right;
+          text-align: right;
+          margin-right: 20px;
+          width: 160px;
+          height: 200px;
+        }
+        .result{
+          margin-right: 10px;
+          text-align: right;
+        }
+
+        .reservation{
+          
+          width: 220px;
+          height: 84px;
+          
+        }
     </style>
+
 </head>
 <body>
     <div class="buy-container">
         <div class="leftside">
             <div class="text-container">
-                <h1>확인 및 결제</h1>
+                <br><h1>확인 및 결제</h1>
                 <div class="chance"><br><b>흔치 않은 기회입니다. <br>HIMZ님의 숙소는 보통 예약이 가득 차 있습니다.</b></div>
-                <h2>예약 정보</h2>
+                <br><h2>예약 정보</h2>
 
-                <p>날짜 <br>5월 15일~21일</p>
+                <p>날짜 <br>5월 15일~21일</p><hr><br>
             </div>
 
 
@@ -163,19 +189,19 @@
                     <div class="row">
                       <div class="col-50">
                         <h3>Billing Address</h3>
-                        <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+                        <label for="fname"><i class="fa fa-user"></i> 이름</label>
+                        <input type="text" id="fname" name="firstname" placeholder="HIMZ Kim">
                         <label for="email"><i class="fa fa-envelope"></i> Email</label>
                         <input type="text" id="email" name="email" placeholder="john@example.com">
-                        <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                        <label for="adr"><i class="fa fa-address-card-o"></i> 주소</label>
                         <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-                        <label for="city"><i class="fa fa-institution"></i> City</label>
-                        <input type="text" id="city" name="city" placeholder="New York">
+                        <label for="city"><i class="fa fa-institution"></i> 도시</label>
+                        <input type="text" id="city" name="city" placeholder="Essen">
             
                         <div class="row">
                           <div class="col-50">
-                            <label for="state">State</label>
-                            <input type="text" id="state" name="state" placeholder="NY">
+                            <label for="state">국가</label>
+                            <input type="text" id="state" name="state" placeholder="Deutschland">
                           </div>
                           <div class="col-50">
                             <label for="zip">Zip</label>
@@ -186,26 +212,26 @@
             
                       <div class="col-50">
                         <h3>Payment</h3>
-                        <label for="fname">Accepted Cards</label>
+                        <label for="fname">사용가능한 카드</label>
                         <div class="icon-container">
                           <i class="fa fa-cc-visa" style="color:navy;"></i>
                           <i class="fa fa-cc-amex" style="color:blue;"></i>
                           <i class="fa fa-cc-mastercard" style="color:red;"></i>
                           <i class="fa fa-cc-discover" style="color:orange;"></i>
                         </div>
-                        <label for="cname">Name on Card</label>
-                        <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-                        <label for="ccnum">Credit card number</label>
+                        <label for="cname">카드소유자</label>
+                        <input type="text" id="cname" name="cardname" placeholder="HIMZ Kim">
+                        <label for="ccnum">카드번호</label>
                         <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-                        <label for="expmonth">Exp Month</label>
+                        <label for="expmonth">만료 월</label>
                         <input type="text" id="expmonth" name="expmonth" placeholder="September">
                         <div class="row">
                           <div class="col-50">
-                            <label for="expyear">Exp Year</label>
+                            <label for="expyear">만료 년도</label>
                             <input type="text" id="expyear" name="expyear" placeholder="2018">
                           </div>
                           <div class="col-50">
-                            <label for="cvv">CVV</label>
+                            <label for="cvv">CVV코드</label>
                             <input type="text" id="cvv" name="cvv" placeholder="352">
                           </div>
                         </div>
@@ -243,15 +269,23 @@
 
      
 
-        <div class="rightside">
-
-                <br><p style="margin-right:80px ;"><b style="font-size: 30px;">￦102,340</b> /박</p>
-
+           <div class="rightside">
+          <div class="inner-text">
+              <div class="left-text">
+                <br><b style="font-size: 30px;">￦102,340</b> /박</p>
+                <br><p>￦252,175 x 5박</p>
+                <br><p style="font-size: 18px;">에어비앤비 서비스 수수료</p>
+              </div>
 
                <br>
-
-                <button class="reservation" ><b>예약하기</b></button>
-
+               <div class="right-text">
+                <br>
+                <br><p>￦1,260,875</p>
+                <br><p style="font-size: 18px;">￦26,767</p>
+              </div>
+            </div>
+            <hr>
+        <div class="result">합계 : ￦1,287,642</div>
         </div>
 
     </div>
