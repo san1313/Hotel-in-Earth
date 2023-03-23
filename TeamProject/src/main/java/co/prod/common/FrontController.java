@@ -19,6 +19,8 @@ import co.prod.control.MyPageFormControl;
 import co.prod.control.SignUpControl;
 import co.prod.control.SignUpFormControl;
 import co.prod.control.UserListControl;
+import co.prod.control.UserModifyControl;
+import co.prod.control.UserRemovoControl;
 import co.prod.controller.EventpageControl;
 import co.prod.controller.MainPageListControl;
 import co.prod.controller.ManageHotelAddControl;
@@ -65,6 +67,8 @@ public class FrontController extends HttpServlet{
 		map.put("/signUpForm.do", new SignUpFormControl());	//회원가입화면
 		map.put("/userList.do", new UserListControl());  	// 리스트
 		map.put("/myPageForm.do", new MyPageFormControl());	// -> 마이페이지인데 정보수정으로 가게
+		map.put("/userModify.do", new UserModifyControl());	// 유저 정보 수정
+		map.put("/userRemovo.do", new UserRemovoControl());	// 유저 탈퇴
 		map.put("/manageHotelList.do", new ManageHotelListControl()); //관리자페이지 홈
 		map.put("/viewPost.do", new ViewPostControl());
 		map.put("/postWriteForm.do", new PostWriteFormControl());

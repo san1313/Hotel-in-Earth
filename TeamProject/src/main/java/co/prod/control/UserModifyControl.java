@@ -7,33 +7,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.connector.Response;
+
 import co.prod.common.Control;
 import co.prod.service.Service;
 import co.prod.service.ServiceImpl;
 import co.prod.vo.UsersVO;
 
-public class LoginControl implements Control {
+public class UserModifyControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		String mail = request.getParameter("umail");
-		String pw = request.getParameter("upw");
+		String userPassword = request.getParameter("userPassword");
+		String userNickName = request.getParameter("userNickname");
+		String userEmail = (String) request.getSession().getAttribute("email");
+		UsersVO user = new UsersVO();
+		user.setUserPassword(userPassword);
+		user.setUserNickname(userNickName);
+		user.setUserEmail(userEmail);
+		System.out.println(user);
 		
 		Service service = new ServiceImpl();
-		UsersVO vo = new UsersVO();
-		vo.setUserEmail(mail);	
-		vo.setUserPassword(pw);
-		System.out.println(vo);
-		
-		vo = service.login(vo);
-		System.out.println(vo);
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("email", vo.getUserEmail());
-		session.setAttribute("userVO", vo);
 		
-		if(vo!=null) {
+		if(service.modifyUser(user)>0) {
+			
+			UsersVO vo = service.login(user);
 			
 			session.setAttribute("email", vo.getUserEmail());			
 			System.out.println( vo.getUserEmail());
@@ -42,23 +43,17 @@ public class LoginControl implements Control {
 			session.setAttribute("auth", vo.getUserAuth());
 			System.out.println(vo.getUserAuth());
 			session.setAttribute("userVO", vo);
+			
+			request.setAttribute("msg", "수정 완료");
 			try {
-				response.sendRedirect("test.do");
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}else {
-			request.setAttribute("msg", "이메일이나 비밀번호가 일치하지 않습니다");
-			request.setAttribute("url", "WEB-INF/views/login/login.jsp");
-			try {
-				request.getRequestDispatcher("loginForm.do").forward(request, response);
+				request.getRequestDispatcher("myPageForm.do").forward(request, response);
 			} catch (ServletException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		
-	}
 
 }
+}
+	
