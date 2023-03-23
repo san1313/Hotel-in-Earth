@@ -15,7 +15,6 @@ public class PostModifyControl implements Control {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String temp = request.getParameter("pid");
-		System.out.println(temp);
 		try {
 			if (temp != null) {
 				int pid = Integer.parseInt(temp);

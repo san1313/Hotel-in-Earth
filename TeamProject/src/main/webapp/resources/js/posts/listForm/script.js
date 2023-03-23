@@ -1,6 +1,6 @@
-(function () {
+(function() {
 
-	[].slice.call(document.querySelectorAll('.tabs')).forEach(function (el) {
+	[].slice.call(document.querySelectorAll('.tabs')).forEach(function(el) {
 		new CBPFWTabs(el);
 	});
 
@@ -9,7 +9,7 @@
 
 var acc = document.getElementsByClassName("accordion");
 for (let i = 0; i < acc.length; i++) {
-	acc[i].addEventListener("click", function () {
+	acc[i].addEventListener("click", function() {
 		this.classList.toggle("active");
 		var panel = this.nextElementSibling;
 		panel.classList.toggle("activePanel")
@@ -21,19 +21,19 @@ for (let i = 0; i < acc.length; i++) {
 	});
 }
 
-(function () {
+(function() {
 	// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
 	if (!String.prototype.trim) {
-		(function () {
+		(function() {
 			// Make sure we trim BOM and NBSP
 			var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-			String.prototype.trim = function () {
+			String.prototype.trim = function() {
 				return this.replace(rtrim, '');
 			};
 		})();
 	}
 
-	[].slice.call(document.querySelectorAll('input.input__field, textarea.input__field')).forEach(function (inputEl) {
+	[].slice.call(document.querySelectorAll('input.input__field, textarea.input__field')).forEach(function(inputEl) {
 		// in case the input is already filled..
 		if (inputEl.value.trim() !== '') {
 			classie.add(inputEl.parentNode, 'input--filled');
@@ -55,7 +55,7 @@ for (let i = 0; i < acc.length; i++) {
 	}
 })();
 let btns = document.querySelectorAll('#writeBtn').forEach(btn => {
-	btn.addEventListener('click', function () {
+	btn.addEventListener('click', function() {
 		let tbody = this.parentElement.parentElement.parentElement.children[0].children[2]
 		let title = this.parentElement.querySelector('#postTitle').value;
 		let content = this.parentElement.querySelector('#postContent').value;
@@ -152,12 +152,12 @@ function getPageList(page, QFN) { // ajax로 리스트 불러오기
 				let td = document.createElement('td');
 				let a = document.createElement('a');
 				a.innerText = result.list[i].postTitle;
-				if(result.list[i].postResponse == 'Y'){
+				if (result.list[i].postResponse == 'Y') {
 					let span = document.createElement('span');
-					span.className="responseY";
-					span.innerText="답변완료";
+					span.className = "responseY";
+					span.innerText = "답변완료";
 					a.append(span);
-					}
+				}
 				a.href = 'viewPost.do?pid=' + result.list[i].postId;
 				td.append(a);
 				tr.append(td);
@@ -188,13 +188,90 @@ var coll = document.getElementsByClassName("collapsible");
 var iiiii;
 
 for (iiiii = 0; iiiii < coll.length; iiiii++) {
-  coll[iiiii].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
-  });
+	coll[iiiii].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var content = this.nextElementSibling;
+		if (content.style.maxHeight) {
+			content.style.maxHeight = null;
+		} else {
+			content.style.maxHeight = content.scrollHeight + "px";
+		}
+	});
 }
+
+var acc = document.getElementsByClassName("accordion");
+for (let i = 0; i < acc.length; i++) {
+	acc[i].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var panel = this.nextElementSibling;
+		panel.classList.toggle("activePanel")
+		if (panel.style.maxHeight) {
+			panel.style.maxHeight = null;
+		} else {
+			panel.style.maxHeight = panel.scrollHeight + "px";
+		}
+	});
+}
+document.querySelector('#modifyBtn').addEventListener('click', function() {
+	this.style.display = "none";
+	document.querySelector('#modifyBtn2').style.display = "inline-block";
+	let title = document.querySelector('#postTitleBox');
+	let titleInput = document.createElement('input');
+	titleInput.type = "text";
+	titleInput.name = "modTitle";
+	titleInput.className = "modInput";
+	titleInput.value = title.innerText;
+	title.innerText = '';
+	title.append(titleInput);
+	let content = document.querySelector('#postContentBox');
+	let contentInput = document.createElement('textarea');
+	contentInput.name = "modContent";
+	contentInput.className = "modInput";
+	contentInput.innerText = content.innerText;
+	content.innerText = '';
+	content.append(contentInput);
+})
+
+document.querySelector('#modifyBtn2').addEventListener('click', function() {
+	let form = document.querySelector('#modFrm');
+	let title = document.querySelector('input[name="modTitle"]');
+	let content = document.querySelector('textarea[name="modContent"]');
+	let pid = document.createElement('input');
+	pid.type = "hidden";
+	pid.name = "pid";
+	pid.value = "${post.postId}"
+	form.append(pid);
+	form.append(title);
+	form.append(content);
+	form.submit();
+})
+
+document.querySelector('#respMod').addEventListener('click', function() {
+	this.style.display = "none";
+	document.querySelector('#respMod2').style.display = "inline-block";
+	let content = document.querySelector('#postResponseContent');
+	let contentInput = document.createElement('textarea');
+	contentInput.name = "respContent";
+	contentInput.className = "modInput";
+	contentInput.innerText = content.innerText;
+	content.innerText = '';
+	content.append(contentInput);
+})
+
+document.querySelector('#respMod2').addEventListener('click', function() {
+	let form = document.querySelector('#modFrm');
+	let content = document.querySelector('textarea[name="respContent"]');
+	form.action = "responseModify.do";
+	form.append(content);
+	let rid = document.createElement('input');
+	rid.type = "hidden";
+	rid.name = "rid";
+	rid.value = "${postResponse.postId}"
+	form.append(rid);
+	let pid = document.createElement('input');
+	pid.type = "hidden";
+	pid.name = "pid";
+	pid.value = "${post.postId}"
+	form.append(pid);
+	form.submit();
+})

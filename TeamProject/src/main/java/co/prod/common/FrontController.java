@@ -38,6 +38,8 @@ import co.prod.controller.posts.PostRemoveControl;
 import co.prod.controller.posts.PostWriteAjaxControl;
 import co.prod.controller.posts.PostWriteControl;
 import co.prod.controller.posts.PostWriteFormControl;
+import co.prod.controller.posts.ResponseDeleteControl;
+import co.prod.controller.posts.ResponseModifyControl;
 import co.prod.controller.posts.ViewPostControl;
 
 public class FrontController extends HttpServlet{
@@ -54,8 +56,18 @@ public class FrontController extends HttpServlet{
 		map.put("/mainpage.do", new MainPageListControl());
 		map.put("/hotelInfoForm.do", new hotelInfoForm());
 		map.put("/purchasePageForm.do", new purchasePageForm());
-		
+		//----------------게시판-------------------------------
 		map.put("/postList.do", new PostListControl());
+		map.put("/postWriteForm.do", new PostWriteFormControl());
+		map.put("/postWrite.do", new PostWriteAjaxControl());
+		map.put("/postWriteNotAjax.do", new PostWriteControl());
+		map.put("/postListAjax.do", new PostListAjaxControl());
+		map.put("/postRemove.do", new PostRemoveControl());
+		map.put("/postModify.do", new PostModifyControl());
+		map.put("/viewPost.do", new ViewPostControl());
+		map.put("/responseModify.do", new ResponseModifyControl());
+		map.put("/responseDelete.do", new ResponseDeleteControl());
+		//---------------------------------------------------
 		map.put("/login.do", new LoginControl());	// 로그인 등록처리
 		map.put("/loginForm.do", new LoginFormControl());	// 로그인 등록화면
 		map.put("/logout.do", new LogoutControl());	// 로그아웃
@@ -66,13 +78,6 @@ public class FrontController extends HttpServlet{
 		map.put("/userList.do", new UserListControl());  	// 리스트
 		map.put("/myPageForm.do", new MyPageFormControl());	// -> 마이페이지인데 정보수정으로 가게
 		map.put("/manageHotelList.do", new ManageHotelListControl()); //관리자페이지 홈
-		map.put("/viewPost.do", new ViewPostControl());
-		map.put("/postWriteForm.do", new PostWriteFormControl());
-		map.put("/postWrite.do", new PostWriteAjaxControl());
-		map.put("/postWriteNotAjax.do", new PostWriteControl());
-		map.put("/postListAjax.do", new PostListAjaxControl());
-		map.put("/postRemove.do", new PostRemoveControl());
-		map.put("/postModify.do", new PostModifyControl());
 		map.put("/manageHotelAdd.do", new ManageHotelAddControl());
 		map.put("/manageHotelRemove.do", new ManageHotelRemoveControl());
 		map.put("/manageHotelModify.do", new ManageHotelModifyControl());

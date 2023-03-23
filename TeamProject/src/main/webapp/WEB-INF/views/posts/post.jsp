@@ -65,6 +65,17 @@
 						color: #fff;
 						background-color: #2cc185;
 					}
+
+					#respMod,
+					#respDel,
+					#respMod2 {
+						margin-bottom: 0;
+						margin-right: 5px;
+					}
+
+					#responseBtnBox {
+						text-align: right !important;
+					}
 				</style>
 			</head>
 
@@ -92,10 +103,17 @@
 									</tr>
 									<c:if test="${postResponse != null }">
 										<tr>
-											<th colspan="2">답변입니다.</th>
+											<th colspan="1">답변입니다.</th>
+											<th id="responseBtnBox">
+												<c:if test="${userVO.userAuth == 'M' }">
+													<button type="button" id="respMod" class="btn">수정</button><button type="button" id="respMod2"
+														class="btn" style="display:none">수정완료</button><button type="button" class="btn"
+														id="respDel" onclick="location.href='responseDelete.do?rid=${postResponse.postId}&pid=${post.postId }'">삭제</button>
+												</c:if>
+											</th>
 										</tr>
 										<tr>
-											<td colspan="2" class="postContent">${postResponse.postContent }</td>
+											<td colspan="2" class="postContent" id="postResponseContent">${postResponse.postContent }</td>
 										</tr>
 									</c:if>
 								</tbody>
@@ -135,50 +153,10 @@
 					</section>
 				</div>
 				<form id="modFrm" action="postModify.do" method="post" style="display:none">
-				<input type="hidden" name="pid" value="${post.postId }">
+
 				</form>
 				<script>
-					var acc = document.getElementsByClassName("accordion");
-					for (let i = 0; i < acc.length; i++) {
-						acc[i].addEventListener("click", function () {
-							this.classList.toggle("active");
-							var panel = this.nextElementSibling;
-							panel.classList.toggle("activePanel")
-							if (panel.style.maxHeight) {
-								panel.style.maxHeight = null;
-							} else {
-								panel.style.maxHeight = panel.scrollHeight + "px";
-							}
-						});
-					}
-					document.querySelector('#modifyBtn').addEventListener('click', function () {
-						this.style.display = "none";
-						document.querySelector('#modifyBtn2').style.display = "inline-block";
-						let title = document.querySelector('#postTitleBox');
-						let titleInput = document.createElement('input');
-						titleInput.type = "text";
-						titleInput.name = "modTitle";
-						titleInput.className = "modInput";
-						titleInput.value = title.innerText;
-						title.innerText = '';
-						title.append(titleInput);
-						let content = document.querySelector('#postContentBox');
-						let contentInput = document.createElement('textarea');
-						contentInput.name = "modContent";
-						contentInput.className = "modInput";
-						contentInput.innerText = content.innerText;
-						content.innerText = '';
-						content.append(contentInput);
-					})
 
-					document.querySelector('#modifyBtn2').addEventListener('click', function () {
-						let form = document.querySelector('#modFrm');
-						let title = document.querySelector('input[name="modTitle"]');
-						let content = document.querySelector('textarea[name="modContent"]');
-						form.append(title);
-						form.append(content);
-						form.submit();
-					})
 				</script>
 			</body>
 

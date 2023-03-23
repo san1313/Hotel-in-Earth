@@ -32,4 +32,6 @@ public interface PostsMapper {
 	public int postRemove(int pid);
 	//포스트 수정
 	public int postModify(PostsVO vo);
+	//답변수정
+	public int responseModify(PostsVO vo);
 }

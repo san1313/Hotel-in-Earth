@@ -34,7 +34,7 @@ public class PostWriteControl implements Control {
 		boolean result = service.writePost(vo);
 		if (result) {
 			try {
-				response.sendRedirect("postList.do");
+				response.sendRedirect("viewPost.do?pid="+requestId);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
