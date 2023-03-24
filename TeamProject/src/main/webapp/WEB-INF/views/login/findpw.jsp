@@ -6,12 +6,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-
+	
 </style>
 </head>
 <body>
-<dic id="container">
-	<form name="idfindscreen" method = "POST">
+<div id="container">
+	<form class ="findpw" name="idfindscreen" method = "POST">
 			<div class = "search-title">
 				<h3>비밀번호 찾기</h3>
 			</div>
@@ -33,6 +33,7 @@
 		<input type="button" name="cancle" value="취소" onClick="history.back()">
  	</div>
  </form>
+</div>
  <script>
 
  let msg = '${msg}';
@@ -65,6 +66,6 @@
  
  
  </script>
- </dic>
+ 
 </body>
 </html>
