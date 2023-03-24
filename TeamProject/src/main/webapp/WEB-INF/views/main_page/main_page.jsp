@@ -5,17 +5,34 @@
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( "input" ).checkboxradio({
+    icon: false
+  });
+} );
+</script>
 
-
-<!-- 이곳 부터 갈아 엎으면서 메모장에 뺵업합니다. -->
 <style>
-
-
+/* 버튼 색 변경 */
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+  
+  border: rgb(46, 130, 46);
+  background: rgb(38, 162, 38);
+}
+a{
+  color: black;
+}
 
 
 /* 이벤트 항목 시작 ! */
@@ -38,15 +55,7 @@ body {font-family: Verdana, sans-serif;}
 }
 
 /* Caption text */
-.event-text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
+
 
 /* Number text (1/3 etc) */
 .event-numbertext {
@@ -84,10 +93,6 @@ body {font-family: Verdana, sans-serif;}
   to {opacity: 1}
 }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .event-text {font-size: 11px}
-}
 
 /* 이벤트 항목 끝 ! */
 
@@ -158,11 +163,6 @@ body {font-family: Verdana, sans-serif;}
 }
 
 
-.footer{
-    border: #666 1px solid;
-    width: 1500px;
-    margin: 0 auto;
-}
 
 /* 이미지필터 항목 끝 ! */
 
@@ -184,7 +184,7 @@ body {font-family: Verdana, sans-serif;}
         display: inline-block;
         width: 30px;
         height: 30px;
-        borde
+        }
 </style>
 
 
@@ -197,65 +197,67 @@ body {font-family: Verdana, sans-serif;}
         <div class="event-mySlides event-fade">
           <div class="event-numbertext">1 / 3</div>
           <img src="resources/img/hotels/Abiansermal/Abiansermal01.jpg" >
-          <div class="event-text">Caption Text</div>
+          
         </div>
         
         <div class="event-mySlides event-fade">
           <div class="event-numbertext">2 / 3</div>
           <img src="resources/img/hotels/Kohkaew/Kohkaew01.jpg" >
-          <div class="event-text">Caption Two</div>
+          
         </div>
         
         <div class="event-mySlides event-fade">
           <div class="event-numbertext">3 / 3</div>
           <img src="resources/img/hotels/Licin/Licin02.jpg" >
-          <div class="event-text">Caption Three</div>
+          
         </div>
         
         </div>
         <br>
         
         <div style = "text-align: center">
-          <span class="event-dot"></span> 
-          <span class="event-dot"></span> 
-          <span class="event-dot"></span> 
+          <a class="event_button"><span class="event-dot"></span></a> 
+          <a class="event_button"><span class="event-dot"></span> </a> 
+          <a class="event_button"><span class="event-dot"></span> </a> 
         </div>
 <!-- /* 이벤트 항목 끝 ! */ -->
 
 
 
 <!--이미지 필터 시작 !-->
-
+<fieldset>
     <div class="check-box">
-      <label for="checkbox-container">
-      <input type="checkbox" class="hotel-check 인도네시아" id="인도네시아">
+      <label for="인도네시아" name="checkbox-nested-1">
+      <input type="checkbox" class="hotel-check 인도네시아" name="checkbox-1" id="인도네시아">
       인도네시아</label>
 
-      <label for="checkbox-container">
+      <label for="필리핀">
       <input type="checkbox" class="hotel-check 필리핀" id="필리핀">
       필리핀</label>
 
-      <label for="checkbox-container">
+      <label for="태국">
       <input type="checkbox" class="hotel-check 태국" id="태국">
       태국</label>
 
-      <label for="checkbox-container">
+      <label for="아랍에메리트">
       <input type="checkbox" class="hotel-check 아랍에메리트" id="아랍에메리트">
       아랍에메리트</label>
 
-      <label for="checkbox-container">
+      <label for="프랑스">
       <input type="checkbox" class="hotel-check 프랑스" id="프랑스">
       프랑스</label>
-      <label for="checkbox-container">
+      <label for="벨기에">
       <input type="checkbox" class="hotel-check 벨기에" id="벨기에">
       벨기에</label>
-      <label for="checkbox-container">
+      <label for="독일">
       <input type="checkbox" class="hotel-check 독일" id="독일">
       독일</label>
-      <label for="checkbox-container">
+      <label for="이탈리아">
       <input type="checkbox" class="hotel-check 이탈리아" id="이탈리아">
       이탈리아</label>
     </div>
+  </fieldset>
+
 
 
 <div id="hotel-myBtnContainer" class="hotel-myBtnContainer">
@@ -268,20 +270,19 @@ body {font-family: Verdana, sans-serif;}
 
 <div class="hotel-container">
 	<c:forEach var="hotel" items="${hotelList }">
-  <div class="hotel-filterDiv ${hotel.hotelView} ${hotel.hotelAddress}"><a href="hotelInfoForm.do?hotel-id=${hotel.hotelId}"><img src="resources/img/hotels/${hotel.hotelName}/${hotel.hotelPhoto}" class="hotel-main-img">${hotel.hotelName}, ${hotel.hotelAddress}</a></div>
+  <div class="hotel-filterDiv ${hotel.hotelView} ${hotel.hotelAddress}"><a href="hotelInfoForm.do?hotelId=${hotel.hotelId}"><img src="resources/img/hotels/${hotel.hotelName}/${hotel.hotelPhoto}" class="hotel-main-img">&nbsp;&nbsp;${hotel.hotelName}, ${hotel.hotelAddress}</a><br>&nbsp;&nbsp;￦<fmt:formatNumber value="${hotel.hotelPrice}" pattern="#,###" /></div>
 
   </c:forEach>
 </div>
 
 <!--이미지 필터 끝 !-->
 
-<div class="footer">푸터 입니다</div>
-
-
 <!-- /* 이벤트 항목 시작 ! */ -->
 
+
+
 <script>
-    let slideIndex = 0;
+    var slideIndex = 0;
     showSlides();
     
     function showSlides() {
@@ -308,7 +309,7 @@ body {font-family: Verdana, sans-serif;}
 <!-- /* 이미지필터 항목 시작 ! */ -->
     <script>
     
-    <!-- /* 회원가입 메시지 */ -->
+    /* 회원가입 메시지 */
     let msg = '${msg}';
     if(msg){
     	alert(msg);
@@ -330,13 +331,16 @@ body {font-family: Verdana, sans-serif;}
           let query = document.querySelector(btnArr1)
           if(query.checked){
           console.log("체크되었음")
-            hotelArrList.push(selectResult)
-            console.log(hotelArrList + " : hotelArrList")
+          hotelArrList.push(selectResult)
+          console.log("hotelArrList ▽")
+          console.log(hotelArrList)
 
         }else{
-          console.log("체크되어 있지 않음 ")
-          hotelArrList.splice(selectResult,1)
-          console.log(hotelArrList + " : hotelArrList")
+          
+          console.log("체크되어 있지 않음")
+          hotelArrList.splice(hotelArrList.indexOf(selectResult),1)
+          console.log("hotelArrList ▽")
+          console.log(hotelArrList)
 
         }
    	});
@@ -407,11 +411,38 @@ body {font-family: Verdana, sans-serif;}
         }
         
         
-        </script>
+       
 
 
-<!-- /* 이미지필터 항목 끝 ! */ -->
+//<!-- /* 이미지필터 항목 끝 ! */ -->
 
+// <!-- 이벤트 버튼 항목 -->
+        console.log(document.querySelectorAll('.event_button'));
+        let buttons = document.querySelectorAll('.event_button')
+        for(let j = 0; j < buttons.length; j++){
+          buttons[j].addEventListener('click', function(){
+            slideIndex = j;
+
+            let slides = document.getElementsByClassName("event-mySlides");
+          let dots = document.getElementsByClassName("event-dot");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          
+          if (slideIndex > slides.length) {slideIndex = 1}    
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" event-active", "");
+          }
+          slides[j].style.display = "block";  
+          dots[j].className += " event-active";
+
+          });
+        }
+
+
+
+
+</script>
 
 </body>
 
