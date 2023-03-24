@@ -66,6 +66,7 @@
 
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
+<<<<<<< Upstream, based on origin/seonjae
                                 <ul class="nav navbar-nav navbar-right main_menu">                                
                                     <%
                                 String email = (String) session.getAttribute("email");
@@ -77,10 +78,16 @@
                                     <a href="loginForm.do">
                                     <%} %>
                                     마이 페이지</a></li>
+=======
+                                <ul class="nav navbar-nav navbar-right main_menu">                                                            
+                                	<li><a href="myPageForm.do">마이 페이지</a></li>
+                               
+                                <% String email = (String) session.getAttribute("email"); %>                                
+>>>>>>> fc75b52 awef
                                 <%if(email ==null){ %>
-                                <li class="nav-item"><a class="nav-link" href="loginForm.do">로그인</a></li>
+                                	<li class="nav-item"><a class="nav-link" href="loginForm.do">로그인</a></li>
                                 <%} else{%>
-                                <li class="nav-item"><a class="nav-link" href="logout.do">로그아웃</a></li>
+                                	<li class="nav-item"><a class="nav-link" href="logout.do">로그아웃</a></li>
                                 <%} %>
                                     <li><div class="dropdown">
 									  <button onclick="myFunction()" class="dropbtn">menu</button>
