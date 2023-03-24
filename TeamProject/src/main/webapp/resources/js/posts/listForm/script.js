@@ -1,6 +1,6 @@
-(function() {
+(function () {
 
-	[].slice.call(document.querySelectorAll('.tabs')).forEach(function(el) {
+	[].slice.call(document.querySelectorAll('.tabs')).forEach(function (el) {
 		new CBPFWTabs(el);
 	});
 
@@ -9,7 +9,7 @@
 
 var acc = document.getElementsByClassName("accordion");
 for (let i = 0; i < acc.length; i++) {
-	acc[i].addEventListener("click", function() {
+	acc[i].addEventListener("click", function () {
 		this.classList.toggle("active");
 		var panel = this.nextElementSibling;
 		panel.classList.toggle("activePanel")
@@ -21,19 +21,19 @@ for (let i = 0; i < acc.length; i++) {
 	});
 }
 
-(function() {
+(function () {
 	// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
 	if (!String.prototype.trim) {
-		(function() {
+		(function () {
 			// Make sure we trim BOM and NBSP
 			var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-			String.prototype.trim = function() {
+			String.prototype.trim = function () {
 				return this.replace(rtrim, '');
 			};
 		})();
 	}
 
-	[].slice.call(document.querySelectorAll('input.input__field, textarea.input__field')).forEach(function(inputEl) {
+	[].slice.call(document.querySelectorAll('input.input__field, textarea.input__field')).forEach(function (inputEl) {
 		// in case the input is already filled..
 		if (inputEl.value.trim() !== '') {
 			classie.add(inputEl.parentNode, 'input--filled');
@@ -55,7 +55,7 @@ for (let i = 0; i < acc.length; i++) {
 	}
 })();
 let btns = document.querySelectorAll('#writeBtn').forEach(btn => {
-	btn.addEventListener('click', function() {
+	btn.addEventListener('click', function () {
 		let tbody = this.parentElement.parentElement.parentElement.children[0].children[2]
 		let title = this.parentElement.querySelector('#postTitle').value;
 		let content = this.parentElement.querySelector('#postContent').value;
@@ -90,24 +90,6 @@ let btns = document.querySelectorAll('#writeBtn').forEach(btn => {
 			.catch(reject => console.error(reject))
 	})
 })
-
-
-function makeTr(post = {}, list) {
-	let tr = document.createElement('tr');
-	let td = document.createElement('td');
-	let a = document.createElement('a');
-	a.innerText = post.postTitle;
-	let nextId = document.getElementById('postNextId').value;
-	a.href = 'viewPost.do?pid=' + nextId;
-	td.append(a);
-	tr.append(td);
-	td = document.createElement('td');
-	td.className = 'center';
-	let time = getTime();
-	td.innerText = time;
-	tr.append(td);
-	list.prepend(tr);
-}
 
 
 //글쓴후 필드를 비워줌
@@ -146,26 +128,49 @@ function getPageList(page, QFN) { // ajax로 리스트 불러오기
 		.then(result => {
 			let tbody = document.querySelector('.list' + QFN);
 			tbody.textContent = "";
-			console.log(result);
 			for (let i = 0; i < result.list.length; i++) {	//리스트 삭제하고 전부 새로불러오기
 				let tr = document.createElement('tr');
 				let td = document.createElement('td');
-				let a = document.createElement('a');
-				a.innerText = result.list[i].postTitle;
-				if (result.list[i].postResponse == 'Y') {
-					let span = document.createElement('span');
-					span.className = "responseY";
-					span.innerText = "답변완료";
-					a.append(span);
+				if (QFN == 'F') {
+					td.colspan = "2";
+					let button = document.createElement('button');
+					button.type = "button";
+					button.className = "collapsible";
+					button.innerText = result.list[i].postTitle;
+					button.addEventListener("click", function () {
+						this.classList.toggle("active");
+						let content = this.nextElementSibling;
+						if (content.style.maxHeight) {
+							content.style.maxHeight = null;
+						} else {
+							content.style.maxHeight = content.scrollHeight + "px";
+						}
+					})
+					td.append(button);
+					let div = document.createElement('div');
+					div.className = "contentFAQ"
+					let p = document.createElement('p');
+					p.innerText = result.list[i].postContent;
+					div.append(p);
+					td.append(div);
+				} else {
+					let a = document.createElement('a');
+					a.innerText = result.list[i].postTitle;
+					if (result.list[i].postResponse == 'Y') {
+						let span = document.createElement('span');
+						span.className = "responseY";
+						span.innerText = "답변완료";
+						a.append(span);
+					}
+					a.href = 'viewPost.do?pid=' + result.list[i].postId;
+					td.append(a);
+					tr.append(td);
+					td = document.createElement('td');
+					td.className = 'center';
+					let time = result.list[i].postWriteDate;
+					let resultTime = moment(time, "MMM DD, YYYY, h:mm:ss a").format("YYYY-MM-DD HH:mm:ss");
+					td.innerText = resultTime;
 				}
-				a.href = 'viewPost.do?pid=' + result.list[i].postId;
-				td.append(a);
-				tr.append(td);
-				td = document.createElement('td');
-				td.className = 'center';
-				let time = result.list[i].postWriteDate;
-				let resultTime = moment(time, "MMM DD, YYYY, h:mm:ss a").format("YYYY-MM-DD HH:mm:ss");
-				td.innerText = resultTime;
 				tr.append(td);
 				tbody.append(tr);
 			}
@@ -184,11 +189,9 @@ function getPageList(page, QFN) { // ajax로 리스트 불러오기
 		.catch(reject => console.error(reject))
 }
 
-var coll = document.getElementsByClassName("collapsible");
-var iiiii;
-
-for (iiiii = 0; iiiii < coll.length; iiiii++) {
-	coll[iiiii].addEventListener("click", function() {
+let coll = document.getElementsByClassName("collapsible");
+for (let i = 0; i < coll.length; i++) {
+	coll[i].addEventListener("click", function () {
 		this.classList.toggle("active");
 		var content = this.nextElementSibling;
 		if (content.style.maxHeight) {
@@ -198,80 +201,3 @@ for (iiiii = 0; iiiii < coll.length; iiiii++) {
 		}
 	});
 }
-
-var acc = document.getElementsByClassName("accordion");
-for (let i = 0; i < acc.length; i++) {
-	acc[i].addEventListener("click", function() {
-		this.classList.toggle("active");
-		var panel = this.nextElementSibling;
-		panel.classList.toggle("activePanel")
-		if (panel.style.maxHeight) {
-			panel.style.maxHeight = null;
-		} else {
-			panel.style.maxHeight = panel.scrollHeight + "px";
-		}
-	});
-}
-document.querySelector('#modifyBtn').addEventListener('click', function() {
-	this.style.display = "none";
-	document.querySelector('#modifyBtn2').style.display = "inline-block";
-	let title = document.querySelector('#postTitleBox');
-	let titleInput = document.createElement('input');
-	titleInput.type = "text";
-	titleInput.name = "modTitle";
-	titleInput.className = "modInput";
-	titleInput.value = title.innerText;
-	title.innerText = '';
-	title.append(titleInput);
-	let content = document.querySelector('#postContentBox');
-	let contentInput = document.createElement('textarea');
-	contentInput.name = "modContent";
-	contentInput.className = "modInput";
-	contentInput.innerText = content.innerText;
-	content.innerText = '';
-	content.append(contentInput);
-})
-
-document.querySelector('#modifyBtn2').addEventListener('click', function() {
-	let form = document.querySelector('#modFrm');
-	let title = document.querySelector('input[name="modTitle"]');
-	let content = document.querySelector('textarea[name="modContent"]');
-	let pid = document.createElement('input');
-	pid.type = "hidden";
-	pid.name = "pid";
-	pid.value = "${post.postId}"
-	form.append(pid);
-	form.append(title);
-	form.append(content);
-	form.submit();
-})
-
-document.querySelector('#respMod').addEventListener('click', function() {
-	this.style.display = "none";
-	document.querySelector('#respMod2').style.display = "inline-block";
-	let content = document.querySelector('#postResponseContent');
-	let contentInput = document.createElement('textarea');
-	contentInput.name = "respContent";
-	contentInput.className = "modInput";
-	contentInput.innerText = content.innerText;
-	content.innerText = '';
-	content.append(contentInput);
-})
-
-document.querySelector('#respMod2').addEventListener('click', function() {
-	let form = document.querySelector('#modFrm');
-	let content = document.querySelector('textarea[name="respContent"]');
-	form.action = "responseModify.do";
-	form.append(content);
-	let rid = document.createElement('input');
-	rid.type = "hidden";
-	rid.name = "rid";
-	rid.value = "${postResponse.postId}"
-	form.append(rid);
-	let pid = document.createElement('input');
-	pid.type = "hidden";
-	pid.name = "pid";
-	pid.value = "${post.postId}"
-	form.append(pid);
-	form.submit();
-})

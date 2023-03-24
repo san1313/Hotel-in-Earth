@@ -31,6 +31,7 @@
 	CBPFWTabs.prototype.options = {
 		start : 0
 	};
+	
 
 	CBPFWTabs.prototype._init = function() {
 		// tabs elems
@@ -40,7 +41,7 @@
 		// current index
 		this.current = -1;
 		// show current content item
-		this._show();
+		this._show(crtTab);
 		// init events
 		this._initEvents();
 	};

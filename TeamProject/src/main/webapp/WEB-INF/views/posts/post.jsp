@@ -155,9 +155,7 @@
 				<form id="modFrm" action="postModify.do" method="post" style="display:none">
 
 				</form>
-				<script>
-
-				</script>
+				<script src="resources/js/posts/inPost.js"></script>
 			</body>
 
 			</html>

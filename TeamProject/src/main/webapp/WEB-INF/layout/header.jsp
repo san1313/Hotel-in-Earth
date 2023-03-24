@@ -67,10 +67,16 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right main_menu">                                
-                                    <li><a href="myPageForm.do">마이 페이지</a></li>
                                     <%
                                 String email = (String) session.getAttribute("email");
                                 %>
+                                    <li>
+                                    <%if(email !=null) {%>
+                                    <a href="myPageForm.do">
+                                    <%}else{ %>
+                                    <a href="loginForm.do">
+                                    <%} %>
+                                    마이 페이지</a></li>
                                 <%if(email ==null){ %>
                                 <li class="nav-item"><a class="nav-link" href="loginForm.do">로그인</a></li>
                                 <%} else{%>
@@ -79,9 +85,9 @@
                                     <li><div class="dropdown">
 									  <button onclick="myFunction()" class="dropbtn">menu</button>
 									  <div id="myDropdown" class="dropdown-content">
-									    <a href="postList.do">게시판</a>
-									    <a href="postList.do">자주묻는질문</a>
-									    <a href="postList.do">Q/A</a>
+									    <a href="postList.do?type=0">공지사항</a>
+									    <a href="postList.do?type=1">자주묻는질문</a>
+									    <a href="postList.do?type=2">Q/A</a>
 									    <a href="eventpage.do">이벤트</a>
 									  </div>
 													</div></li>                              

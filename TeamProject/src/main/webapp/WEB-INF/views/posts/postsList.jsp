@@ -265,10 +265,13 @@
 						<!-- /tabs -->
 					</section>
 				</div>
-
+				<script>
+				var crtTab = 0;
+				let temp = '${param.type}';
+				if (temp != '') {
+					crtTab = '${param.type}';
+				}
+				</script>
 				<script src="resources/test_js/cbpFWTabs.js"></script>
 				<script src="resources/js/posts/listForm/classie.js"></script>
 				<script src="resources/js/posts/listForm/script.js"></script>
-				<script>
-
-				</script>
