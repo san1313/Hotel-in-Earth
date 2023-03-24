@@ -30,8 +30,6 @@ public class LoginControl implements Control {
 		System.out.println(vo);
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("email", vo.getUserEmail());
-		session.setAttribute("userVO", vo);
 		
 		if(vo!=null) {
 			
