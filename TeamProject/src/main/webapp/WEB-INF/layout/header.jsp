@@ -67,6 +67,10 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right main_menu">                                
+<<<<<<< HEAD
+=======
+                                    <li><a href="myPageForm.do">마이 페이지</a></li>
+>>>>>>> refs/remotes/origin/HIMZ
                                     <%
                                 String email = (String) session.getAttribute("email");
                                 %>

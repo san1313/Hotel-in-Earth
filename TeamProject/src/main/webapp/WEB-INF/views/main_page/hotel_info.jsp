@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -399,7 +400,7 @@
         </div>
 
         <div class="calendar">
-            <br><p style="margin-right:80px ;"><b style="font-size: 30px;">￦${hotelInfo.hotelPrice}</b> /박</p>
+            <br><p style="margin-right:80px ;"><b style="font-size: 30px;">￦<fmt:formatNumber value="${hotelInfo.hotelPrice}" pattern="#,###" /></b> /박</p>
             <br><div style="margin-right:200px ;">★4.0</div>
             <br><br>
            <br>
@@ -553,14 +554,16 @@ window.initMap = initMap;
 <script>
 //예약하기 버튼 클릭시 폼
   document.querySelector('.reservation').addEventListener('click', nextpage);
-
   var cast = {
     "이름" : "${hotelInfo.hostName}"
   };
   localStorage.setItem("cast" , JSON.stringify(cast));
   function nextpage(e){
     console.log(e + "클릭되었음")
-    window.location.href = "purchasePageForm.do";
+    var checkIn = document.querySelector( "#from" ).value;
+  var checkOut = document.querySelector( "#to" ).value;
+  
+    window.location.href = "purchasePageForm.do?checkIn="+checkIn+"&checkOut="+checkOut+"&hotelId=${param.hotelId}";
   }
 </script>
 </body>

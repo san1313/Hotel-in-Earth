@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <title>Insert title here</title>
@@ -92,7 +93,7 @@
         }
 
         .buy-container{
-            width: 1350px;
+            width: 1450px;
             height: 2000px;
             margin: 30px auto;
         }
@@ -123,11 +124,12 @@
             border-radius: 1em;
         }
           .buy-container .rightside{
-          float: right;
+          float: left;
+          margin-left: 30px;
           top: 20px;
           background: white;
           border-radius: 1em;
-          width: 430px;
+          width: 470px;
           height: 450px;
           border: 1px solid gray;
           box-shadow: 5px 5px 5px gray;
@@ -146,7 +148,7 @@
           float: left;
           text-align: left;
           padding-inline: 10px;
-          width: 220px;
+          width: 260px;
         }
         .inner-text .right-text{
           float: right;
@@ -267,29 +269,30 @@
 
         </div>
 
-     
+             <fmt:setLocale value="ko_kr"/>
 
            <div class="rightside">
           <div class="inner-text">
               <div class="left-text">
-                <br><b style="font-size: 30px;">￦102,340</b> /박</p>
-                <br><p>￦252,175 x 5박</p>
+                <br><b style="font-size: 30px;">￦<fmt:formatNumber value="${hotelInfo.hotelPrice}" pattern="#,###" /></b> /박</p>
+                <br><p><fmt:formatNumber type="currency" value="${hotelInfo.hotelPrice}"></fmt:formatNumber> x ${day}박</p>
                 <br><p style="font-size: 18px;">Green Fair 서비스 수수료</p>
               </div>
 
                <br>
                <div class="right-text">
                 <br>
-                <br><p>￦1,260,875</p>
-                <br><p style="font-size: 18px;">￦26,767</p>
+                <br><p><fmt:formatNumber type="currency" value="${sum}"></fmt:formatNumber></p>
+                <br><p style="font-size: 18px;"> <fmt:formatNumber type="currency" value="${sum*0.1241}"></fmt:formatNumber></p>
               </div>
             </div>
             <hr>
-        <div class="result">합계 : ￦1,287,642</div>
+        <div class="result">합계 : <fmt:formatNumber type="currency" value="${sum + (sum*0.1241)}"></fmt:formatNumber></div>
         </div>
 
+
     </div>
-    꿹뚥깗!
+    
 
 
 
