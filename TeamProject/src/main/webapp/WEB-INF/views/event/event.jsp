@@ -154,7 +154,7 @@ input[type="button"] {
             <div class="container">
                 <div class="text-center my-5">
                     <h1 class="fw-bolder">이벤트 페이지</h1>
-                    <p class="lead mb-0">뭐적지</p>
+                    <p class="lead mb-0"></p>
                 </div>
             </div>
         </header>
