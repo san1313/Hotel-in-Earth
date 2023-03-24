@@ -62,6 +62,9 @@ let btns = document.querySelectorAll('#writeBtn').forEach(btn => {
 		let type = this.parentElement.querySelector('#postType').value;
 		let email = this.parentElement.querySelector('#email').value;
 		let curPage = this.parentElement.parentElement.parentElement.querySelector('.active').innerText;
+		if(curPage == "글쓰기"){
+		curPage = 1;
+		}
 		console.log(tbody.childElementCount)
 		if (!title || !content) {
 			alert("값을 입력하세요");
