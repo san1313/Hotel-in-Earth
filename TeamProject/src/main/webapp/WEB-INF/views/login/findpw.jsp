@@ -5,8 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+
+</style>
 </head>
 <body>
+<dic id="container">
 	<form name="idfindscreen" method = "POST">
 			<div class = "search-title">
 				<h3>비밀번호 찾기</h3>
@@ -61,5 +65,6 @@
  
  
  </script>
+ </dic>
 </body>
 </html>
