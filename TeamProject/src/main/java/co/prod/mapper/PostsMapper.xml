@@ -64,4 +64,8 @@
   <update id="postModify" parameterType="PostsVO">
   update posts set POST_TITLE = #{postTitle}, POST_CONTENT = #{postContent} where post_id = #{postId}
   </update>
+  
+  <update id="responseModify" parameterType="PostsVO">
+  update posts set post_content = #{postContent} where post_Id = #{postId}
+  </update>
 </mapper>

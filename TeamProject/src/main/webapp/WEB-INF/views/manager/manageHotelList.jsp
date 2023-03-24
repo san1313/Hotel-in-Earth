@@ -243,7 +243,6 @@
 
 					<div id="lorem-ipsum"></div>
 				</div>
-				
 				<div id="modal" class="modal-overlay" style="display: none;">
 					<div class="modal-window">
 						<div class="title">

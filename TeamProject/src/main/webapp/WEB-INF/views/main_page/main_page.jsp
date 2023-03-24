@@ -307,6 +307,13 @@ body {font-family: Verdana, sans-serif;}
 
 <!-- /* 이미지필터 항목 시작 ! */ -->
     <script>
+    
+    <!-- /* 회원가입 메시지 */ -->
+    let msg = '${msg}';
+    if(msg){
+    	alert(msg);
+    }
+    
         var hotelArrList = []
       
       var checkBtns = document.getElementsByClassName("hotel-check");
@@ -324,15 +331,15 @@ body {font-family: Verdana, sans-serif;}
           if(query.checked){
           console.log("체크되었음")
             hotelArrList.push(selectResult)
-            console.log(hotelArrList)
+            console.log(hotelArrList + " : hotelArrList")
 
         }else{
           console.log("체크되어 있지 않음 ")
           hotelArrList.splice(selectResult,1)
-          console.log(hotelArrList)
+          console.log(hotelArrList + " : hotelArrList")
 
         }
-    });
+   	});
 }     
     
 
@@ -398,6 +405,8 @@ body {font-family: Verdana, sans-serif;}
             filterSelection(btnArr1);
         });
         }
+        
+        
         </script>
 
 

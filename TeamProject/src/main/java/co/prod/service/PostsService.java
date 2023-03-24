@@ -31,4 +31,7 @@ public interface PostsService {
 	public boolean postRemove(int pid);
 	
 	public boolean postModify(PostsVO vo);
+	
+	public boolean responseModify(PostsVO vo);
+	
 }

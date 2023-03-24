@@ -84,4 +84,10 @@ public class PostsServiceImpl implements PostsService {
 
 		return mapper.postRemove(pid) == 1;
 	}
+	
+	@Override
+	public boolean responseModify(PostsVO vo) {
+		
+		return mapper.responseModify(vo) == 1;
+	}
 }
