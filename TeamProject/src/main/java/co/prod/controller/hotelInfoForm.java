@@ -18,7 +18,7 @@ public class hotelInfoForm implements Control {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		
-		String hotelId = request.getParameter("hotel-id");
+		String hotelId = request.getParameter("hotelId");
 		System.out.println(hotelId + "데이터를 출력해줄 단일id파라메터");
 		HotelFilterService service = new HotelFilterServiceImpl();
 		
