@@ -39,7 +39,7 @@ document.querySelector('#modifyBtn2').addEventListener('click', function() {
 	let pid = document.createElement('input');
 	pid.type = "hidden";
 	pid.name = "pid";
-	pid.value = "${post.postId}"
+	pid.value = pidValue;
 	form.append(pid);
 	form.append(title);
 	form.append(content);
@@ -66,12 +66,12 @@ document.querySelector('#respMod2').addEventListener('click', function() {
 	let rid = document.createElement('input');
 	rid.type = "hidden";
 	rid.name = "rid";
-	rid.value = "${postResponse.postId}"
+	rid.value = ridValue;
 	form.append(rid);
 	let pid = document.createElement('input');
 	pid.type = "hidden";
 	pid.name = "pid";
-	pid.value = "${post.postId}"
+	pid.value = pidValue
 	form.append(pid);
 	form.submit();
 })
