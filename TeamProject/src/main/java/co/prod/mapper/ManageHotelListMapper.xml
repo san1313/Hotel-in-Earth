@@ -23,4 +23,17 @@ insert into hotels (HOTEL_ID,HOTEL_LOCATION,HOTEL_NAME,HOTEL_TEL,HOTEL_SERVICE,H
 update hotels set HOTEL_ID=#{hotelId}, HOTEL_LOCATION=#{hotelLocation}, HOTEL_NAME=#{hotelName},HOTEL_TEL=#{hotelTel},HOTEL_SERVICE=#{hotelService},HOTEL_VIEW=#{hotelView},HOTEL_ADDRESS=#{hotelAddress},HOTEL_PHOTO=#{hotelPhoto, } where hotel_id=#{hotelId}
 </update>
 
+<select id="hotelListWithPaging" resultType="co.prod.vo.HotelsVO" parameterType="int">
+<![CDATA[
+select hotel_photo, hotel_id, HOTEL_LOCATION,HOTEL_NAME,HOTEL_TEL,HOTEL_SERVICE,HOTEL_VIEW,HOTEL_RATE,HOTEL_ADDRESS,HOTEL_CHECKIN, HOTEL_CHECKOUT,HOTEL_LIKE
+from(select rownum rn, hotel_photo, hotel_id, HOTEL_LOCATION,HOTEL_NAME,HOTEL_TEL,HOTEL_SERVICE,HOTEL_VIEW,HOTEL_RATE,HOTEL_ADDRESS,HOTEL_CHECKIN, HOTEL_CHECKOUT,HOTEL_LIKE 
+from (select * from hotels order by hotel_id desc)
+a where rownum <=(#{page}*10)) b where b.rn >(#{page}-1) * 10
+]]> 
+</select>
+     
+   <select id="getTotalCount" resultType="int">
+   select count(*) from hotels
+   </select>
+
 </mapper>

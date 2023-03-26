@@ -5,7 +5,7 @@ import java.util.List;
 import co.prod.vo.HotelsVO;
 
 public interface ManageHotelListService {
-	public List<HotelsVO> getHotelList();
+	public List<HotelsVO> getHotelList(int page);
 	
 	public boolean addHotel(HotelsVO vo);
 
@@ -13,5 +13,6 @@ public interface ManageHotelListService {
 
 	public int RemoveHotel(String hid);
 
+	public int getTotalCount();
 
 }
