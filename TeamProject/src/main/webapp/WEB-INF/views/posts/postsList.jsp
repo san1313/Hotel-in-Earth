@@ -86,7 +86,7 @@
 												</c:choose>
 											</c:forEach>
 											<c:if test="${pageN.next }">
-												<li><a href="postList.do?pageN=${pageN.endPage + 1 }"> &raquo;</a></li>
+												<li><a href="postList.do?pageN=${pageN.endPage + 1 }"> &gt;</a></li>
 											</c:if>
 										</ul>
 										<!-- End Pagination -->
@@ -140,7 +140,7 @@
 										</table>
 										<ul class="pagination">
 											<c:if test="${pageF.prev }">
-												<li><a href="postList.do?pageF=${pageF.startPage -1 }">&lt;</a></li>
+												<li><a href="postList.do?type=1&pageF=${pageF.startPage -1 }">&lt;</a></li>
 											</c:if>
 											<c:forEach var="i" begin="${pageF.startPage }" end="${pageF.endPage }">
 												<c:choose>
@@ -153,7 +153,7 @@
 												</c:choose>
 											</c:forEach>
 											<c:if test="${pageF.next }">
-												<li><a href="postList.do?pageF=${pageF.endPage + 1 }"> &raquo;</a></li>
+												<li><a href="postList.do?type=1&pageF=${pageF.endPage + 1 }"> &gt;</a></li>
 											</c:if>
 										</ul>
 										<!-- End Pagination -->
@@ -215,7 +215,7 @@
 										<!-- Start Pagination -->
 										<ul class="pagination">
 											<c:if test="${pageQ.prev }">
-												<li><a href="postList.do?pageQ=${pageQ.startPage -1 }">&lt;</a></li>
+												<li><a href="postList.do?type=2&pageQ=${pageQ.startPage -1 }">&lt;</a></li>
 											</c:if>
 											<c:forEach var="i" begin="${pageQ.startPage }" end="${pageQ.endPage }">
 												<c:choose>
@@ -228,7 +228,7 @@
 												</c:choose>
 											</c:forEach>
 											<c:if test="${pageQ.next }">
-												<li><a href="postList.do?pageQ=${pageQ.endPage + 1 }"> &raquo;</a></li>
+												<li><a href="postList.do?type=2&pageQ=${pageQ.endPage + 1 }"> &gt;</a></li>
 											</c:if>
 										</ul>
 										<!-- End Pagination -->

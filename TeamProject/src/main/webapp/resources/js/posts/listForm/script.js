@@ -61,11 +61,10 @@ let btns = document.querySelectorAll('#writeBtn').forEach(btn => {
 		let content = this.parentElement.querySelector('#postContent').value;
 		let type = this.parentElement.querySelector('#postType').value;
 		let email = this.parentElement.querySelector('#email').value;
-		let curPage = this.parentElement.parentElement.parentElement.querySelector('.active').innerText;
-		if(curPage == "글쓰기"){
-		curPage = 1;
+		let curPage = this.parentElement.parentElement.parentElement.querySelector('a.active').innerText;
+		if (!curPage) {
+			curPage = 1;
 		}
-		console.log(tbody.childElementCount)
 		if (!title || !content) {
 			alert("값을 입력하세요");
 			return;
@@ -187,7 +186,14 @@ function getPageList(page, QFN) { // ajax로 리스트 불러오기
 			for (let i = 0; i < ul.childElementCount; i++) {
 				ul.children[i].firstChild.classList.remove('active');
 			}
-			ul.children[page - 1].firstChild.classList.add('active');
+			let pagee = page;
+			if (page > 10) {
+				pagee = page % 10 +1;
+				if (pagee == 0) {
+					pagee = 11;
+				}
+			}
+			ul.children[pagee - 1].firstChild.classList.add('active');
 		})
 		.catch(reject => console.error(reject))
 }
