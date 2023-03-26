@@ -66,7 +66,7 @@ let btns = document.querySelectorAll('#writeBtn').forEach(btn => {
 		if (!temp) {
 			curPage = 1;
 		} else {
-			curpage = temp.innerText;
+			curPage = temp.innerText;
 		}
 		if (!title || !content) {
 			alert("값을 입력하세요");
@@ -81,12 +81,7 @@ let btns = document.querySelectorAll('#writeBtn').forEach(btn => {
 			.then(result => {
 				console.log(result);
 				if (result.retCode == 'Success') {
-					// if (curPage == 1) {
-					// 	makeTr(result.post, tbody);
-					// 	if (tbody.childElementCount == 11) {
-					// 		tbody.children[10].remove();
-					// 	}
-					// }
+					console.log(curPage);
 					getPageList(curPage, type);
 					this.parentElement.querySelector('#postTitle').value = '';
 					this.parentElement.querySelector('#postContent').value = '';
