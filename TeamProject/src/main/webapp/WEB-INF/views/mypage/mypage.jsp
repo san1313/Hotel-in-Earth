@@ -25,19 +25,18 @@ body {font-family: "Lato", sans-serif;}
   width: 150px;
 }
 .content input{
+
   width: 250px;
 }
 #modBtn{
-border: 1px;
 margin-left: 260px;
-background-color: 3C79F5;
+background-color: cyan;
 border-radius: 30px;
 border: none;
 }
 #delBtn{
-border: 1px;
 margin-left: 10px;
-background-color: 3C79F5;
+background-color: cyan;
 border-radius: 30px;
 border: none;
 }
@@ -98,7 +97,7 @@ border: none;
 <label>닉네임</label><input type="text" name="userNickname" value="${userVO.userNickname}"><br>
 <label >쿠폰 </label><input style="background-color: #bac0cfbd;" type="text" name="userCoupon" value="${userVO.userCoupon}" readonly><br>
 <label >찜목록 </label><input style="background-color: #bac0cfbd;" type="text" name="userLikelist" value="${userVO.userLikelist}" readonly><br>
-<button id="modBtn">수정</button><button type="button" id="delBtn" onclick="del()">회원 탈퇴</button>
+<button id="modBtn">수정</button> <button id="delBtn">회원 탈퇴</button>	
 	
 	</div>
 	</form>
@@ -112,14 +111,7 @@ if(msg){
 	alert(msg)
 }
 
-//document.querySelector('#delBtn').addEventListener('click',)
-
-function del() {
-	let result = confirm("정말 탈퇴하시겠습니까?");
-	if(result == true){
-	location.href = "userRemovo.do?userEMAIL=${userVO.userEmail}";		
-	}
-}
+document.querySelector('#delBtn').addEventListener('click',)
 
 </script>
 </body>

@@ -14,7 +14,6 @@ public class LogoutControl implements Control {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		HttpSession session = request.getSession();	// 요청정보 세션객체 가져오는 메소드
-		request.setAttribute("msg", "로그아웃 되었습니다");
 		session.invalidate(); // 세션정보 지우기
 		
 		try {
