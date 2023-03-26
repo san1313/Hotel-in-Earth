@@ -1,3 +1,4 @@
+<%@page import="co.prod.vo.PageDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
@@ -160,6 +161,37 @@
 				margin-left : 255px;
 				}
 				
+				/*페이징  */
+				
+				.pagination {
+				
+				margin-top : 10px;
+				  display: inline-block;
+				  width: 50%;
+				  text-align: center;
+				  float:right;
+}
+
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+  display: inline-block;
+}
+
+.pagination a.active {
+  background-color:rgba(69, 139, 197, 0.70);
+  color: white;
+  border: 1px solid rgba(69, 139, 197, 0.70);
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+				
 			</style>
 			
 			
@@ -267,6 +299,29 @@
 			</form>
 
 			<form action="manageHotelRemove.do" method="post" id="deleteForm"></form>
+			
+			<!-- 페이징 -->
+			
+			<ul class="pagination">
+				
+						<c:if test="${pageN.prev }">
+							<li><a href="manageHotelList.do?pageN=${pageN.startPage -1 }">&lt;</a></li>
+						</c:if>
+						<c:forEach var="i" begin="${pageN.startPage }" end="${pageN.endPage }">
+							<c:choose>
+								<c:when test="${i == pageN.page}">
+									<li><a class="active" href="manageHotelList.do?page= ${page.startPage -1 } ">${i }</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="manageHotelList.do?page=${i }">${i }</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<c:if test="${pageN.next }">
+							<li><a href="manageHotelList.do?pageN=${pageN.endPage + 1 }"> &raquo;</a></li>
+						</c:if>
+					</ul>
+				
 			<script>
 
 			document.querySelector('#modBtn').addEventListener('click', function (e) {

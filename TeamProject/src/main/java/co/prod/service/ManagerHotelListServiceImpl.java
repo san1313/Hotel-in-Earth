@@ -13,9 +13,9 @@ public class ManagerHotelListServiceImpl implements ManageHotelListService{
 	ManageHotelListMapper mapper = sqlSession.getMapper(ManageHotelListMapper.class);
 	
 	@Override
-	public List<HotelsVO> getHotelList() {
+	public List<HotelsVO> getHotelList(int page) {
 		
-		return mapper.getHotelList();
+		return mapper.hotelListWithPaging(page);
 	}
 
 	@Override
@@ -33,6 +33,12 @@ public class ManagerHotelListServiceImpl implements ManageHotelListService{
 	public int modifyHotel(HotelsVO vo) {
 		// TODO Auto-generated method stub
 		return mapper.updateHotel(vo);
+	}
+
+	@Override
+	public int getTotalCount() {
+		// TODO Auto-generated method stub
+		return mapper.getTotalCount();
 	}
 
 	

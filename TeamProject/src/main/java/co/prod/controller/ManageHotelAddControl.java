@@ -48,9 +48,10 @@ public class ManageHotelAddControl implements Control {
 		ManageHotelListService service = new ManagerHotelListServiceImpl();
 		
 		if(service.addHotel(vo)) {
-			List<HotelsVO> list = service.getHotelList();
 			
-			request.setAttribute("list", list);
+//			List<HotelsVO> list = service.getHotelList();
+//			
+//			request.setAttribute("list", list);
 			try {
 				request.getRequestDispatcher("manageHotelList.do").forward(request, response);
 			} catch (ServletException | IOException e) {

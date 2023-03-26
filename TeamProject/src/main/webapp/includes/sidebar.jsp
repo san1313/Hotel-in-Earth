@@ -35,7 +35,6 @@
                    
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="mainpage.do">홈페이지로 가기</a>
                     
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberSearchForm.do">예약내역관리</a>
                     
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="noticeList.do"> </a>
                    

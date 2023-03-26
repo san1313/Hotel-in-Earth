@@ -12,4 +12,8 @@ public interface ManageHotelListMapper {
 	public int deleteHotel(String hid);
 	
 	public int updateHotel(HotelsVO vo);
+	
+	public int getTotalCount();
+	
+	public List<HotelsVO> hotelListWithPaging(int page);
 }
