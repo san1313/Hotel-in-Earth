@@ -7,14 +7,12 @@
 <title>Insert title here</title>
 
 <style>
-
 #container{
 padding-top: 30px;
 width:100%;
 height: 789px;
 }
 body {font-family: "Lato", sans-serif;}
-
 .content{
  
   font-size: 20px; 
@@ -25,18 +23,19 @@ body {font-family: "Lato", sans-serif;}
   width: 150px;
 }
 .content input{
-
   width: 250px;
 }
 #modBtn{
+border: 1px;
 margin-left: 260px;
-background-color: cyan;
+background-color: 3C79F5;
 border-radius: 30px;
 border: none;
 }
 #delBtn{
+border: 1px;
 margin-left: 10px;
-background-color: cyan;
+background-color: 3C79F5;
 border-radius: 30px;
 border: none;
 }
@@ -52,7 +51,6 @@ border: none;
   overflow-x: hidden;
   padding-top: 16px;
 }
-
 .sidebar a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
@@ -60,16 +58,13 @@ border: none;
   color: #818181;
   display: block;
 }
-
 .sidebar a:hover {
   color: #f1f1f1;
 }
-
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
   padding: 0px 10px;
 }
-
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
@@ -97,7 +92,7 @@ border: none;
 <label>닉네임</label><input type="text" name="userNickname" value="${userVO.userNickname}"><br>
 <label >쿠폰 </label><input style="background-color: #bac0cfbd;" type="text" name="userCoupon" value="${userVO.userCoupon}" readonly><br>
 <label >찜목록 </label><input style="background-color: #bac0cfbd;" type="text" name="userLikelist" value="${userVO.userLikelist}" readonly><br>
-<button id="modBtn">수정</button> <button id="delBtn">회원 탈퇴</button>	
+<button id="modBtn">수정</button><button type="button" id="delBtn" onclick="del()">회원 탈퇴</button>
 	
 	</div>
 	</form>
@@ -110,9 +105,13 @@ let msg = '${msg}';
 if(msg){
 	alert(msg)
 }
-
-document.querySelector('#delBtn').addEventListener('click',)
-
+//document.querySelector('#delBtn').addEventListener('click',)
+function del() {
+	let result = confirm("정말 탈퇴하시겠습니까?");
+	if(result == true){
+	location.href = "userRemovo.do?userEMAIL=${userVO.userEmail}";		
+	}
+}
 </script>
 </body>
 
