@@ -53,6 +53,7 @@
     .hotel-info-container {
       font-family: Arial;
       margin: 0 auto;
+      margin-top: 20px;
       width: 1350px;
       /* border: #222 solid 1px; */
       
@@ -382,7 +383,7 @@
 
             <hr>
             <br/><p class="long-info">${hotelInfo.hotelMemo}</p>
-            더보기 칸 만들겨<hr>
+            <hr>
             
             <br/><b style="font-size: 40px;">숙소 편의시설 (hotel_service)</b><br>정원 전망<br>산 전망<br>호수나 강과 인접<br>주방<br>무선 인터넷<br>
                 
@@ -402,7 +403,7 @@
         <div class="calendar">
             <br><p style="margin-right:80px ;"><b style="font-size: 30px;">￦<fmt:formatNumber value="${hotelInfo.hotelPrice}" pattern="#,###" /></b> /박</p>
             <br><div style="margin-right:200px ;">★4.0</div>
-            <br><br>
+            <br>
            <br>
 
            <div class="check-date-picker">
@@ -425,7 +426,7 @@
                 </div>
              </div> -->
             <button class="reservation"><b>예약하기</b></button>
-            <p>예약 확정 전에는 요금이 <br>청구되지 않습니다.</p>
+            <p>예약 확정 전에는 요금이 <br>청구되지 않습니다.</p><br>
         
         </div>
         

@@ -22,6 +22,7 @@ import co.prod.control.UserListControl;
 import co.prod.control.UserModifyControl;
 import co.prod.control.UserRemovoControl;
 import co.prod.controller.EventpageControl;
+import co.prod.controller.LoadingForm;
 import co.prod.controller.MainPageListControl;
 import co.prod.controller.ManageHotelAddControl;
 //import co.prod.controller.ManageHotelAddControl;
@@ -58,6 +59,8 @@ public class FrontController extends HttpServlet{
 		map.put("/mainpage.do", new MainPageListControl());
 		map.put("/hotelInfoForm.do", new hotelInfoForm());
 		map.put("/purchasePageForm.do", new purchasePageForm());
+		map.put("/Loading.do", new LoadingForm());
+		
 		//----------------게시판-------------------------------
 		map.put("/postList.do", new PostListControl());			// 공지사항
 		map.put("/postWriteForm.do", new PostWriteFormControl());
