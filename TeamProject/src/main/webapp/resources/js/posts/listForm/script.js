@@ -61,9 +61,12 @@ let btns = document.querySelectorAll('#writeBtn').forEach(btn => {
 		let content = this.parentElement.querySelector('#postContent').value;
 		let type = this.parentElement.querySelector('#postType').value;
 		let email = this.parentElement.querySelector('#email').value;
-		let curPage = this.parentElement.parentElement.parentElement.querySelector('a.active').innerText;
-		if (!curPage) {
+		let temp = this.parentElement.parentElement.parentElement.querySelector('a.active');
+		let curPage;
+		if (!temp) {
 			curPage = 1;
+		} else {
+			curpage = temp.innerText;
 		}
 		if (!title || !content) {
 			alert("값을 입력하세요");
@@ -140,6 +143,11 @@ function getPageList(page, QFN) { // ajax로 리스트 불러오기
 					button.className = "collapsible";
 					button.innerText = result.list[i].postTitle;
 					button.addEventListener("click", function () {
+						let temp = document.querySelector('.listF .active')
+						if (temp&& temp!=this) {
+							document.querySelector('.listF .active').classList.remove('active');
+							temp.nextElementSibling.style.maxHeight = null;
+						}
 						this.classList.toggle("active");
 						let content = this.nextElementSibling;
 						if (content.style.maxHeight) {
@@ -188,7 +196,7 @@ function getPageList(page, QFN) { // ajax로 리스트 불러오기
 			}
 			let pagee = page;
 			if (page > 10) {
-				pagee = page % 10 +1;
+				pagee = page % 10 + 1;
 				if (pagee == 0) {
 					pagee = 11;
 				}
@@ -201,6 +209,11 @@ function getPageList(page, QFN) { // ajax로 리스트 불러오기
 let coll = document.getElementsByClassName("collapsible");
 for (let i = 0; i < coll.length; i++) {
 	coll[i].addEventListener("click", function () {
+		let temp = document.querySelector('.listF .active')
+		if (temp&&temp!=this) {
+			document.querySelector('.listF .active').classList.remove('active');
+			temp.nextElementSibling.style.maxHeight = null;
+		}
 		this.classList.toggle("active");
 		var content = this.nextElementSibling;
 		if (content.style.maxHeight) {
