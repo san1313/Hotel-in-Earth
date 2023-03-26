@@ -6,7 +6,10 @@
   <select id="getHotelList" resultType="HotelsVO">
     select * from hotels order by hotel_id asc
   </select>
- 
+  
+ <select id="getHotelListPrice" resultType="HotelsVO">
+	select * from hotels order by hotel_price
+	</select>
 
 <!-- select * from hotels order by hotel_id asc -->
   
@@ -25,10 +28,20 @@ update hotels set HOTEL_ID=#{hotelId}, HOTEL_LOCATION=#{hotelLocation}, HOTEL_NA
 
 <select id="hotelListWithPaging" resultType="co.prod.vo.HotelsVO" parameterType="int">
 <![CDATA[
-select hotel_photo, hotel_id, HOTEL_LOCATION,HOTEL_NAME,HOTEL_TEL,HOTEL_SERVICE,HOTEL_VIEW,HOTEL_RATE,HOTEL_ADDRESS,HOTEL_CHECKIN, HOTEL_CHECKOUT,HOTEL_LIKE
-from(select rownum rn, hotel_photo, hotel_id, HOTEL_LOCATION,HOTEL_NAME,HOTEL_TEL,HOTEL_SERVICE,HOTEL_VIEW,HOTEL_RATE,HOTEL_ADDRESS,HOTEL_CHECKIN, HOTEL_CHECKOUT,HOTEL_LIKE 
-from (select * from hotels order by hotel_id desc)
+select hotel_photo, hotel_id, HOTEL_LOCATION,HOTEL_NAME,HOTEL_TEL,HOTEL_SERVICE,HOTEL_VIEW,HOTEL_RATE,HOTEL_ADDRESS,HOTEL_CHECKIN, HOTEL_CHECKOUT,HOTEL_LIKE,HOTEL_PRICE
+from(select rownum rn, hotel_photo, hotel_id, HOTEL_LOCATION,HOTEL_NAME,HOTEL_TEL,HOTEL_SERVICE,HOTEL_VIEW,HOTEL_RATE,HOTEL_ADDRESS,HOTEL_CHECKIN, HOTEL_CHECKOUT,HOTEL_LIKE,HOTEL_PRICE 
+from (select * from hotels order by hotel_id)
 a where rownum <=(#{page}*10)) b where b.rn >(#{page}-1) * 10
+]]> 
+</select>
+
+<select id="hotelListPriceWithPaging" resultType="co.prod.vo.HotelsVO" parameterType="int">
+<![CDATA[
+select hotel_photo, hotel_id, HOTEL_LOCATION,HOTEL_NAME,HOTEL_TEL,HOTEL_SERVICE,HOTEL_VIEW,HOTEL_RATE,HOTEL_ADDRESS,HOTEL_CHECKIN, HOTEL_CHECKOUT,HOTEL_LIKE,HOTEL_PRICE
+from(select rownum rn, hotel_photo, hotel_id, HOTEL_LOCATION,HOTEL_NAME,HOTEL_TEL,HOTEL_SERVICE,HOTEL_VIEW,HOTEL_RATE,HOTEL_ADDRESS,HOTEL_CHECKIN, HOTEL_CHECKOUT,HOTEL_LIKE,HOTEL_PRICE 
+from (select * from hotels order by hotel_price DESC)
+a where rownum <=(#{page}*10)) b where b.rn >(#{page}-1) * 10
+
 ]]> 
 </select>
      

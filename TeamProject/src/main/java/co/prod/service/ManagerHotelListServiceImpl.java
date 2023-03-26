@@ -41,6 +41,11 @@ public class ManagerHotelListServiceImpl implements ManageHotelListService{
 		return mapper.getTotalCount();
 	}
 
+	@Override
+	public List<HotelsVO> getHotelListPrice(int page) {
+		return  mapper.hotelListPriceWithPaging(page);
+	}
+
 	
 	
 }

@@ -26,6 +26,7 @@ import co.prod.controller.MainPageListControl;
 import co.prod.controller.ManageHotelAddControl;
 //import co.prod.controller.ManageHotelAddControl;
 import co.prod.controller.ManageHotelListControl;
+import co.prod.controller.ManageHotelListPriceControl;
 import co.prod.controller.ManageHotelModifyControl;
 import co.prod.controller.ManageHotelRemoveControl;
 //import co.prod.controller.ManageHotelModifyControl;
@@ -82,6 +83,7 @@ public class FrontController extends HttpServlet{
 		map.put("/userModify.do", new UserModifyControl());	// 유저 정보 수정
 		map.put("/userRemovo.do", new UserRemovoControl());	// 유저 탈퇴
 		map.put("/manageHotelList.do", new ManageHotelListControl()); //관리자페이지 홈
+		map.put("/manageHotelListPrice.do", new ManageHotelListPriceControl());
 		map.put("/manageHotelAdd.do", new ManageHotelAddControl());
 		map.put("/manageHotelRemove.do", new ManageHotelRemoveControl());
 		map.put("/manageHotelModify.do", new ManageHotelModifyControl());

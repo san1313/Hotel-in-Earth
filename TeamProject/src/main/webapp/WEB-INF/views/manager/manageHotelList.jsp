@@ -192,6 +192,14 @@
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
 				
+				.price {
+				float: right;
+				margin-right : 30px;
+				text-decoration-thickness: 5px;
+				  text-decoration-color: rgba(69, 139, 197, 0.70);
+				
+				color : black;
+				}
 			</style>
 			
 			
@@ -200,8 +208,11 @@
     <body>
 			
 			<h2 style="margin-left : 10px">[호텔 관리]</h2>
-
+			
+			
 			<button class="accordion active" style="margin-left : 10px">호텔추가하기</button>
+			
+			
 			
 			<div class="panel" >
 				<form action="manageHotelAdd.do" method="post">
@@ -216,12 +227,15 @@
 					 <label>주소:</label><input type="text" name="hotelAddress"><br>
 					 <label>체크인:</label><input type="text" name="hotelCheckIn"><br>
 					 <label>체크아웃:</label><input type="text" name="hotelCheckOut"><br>
+					<label>가격:</label><input type="text" name="hotelPrice"><br>
 					 <button class="addBtn" type="submit">추가하기</button>
 				</form>
 			</div>
+			<a class= "price" href="manageHotelListPrice.do">높은 가격 순 조회</a>
+			<a class= "price" href="manageHotelList.do">id 순 조회</a>
 
 			<table id="hoteltable">
-
+	
 				<thead>
 
 					<tr>
@@ -238,6 +252,7 @@
 						<th>체크인</th>
 						<th>체크아웃</th>
 						<th>찜목록</th>
+						<th>가격</th>
 						<th class="mod">수정하기</th>
 						<th class="mod">삭제</th>
 						
@@ -259,6 +274,7 @@
 						<td>${hotel.hotelCheckIn}</td>
 						<td>${hotel.hotelCheckOut}</td>
 						<td>${hotel.hotelLike}</td>
+						<td>${hotel.hotelPrice}</td>
 						
 						<td><button id="btn-modal" style="border:none">호텔정보수정</button></td>
 						<td><button id="delBtn" style="border:none">삭제</button> </td>
