@@ -24,7 +24,7 @@ public class UserRemovoControl implements Control {
 		
 		if(r>0) {
 			System.out.println("삭제 성공");
-			request.getSession().setAttribute("email", null);
+			request.getSession().invalidate();
 			request.setAttribute("msg", "회원 탈퇴되었습니다");
 		}
 		try {
