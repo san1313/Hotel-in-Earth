@@ -488,7 +488,7 @@ defer
 <script>
 
 function initMap() {
-  const myLatLng = { lat: -34.397, lng: 150.644 }
+  const myLatLng = { lat: 44.79567042939439, lng: 0.4647239169843156 }
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 12,
     center: myLatLng,

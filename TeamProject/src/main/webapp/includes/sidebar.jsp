@@ -22,7 +22,7 @@
         </style>
         
     </head>
-    <body>
+    <body class="sb-sidenav-toggled">
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
