@@ -33,7 +33,7 @@ public class ManageHotelListPriceControl implements Control {
 			testVO.setHotelView((list.get(i).getHotelView().split("\\+"))[0]);
 			list.set(i, testVO);
 		}
-		request.setAttribute("managehotellist	", list);
+		request.setAttribute("managehotellist", list);
 		
 		int total= new ManagerHotelListServiceImpl().getTotalCount();
 		
